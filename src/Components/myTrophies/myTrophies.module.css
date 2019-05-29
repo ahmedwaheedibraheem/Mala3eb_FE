@@ -1,0 +1,10 @@
+#table {
+  width: 56%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+#table td,
+th {
+  vertical-align: middle;
+}

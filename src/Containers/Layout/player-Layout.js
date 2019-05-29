@@ -6,6 +6,8 @@ import * as playerActions from '../../Store/Player/player-actions';
 import Navbar from '../../Containers/Navbar/navbar';
 import Radar from '../../Components/Radar-chart/radar-chart';
 import ProfileData from '../../Components/ProfileData/ProfileData';
+import ProfileImage from '../../Components/Profile-image/profileImage';
+import Trophies from '../../Components/Trophies/trophies';
 
 class Playout extends Component {
 
@@ -28,10 +30,10 @@ class Playout extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-6">
-                                <div style={{ width: '50px', height: '50px' }}></div>
+                                <ProfileImage image={this.props.player.imgURL} name={this.props.player.name} />
                             </div>
                             <div className="col-lg-6">
-                                <Radar data={this.props.player.skills}/>
+                                <Radar data={this.props.player.skills} />
                             </div>
                         </div>
                         <div className="row">
@@ -39,12 +41,16 @@ class Playout extends Component {
                                 <ProfileData data={this.props.player} />
                             </div>
                         </div>
+                        <div className="row">
+                            <Trophies />
+
+                        </div>
                     </div>
                 </>
             );
 
-        }else
-        return null;
+        } else
+            return null;
 
     }
 }

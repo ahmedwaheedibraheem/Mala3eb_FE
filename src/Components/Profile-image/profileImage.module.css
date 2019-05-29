@@ -1,0 +1,17 @@
+.playerName{
+ 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    direction: rtl;
+    text-align: right;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border: 1px solid #149A80;
+}
+.playerNum{
+    background-color: #149A80;
+    color: white;
+    margin-left: 1.5rem;
+    padding: 1.2rem;
+
+}

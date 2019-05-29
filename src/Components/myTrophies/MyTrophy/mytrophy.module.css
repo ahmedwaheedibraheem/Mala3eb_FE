@@ -1,0 +1,45 @@
+.separator {
+  margin: 20px 0px;
+  border: 1px solid lightgray;
+  box-shadow: 5px 5px 5px lightgray;
+  border-radius: 5px;
+  background: white;
+  display: block;
+  padding: 5px 10px;
+}
+.imageUrl {
+  border-radius: 5px;
+  width: 150px;
+  height: 200px;
+}
+.firstRow {
+  width: 35%;
+}
+
+.rowspan {
+  width: 30%;
+}
+
+.imageContainer {
+  border-radius: 5px;
+  padding: 10px 40px;
+  border: 0.5px solid lightgray;
+}
+
+.name,
+.description {
+  text-transform: capitalize;
+}
+.name {
+  font-weight: bold;
+}
+.rank {
+  color: rgb(200, 0, 0);
+  font-weight: bold;
+}
+
+.name,
+.price,
+.description {
+  color: rgb(2, 143, 21);
+}

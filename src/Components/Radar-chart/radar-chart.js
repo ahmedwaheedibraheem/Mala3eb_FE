@@ -3,7 +3,6 @@ import { Radar } from 'react-chartjs-2';
 import * as classes from './radar-chart.module.css';
 
 const RadarComponent = (props) => {
-
     var skills = Object.values(props.data);
     const data = {
         labels: ['التمرير', 'التسديد', 'المرواغه', 'اللياقة', 'السرعة'],
