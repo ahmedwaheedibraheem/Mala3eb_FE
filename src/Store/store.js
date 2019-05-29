@@ -1,10 +1,12 @@
 import {combineReducers, createStore, compose, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import userReducer from './User/user-reducer';
+import playerReducer from './Player/player-reducer';
 
 // Root reducer
 const rootReducer = combineReducers({
-    userReducer: userReducer
+    userReducer: userReducer,
+    playerReducer:playerReducer
 });
 
 // React-redux devTools set-up

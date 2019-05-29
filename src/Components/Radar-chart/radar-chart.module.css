@@ -1,0 +1,14 @@
+.btndiv{
+    /* padding-left: 0rem; */
+    display: flex;
+    justify-content: space-around;
+}
+
+.csbtn{
+    padding: .5rem 2rem;
+}
+
+.title{
+    text-align: right;
+    color:rgba(179,181,198,1);
+}

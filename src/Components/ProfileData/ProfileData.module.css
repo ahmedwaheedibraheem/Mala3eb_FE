@@ -1,0 +1,30 @@
+.Datacontainer{
+    background-color:#DDD;
+}
+.Dataheader{
+    padding: 10px 15px;
+    color: #fff;
+    width: 13%;
+    background-color: #149a80;
+    border-color: #128f76;
+    font-size: 1.6rem;
+    border-radius: 0 0 0 300px;
+    box-sizing: border-box;
+}
+ul {
+    list-style-type: none;
+    margin-top: 20px;
+  
+    box-sizing: border-box;
+  }
+  li{
+      padding: 15px 0px;
+  }
+.Databtn{
+ text-align: left;
+ padding: 0px 20px;
+ box-sizing: border-box;
+}
+.Databtn button{
+    padding: 10px 20px
+}
