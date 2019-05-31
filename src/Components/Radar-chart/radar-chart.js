@@ -3,19 +3,19 @@ import { Radar } from 'react-chartjs-2';
 import * as classes from './radar-chart.module.css';
 
 const RadarComponent = (props) => {
-    var skills = Object.values(props.data);
+    var values = Object.values(props.data);
     const data = {
-        labels: ['التمرير', 'التسديد', 'المرواغه', 'اللياقة', 'السرعة'],
+        labels: props.labels,
         datasets: [
             {
-                label: 'المهارات',
+                label: props.label,
                 backgroundColor: '#F39C12',
                 borderColor: 'rgba(179,181,198,1)',
                 pointBackgroundColor: 'rgba(179,181,198,1)',
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
                 pointHoverBorderColor: 'rgba(179,181,198,1)',
-                data: skills
+                data: values
             }
         ]
     };

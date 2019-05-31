@@ -17,6 +17,7 @@ class Playout extends Component {
     }
 
     render() {
+        let labels = ['التمرير', 'التسديد', 'المرواغه', 'اللياقة', 'السرعة'];
         if (this.props.player) {
             return (
                 <>
@@ -34,26 +35,32 @@ class Playout extends Component {
                             </div>
                             <div className="col-lg-6">
                                 <Radar
+                                    labels={labels}
+                                    label = 'المهارات'
                                     favPosition={this.props.player.favPosition}
                                     data={this.props.player.skills} />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-lg-12">
-                                <ProfileData data={this.props.player} />
+                                <ProfileData>
+                                    <ul>
+                                        <li><span className="blockquote">الاسم: {this.props.player.name} </span></li>
+                                        <li><span className="blockquote">العمر: {this.props.player.age} </span></li>
+                                        <li><span className="blockquote">رقم الموبايل: {this.props.player.mobileNo} </span></li>
+                                        <li><span className="blockquote">العنوان: {this.props.player.address} </span></li>
+                                    </ul>
+                                </ProfileData>
                             </div>
                         </div>
                         <div className="row">
                             <Trophies />
-
                         </div>
                     </div>
                 </>
             );
-
         } else
             return null;
-
     }
 }
 

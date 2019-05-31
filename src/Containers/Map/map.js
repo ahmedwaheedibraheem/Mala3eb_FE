@@ -39,7 +39,6 @@ export class MapContainer extends Component {
                 initialCenter={{
                     lat: -1.2884,
                     lng: 36.8233
-
                 }}>
                 <Marker
                     onClick={this.onMarkerClick}

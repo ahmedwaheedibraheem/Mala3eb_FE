@@ -8,7 +8,6 @@ class Navbar extends Component {
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-
                 <div className="collapse navbar-collapse" id="navbarColor02">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
