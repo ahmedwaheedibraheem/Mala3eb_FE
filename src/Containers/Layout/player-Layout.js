@@ -33,7 +33,9 @@ class Playout extends Component {
                                 <ProfileImage image={this.props.player.imgURL} name={this.props.player.name} />
                             </div>
                             <div className="col-lg-6">
-                                <Radar data={this.props.player.skills} />
+                                <Radar
+                                    favPosition={this.props.player.favPosition}
+                                    data={this.props.player.skills} />
                             </div>
                         </div>
                         <div className="row">
@@ -54,7 +56,6 @@ class Playout extends Component {
 
     }
 }
-
 
 //mapStateToProps
 const mapStateToProps = (state) => {

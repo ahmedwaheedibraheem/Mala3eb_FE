@@ -19,7 +19,6 @@ const RadarComponent = (props) => {
             }
         ]
     };
-
     return (
         <div>
             <div className="card border-warning mb-3" style={{ maxWidth: '40rem' }}>
@@ -29,9 +28,7 @@ const RadarComponent = (props) => {
                 <Radar data={data} />
             </div>
             <div className={classes.btndiv}>
-                <button disabled type="button" className={`${classes.csbtn} btn btn-primary`}>LB</button>
-                <button disabled type="button" className={`${classes.csbtn} btn btn-secondary`}>CB</button>
-                <button disabled type="button" className={`${classes.csbtn} btn btn-success`}>GK</button>
+                <button disabled type="button" className={`${classes.csbtn} btn btn-primary`}>{props.favPosition}</button>
             </div>
         </div>
     );

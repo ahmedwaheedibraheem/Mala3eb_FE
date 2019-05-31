@@ -13,7 +13,7 @@ const ProfileData = (props) => {
                             <li>الاسم:{props.data.name}</li>
                             <li>السن:{props.data.age}</li>
                             <li>رقم الموبيل:{props.data.mobileNo}</li>
-                            <li>المحافظة:{props.data.governerate}</li>
+                            {/* <li>المحافظة:{props.data.governerate}</li> */}
                             <li>العنوان:{props.data.address}</li>
                         </ul>
                         <div className={cssClasses.Databtn}>

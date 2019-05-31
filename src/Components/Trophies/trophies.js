@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Trophy from "./Trophy/trophy";
 import { withRouter } from 'react-router-dom';
-import * as classes from './trophies.module.css';
 import "../../Theme/bootstrap.css"
 
 class Trophies extends Component {

@@ -7,11 +7,12 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
     "chart.js": "^2.8.0",
-    "element-react": "^1.4.34",
     "firebase": "^6.0.4",
+    "google-maps-react": "^2.0.2",
     "react": "^16.8.6",
     "react-chartjs-2": "^2.7.6",
     "react-dom": "^16.8.6",
+    "react-google-maps": "^9.4.5",
     "react-redux": "^7.0.3",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
@@ -40,5 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }
