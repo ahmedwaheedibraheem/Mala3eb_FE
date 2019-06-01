@@ -8,10 +8,12 @@ import Radar from '../../Components/Radar-chart/radar-chart';
 import ProfileData from '../../Components/ProfileData/ProfileData';
 import ProfileImage from '../../Components/Profile-image/profileImage';
 import Trophies from '../../Components/Trophies/trophies';
+import CommentList from '../Comment-List/comment-list';
 
 class Playout extends Component {
 
     async componentDidMount() {
+        let playerId = this.props.match.params.playerId;
         let data = await PlayerAPI.getData();
         this.props.setPlayer(data);
     }
@@ -57,6 +59,8 @@ class Playout extends Component {
                             <Trophies />
                         </div>
                     </div>
+
+                <CommentList playerId={this.props.match.params.playerId}></CommentList>
                 </>
             );
         } else

@@ -12,9 +12,9 @@ class CommentList extends Component {
         flag: true
     }
     async componentDidMount() {
-        let res = await ApiComment.getComments("5cf07b03b68c584390d4c13a");
+        let res = await ApiComment.getComments(this.props.playerId);
         console.log(res);
-        this.props.getData("5cf07b03b68c584390d4c13a", res);
+        this.props.getData(this.props.playerId, res);
         console.log(this.props.comments);
        
 
@@ -32,7 +32,7 @@ class CommentList extends Component {
             commentBody,
             };
         console.log(comment);
-        this.props.onAdd("5cf07b03b68c584390d4c13a", comment);
+        this.props.onAdd(this.props.playerId, comment);
         let x = document.getElementById("text");
         this.clearContents(x);
 
@@ -58,7 +58,7 @@ class CommentList extends Component {
                                 userLogin={this.props.user._id}
                                 fname={comment.userFname}
                                 lname={comment.userLname}
-                                deleted={() => this.props.onDelete(comment._id,"5cf07b03b68c584390d4c13a")}
+                                deleted={() => this.props.onDelete(comment._id,this.props.playerId)}
 
                             ></Comment>
                         </>

@@ -62,7 +62,7 @@ class Login extends Component {
             // Setting user app
             this.props.setAppUser(credentials);
             // There shall be redirect here later ...
-            this.props.history.push('/profile');
+            this.props.history.push(`/profile/${response.user.playerId}`);
         } catch (error) {
             console.log(error)
             // there shall be real error handling here later ...

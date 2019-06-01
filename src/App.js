@@ -15,8 +15,7 @@ class App extends Component {
         <BrowserRouter>
           {Routes}
         </BrowserRouter>
-        {/* <Login /> */}
-        {/* <CommentList/> */}
+      
       </>
     );
   };
