@@ -1,15 +1,23 @@
 import { combineReducers, createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import userReducer from './User/user-reducer';
+<<<<<<< Updated upstream
 import playerReducer from './Player/player-reducer';
 import pitchReducer from './Pitch/pitch-reducer';
 
+=======
+import commentReducer from './Comment/comment-reducer';
+>>>>>>> Stashed changes
 
 // Root reducer
 const rootReducer = combineReducers({
     userReducer: userReducer,
+<<<<<<< Updated upstream
     playerReducer: playerReducer,
     pitchReducer:pitchReducer
+=======
+    commentReducer:commentReducer,
+>>>>>>> Stashed changes
 });
 
 // React-redux devTools set-up
