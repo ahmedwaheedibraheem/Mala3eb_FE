@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import * as classes from './comment.module.css';
 import '../../Theme/bootstrap.css';
-import commentImg from '../../Assets/commentImg.png';
+import commentImg from '../../assets/commentImg.png';
 import RateView from '../Rate/rate';
-
-
 
 
 class Comment extends Component {

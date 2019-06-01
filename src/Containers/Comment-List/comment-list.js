@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actionTypes from '../../Store/Comment/comment-actions';
 import * as ApiComment from '../../API/comment';
 import Comment from '../comment/comment';
-import commentImg from '../../Assets/commentImg.png';
+import commentImg from '../../assets/commentImg.png';
 import * as classes from '../comment/comment.module.css';
 
 class CommentList extends Component {

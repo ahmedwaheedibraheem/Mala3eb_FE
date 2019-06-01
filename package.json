@@ -6,22 +6,16 @@
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
-<<<<<<< Updated upstream
     "chart.js": "^2.8.0",
-=======
     "element-react": "^1.4.34",
     "element-theme-default": "^1.4.13",
->>>>>>> Stashed changes
     "firebase": "^6.0.4",
     "google-maps-react": "^2.0.2",
     "react": "^16.8.6",
     "react-chartjs-2": "^2.7.6",
     "react-dom": "^16.8.6",
-<<<<<<< Updated upstream
     "react-google-maps": "^9.4.5",
-=======
     "react-hot-loader": "^4.8.8",
->>>>>>> Stashed changes
     "react-redux": "^7.0.3",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
