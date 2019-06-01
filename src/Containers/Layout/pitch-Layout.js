@@ -12,7 +12,8 @@ import Map from '../Map/map';
 class PitchLayout extends Component {
 
     async componentDidMount() {
-        let data = await PitchAPI.getData();
+        let pitchId = this.props.match.params.pitchId;
+        let data = await PitchAPI.getData(pitchId);
         this.props.setPitch(data);
     }
 
@@ -39,7 +40,6 @@ class PitchLayout extends Component {
                                 <Radar
                                     labels={labels}
                                     label='التقييم'
-                                    // favPosition={this.props.player.favPosition}
                                     data={this.props.pitch.specs} />
                             </div>
                         </div>

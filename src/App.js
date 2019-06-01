@@ -8,9 +8,8 @@ class App extends Component {
     return (
       <>
         <BrowserRouter>
-          {/* {Routes} */}
+          {Routes}
         </BrowserRouter>
-          <PitchLayout></PitchLayout>
       </>
     );
   };
