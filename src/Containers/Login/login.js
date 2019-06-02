@@ -60,7 +60,7 @@ class Login extends Component {
             // Setting the token in the local storage
             localStorage.setItem('token', response.token);
             // Setting user app
-            this.props.setAppUser(credentials);
+            this.props.setAppUser(response.user);
             // There shall be redirect here later ...
             this.props.history.push(`/profile/${response.user.playerId}`);
         } catch (error) {

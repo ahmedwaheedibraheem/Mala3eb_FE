@@ -70,7 +70,7 @@ class Register extends Component {
             // Setting the token in the local storage
             localStorage.setItem('token', response.token);
             // Setting user app
-            this.props.setAppUser(user);
+            this.props.setAppUser(response.user);
             // There shall be redirect here later ...
         } catch (error) {
             console.log(error)
