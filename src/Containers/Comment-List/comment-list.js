@@ -11,36 +11,29 @@ class CommentList extends Component {
     state = {
         flag: true
     }
+    
     async componentDidMount() {
         let res = await ApiComment.getComments(this.props.playerId);
-        console.log(res);
         this.props.getData(this.props.playerId, res);
-        console.log(this.props.comments);
-       
-
-
     }
 
     onAddHandler = (e) => {
         e.preventDefault();
         const { commentBody: { value: commentBody } } = e.target.elements;
-        let comment = { 
+        let comment = {
             userId: this.props.user._id,
-            userFname:this.props.user.firstname,
-            userLname:this.props.user.lastname,
+            userFname: this.props.user.firstname,
+            userLname: this.props.user.lastname,
             commentDate: new Date().toDateString(),
             commentBody,
-            };
-        console.log(comment);
+        };
         this.props.onAdd(this.props.playerId, comment);
         let x = document.getElementById("text");
         this.clearContents(x);
-
     }
     clearContents(element) {
         element.value = '';
     }
-
 
     render() {
 
@@ -58,7 +51,7 @@ class CommentList extends Component {
                                 userLogin={this.props.user._id}
                                 fname={comment.userFname}
                                 lname={comment.userLname}
-                                deleted={() => this.props.onDelete(comment._id,this.props.playerId)}
+                                deleted={() => this.props.onDelete(comment._id, this.props.playerId)}
 
                             ></Comment>
                         </>
@@ -71,7 +64,6 @@ class CommentList extends Component {
                             <img src={commentImg}></img>
                         </div>
                         <form onSubmit={this.onAddHandler}>
-                            {/* <h6>{this.props.user.firstname}</h6> */}
                             <textarea name="commentBody" className={classes.commentText} id="text"></textarea>
                             <br />
                             <button type="submit" className="btn btn-success">أضف التعليق</button>
@@ -94,7 +86,7 @@ const mapDispatchToProps = (dispatch) => {
 
     return {
         getData: (id, res) => dispatch(actionTypes.getDataComment(id, res)),
-        onDelete: (commentId,playerId) => dispatch(ApiComment.deleteComment(commentId,playerId)),
+        onDelete: (commentId, playerId) => dispatch(ApiComment.deleteComment(commentId, playerId)),
         onAdd: (id, res) => dispatch(ApiComment.addComment(id, res))
     }
 }

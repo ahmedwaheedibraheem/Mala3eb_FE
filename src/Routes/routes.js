@@ -3,21 +3,22 @@ import { Switch, Route } from "react-router-dom";
 
 import Login from '../Containers/Login/login';
 import Profile from '../Containers/Layout/player-Layout';
-import pitchProfile from '../Containers/Layout/pitch-Layout';
+import PitchProfile from '../Containers/Layout/pitch-Layout';
 import Mytrophies from "../Components/myTrophies/myTrophies";
 import MainPage from '../Containers/Mainpage/main-Page';
 import Register from '../Containers/Register/register';
+import CreatePlayer from '../Containers/Create-player/create-player';
 
 const routes = (
   <Switch>
     <Route path="/main" component={MainPage} />
     <Route path="/login" component={Login} />
-    <Route path="/pitch/:pitchId" component={pitchProfile} />
+    <Route path="/pitch/:pitchId" component={PitchProfile} />
     <Route path="/register" component={Register} />
     <Route path="/profile/:playerId" component={Profile} />
     <Route path="/trophies/:id" component={Mytrophies} />
+    <Route path="/createplayer" component={CreatePlayer} />
     <Route path="/" component={MainPage} />
-    {/* <Route path="/trophies" component={Trophies} /> */}
   </Switch>
 );
 export default routes;

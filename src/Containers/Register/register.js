@@ -71,7 +71,7 @@ class Register extends Component {
             localStorage.setItem('token', response.token);
             // Setting user app
             this.props.setAppUser(response.user);
-            // There shall be redirect here later ...
+            this.props.history.push(`/createplayer`);
         } catch (error) {
             console.log(error)
             // there shall be real error handling here later ...

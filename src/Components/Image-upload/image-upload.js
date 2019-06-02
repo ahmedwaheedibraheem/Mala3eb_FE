@@ -1,5 +1,5 @@
 import React from 'react';
-import imagePlaceholder from '../../Assets/ImagePlaceholder.jpg';
+import imagePlaceholder from '../../assets/ImagePlaceholder.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import '../../Theme/bootstrap.css';

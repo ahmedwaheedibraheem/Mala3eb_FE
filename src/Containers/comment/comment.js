@@ -25,16 +25,12 @@ class Comment extends Component {
                             </h6>
                             <span>{this.props.commentDate}</span>
                             <p className="card-text">{this.props.commentBody}</p>
-
                         </div>
                         <div className="commentBtns">
-                            {/* <button type="button" className="btn btn-warning"><i className="fa fa-edit"></i></button> */}
                             {(this.props.userId === this.props.userLogin)?<button className="btn btn-danger" onClick={this.props.deleted}><i className="fa fa-trash-alt"></i></button>:null}
-                           
                         </div>
                     </div>
                 </div>
-                
             </>
         );
     }

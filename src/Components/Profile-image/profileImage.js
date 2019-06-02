@@ -12,7 +12,6 @@ const ProfileImage = (props) => {
                    {props.name}
                 </div>
             </div>
-
         </>
     );
 }

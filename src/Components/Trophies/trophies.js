@@ -64,9 +64,7 @@ class Trophies extends Component {
 
             <div className="container">
                 <div className="row">
-
                     {trophies}
-
                 </div>
             </div>
         )

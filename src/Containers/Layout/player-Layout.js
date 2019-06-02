@@ -26,7 +26,7 @@ class Playout extends Component {
                     <div>
                         <div className="row no-gutters">
                             <div className="col-md-12">
-                                <Navbar />
+                                {/* <Navbar /> */}
                             </div>
                         </div>
                     </div>
