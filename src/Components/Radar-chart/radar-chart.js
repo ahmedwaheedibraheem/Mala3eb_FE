@@ -4,6 +4,7 @@ import * as classes from './radar-chart.module.css';
 
 const RadarComponent = (props) => {
     var values = Object.values(props.data);
+    var skills = values.every(el=>el===0) ? [null] : values;
     const data = {
         labels: props.labels,
         datasets: [
@@ -15,7 +16,7 @@ const RadarComponent = (props) => {
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
                 pointHoverBorderColor: 'rgba(179,181,198,1)',
-                data: values
+                data: skills
             }
         ]
     };

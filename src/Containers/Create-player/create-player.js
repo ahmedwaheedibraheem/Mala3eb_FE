@@ -159,6 +159,7 @@ class CreatePlayer extends Component {
             const response = await playerAPI.createPlayer(playerObj);
             // Updating app user
             this.props.setAppUser(response.user)
+            this.props.history.push(`/profile/${response.user.playerId}`);
         } catch (error) {
             console.log(error);
         }
