@@ -19,6 +19,12 @@ const validate = (id, value) => {
         case 'favNum':
         case 'age':
             return (!isNaN(value) && value >= 1 && value <= 99);
+        case 'pitchLength':
+            return (!isNaN(value) && value >= 100.5 && value <= 118.8);
+        case 'pitchWidth':
+            return (!isNaN(value) && value >= 45.7 && value <= 91.4);
+        case 'rate':
+            return (!isNaN(value) && value >= 0);
         case 'mobileNo':
             return (validator.isMobilePhone(value));
         default:

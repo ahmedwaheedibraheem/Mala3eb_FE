@@ -8,6 +8,7 @@ import Mytrophies from "../Components/myTrophies/myTrophies";
 import MainPage from '../Containers/Mainpage/main-Page';
 import Register from '../Containers/Register/register';
 import CreatePlayer from '../Containers/Create-player/create-player';
+import CreatePitch from '../Containers/Create-Pitch/createPitch';
 
 const routes = (
   <Switch>
@@ -18,6 +19,7 @@ const routes = (
     <Route path="/profile/:playerId" component={Profile} />
     <Route path="/trophies/:id" component={Mytrophies} />
     <Route path="/createplayer" component={CreatePlayer} />
+    <Route path="/createpitch" component={CreatePitch} />
     <Route path="/" component={MainPage} />
   </Switch>
 );

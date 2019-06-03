@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actionTypes from '../../Store/Comment/comment-actions';
 import * as ApiComment from '../../API/comment';
 import Comment from '../comment/comment';
-import commentImg from '../../assets/commentImg.png';
+import commentImg from '../../Assets/commentImg.png';
 import * as classes from '../comment/comment.module.css';
 
 class CommentList extends Component {
@@ -11,7 +11,7 @@ class CommentList extends Component {
     state = {
         flag: true
     }
-    
+
     async componentDidMount() {
         let res = await ApiComment.getComments(this.props.playerId);
         this.props.getData(this.props.playerId, res);

@@ -47,6 +47,16 @@ const inputField = (props) => {
         case 'address':
             label = 'العنوان';
             break;
+        case 'rate':
+            label = 'السعر (جنيه/ساعة)';
+            break;
+        case 'pitchLength':
+            label = 'طول الملعب (متر)';
+            break;
+        case 'pitchWidth':
+            label = 'عرض الملعب (متر)';
+            break;
+
     };
 
     return (

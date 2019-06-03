@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import * as classes from './comment.module.css';
 import '../../Theme/bootstrap.css';
-import commentImg from '../../assets/commentImg.png';
+import commentImg from '../../Assets/commentImg.png';
 import RateView from '../Rate/rate';
 
 
 class Comment extends Component {
-   
+
     constructor(props) {
         super(props);
     }
@@ -27,7 +27,7 @@ class Comment extends Component {
                             <p className="card-text">{this.props.commentBody}</p>
                         </div>
                         <div className="commentBtns">
-                            {(this.props.userId === this.props.userLogin)?<button className="btn btn-danger" onClick={this.props.deleted}><i className="fa fa-trash-alt"></i></button>:null}
+                            {(this.props.userId === this.props.userLogin) ? <button className="btn btn-danger" onClick={this.props.deleted}><i className="fa fa-trash-alt"></i></button> : null}
                         </div>
                     </div>
                 </div>
