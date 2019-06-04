@@ -47,11 +47,11 @@ class PitchLayout extends Component {
                             <div className="col-lg-12">
                                 <ProfileData>
                                     <ul>
-                                        <li><span className="blockquote">المحافظة: {this.props.pitch.governerate} </span></li>
-                                        <li><span className="blockquote">المنطقة: {this.props.pitch.city} </span></li>
+                                        {/* <li><span className="blockquote">المحافظة: {this.props.pitch.governerate} </span></li> */}
+                                        {/* <li><span className="blockquote">المنطقة: {this.props.pitch.city} </span></li> */}
                                         <li><span className="blockquote">رقم الموبايل: {this.props.pitch.mobileNo} </span></li>
                                         <li><span className="blockquote">الاضاءة: {this.props.pitch.lights} </span></li>
-                                        <li><span className="blockquote">سعر الساعه: {this.props.pitch.pricePerHour.night} </span></li>
+                                        {/* <li><span className="blockquote">سعر الساعه: {this.props.pitch.pricePerHour.night} </span></li> */}
                                         <li><span className="blockquote">الطول: {this.props.pitch.pitchLength} </span></li>
                                         <li><span className="blockquote">العرض: {this.props.pitch.pitchWidth} </span></li>
                                         <li><span className="blockquote">غرف تغيير الملابس: {this.props.pitch.changeRoom} </span></li>
