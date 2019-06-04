@@ -20,6 +20,7 @@ class PitchLayout extends Component {
     render() {
         let labels = ['الاضاءة', 'الأرضية', 'البطولات'];
         if (this.props.pitch) {
+            let priceWithLights = this.props.pitch.lights ? <li><span className="blockquote">سعر الساعه (ليل):{this.props.pitch.nightRate}</span></li> : null;
             return (
                 <>
                     <div>
@@ -47,14 +48,14 @@ class PitchLayout extends Component {
                             <div className="col-lg-12">
                                 <ProfileData>
                                     <ul>
-                                        {/* <li><span className="blockquote">المحافظة: {this.props.pitch.governerate} </span></li> */}
-                                        {/* <li><span className="blockquote">المنطقة: {this.props.pitch.city} </span></li> */}
                                         <li><span className="blockquote">رقم الموبايل: {this.props.pitch.mobileNo} </span></li>
-                                        <li><span className="blockquote">الاضاءة: {this.props.pitch.lights} </span></li>
-                                        {/* <li><span className="blockquote">سعر الساعه: {this.props.pitch.pricePerHour.night} </span></li> */}
+                                        <li><span className="blockquote">الاضاءة: {this.props.pitch.lights ? 'يوجد' : 'لا يوجد'} </span></li>
+                                        <li><span className="blockquote"> سعر الساعه (نهار):{this.props.pitch.rate}</span></li>
+                                        {priceWithLights}
                                         <li><span className="blockquote">الطول: {this.props.pitch.pitchLength} </span></li>
                                         <li><span className="blockquote">العرض: {this.props.pitch.pitchWidth} </span></li>
-                                        <li><span className="blockquote">غرف تغيير الملابس: {this.props.pitch.changeRoom} </span></li>
+                                        <li><span className="blockquote">غرف تغيير الملابس: {this.props.pitch.changeRoom ? 'يوجد' : 'لا يوجد'} </span></li>
+                                        <li><span className="blockquote">غرف الاستحمام: {this.props.pitch.showerRoom ? 'يوجد' : 'لا يوجد'} </span></li>
                                     </ul>
                                 </ProfileData>
                             </div>
