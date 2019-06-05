@@ -1,0 +1,13 @@
+.commentImg img
+{
+    height: 70px;
+    border-radius: 50%;
+}
+.commentImg
+{
+    margin-left: 4rem;
+}
+.commentText{
+    width: 50rem;
+    height: 5rem;
+}

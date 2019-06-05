@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+// import Dropdown from '../../Components/Drop-down/dropdown';
+import * as SearchAPI from '../../API/search';
 
 class Navbar extends Component {
+    state = {
+        searchKey: ''
+    }
+
+    async searchHandler(searchKey) {
+        let result = await SearchAPI.search(searchKey);
+        this.props.history.push(`/searchresult`, result);
+    }
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -23,12 +35,19 @@ class Navbar extends Component {
                             <a className="nav-link" href="#"><i className="far fa-heart"></i></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#"><i className="far fa-plus-square"></i></a>
+                            <a className="nav-link" href="#"><i className="far fa-plus-square">
+                            </i></a>
                         </li>
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
-                        <input className="form-control mr-sm-2" type="text" placeholder="بحث" />
-                        <button className="btn btn-secondary my-2 my-sm-0" type="submit">بحث</button>
+                        <input onChange={(event) => { this.setState({ searchKey: event.target.value }) }}
+                            className="form-control mr-sm-2"
+                            type="text"
+                            placeholder="بحث" />
+                        <button
+                            onClick={(event) => { event.preventDefault(); this.searchHandler(this.state.searchKey) }}
+                            className="btn btn-secondary my-2 my-sm-0"
+                            type="submit">بحث</button>
                     </form>
                 </div>
             </nav>
@@ -36,4 +55,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+export default withRouter(Navbar);

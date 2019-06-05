@@ -13,8 +13,9 @@ import CommentList from '../Comment-List/comment-list';
 class Playout extends Component {
 
     async componentDidMount() {
+        let data;
         let playerId = this.props.match.params.playerId;
-        let data = await PlayerAPI.getData();
+        data = await PlayerAPI.getPlayerData(playerId);
         this.props.setPlayer(data);
     }
 
@@ -26,7 +27,7 @@ class Playout extends Component {
                     <div>
                         <div className="row no-gutters">
                             <div className="col-md-12">
-                                {/* <Navbar /> */}
+                                <Navbar />
                             </div>
                         </div>
                     </div>
@@ -38,7 +39,7 @@ class Playout extends Component {
                             <div className="col-lg-6">
                                 <Radar
                                     labels={labels}
-                                    label = 'المهارات'
+                                    label='المهارات'
                                     favPosition={this.props.player.favPosition}
                                     data={this.props.player.skills} />
                             </div>
@@ -59,8 +60,7 @@ class Playout extends Component {
                             <Trophies />
                         </div>
                     </div>
-
-                <CommentList playerId={this.props.match.params.playerId}></CommentList>
+                    <CommentList playerId={this.props.match.params.playerId}></CommentList>
                 </>
             );
         } else

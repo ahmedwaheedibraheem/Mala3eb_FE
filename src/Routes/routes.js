@@ -9,6 +9,7 @@ import MainPage from '../Containers/Mainpage/main-Page';
 import Register from '../Containers/Register/register';
 import CreatePlayer from '../Containers/Create-player/create-player';
 import CreatePitch from '../Containers/Create-Pitch/createPitch';
+import CardList from '../Containers/Card-Search-List/cardList';
 
 const routes = (
   <Switch>
@@ -16,10 +17,12 @@ const routes = (
     <Route path="/login" component={Login} />
     <Route path="/pitch/:pitchId" component={PitchProfile} />
     <Route path="/register" component={Register} />
+    {/* <Route path="/profile" component={Profile} /> */}
     <Route path="/profile/:playerId" component={Profile} />
     <Route path="/trophies/:id" component={Mytrophies} />
     <Route path="/createplayer" component={CreatePlayer} />
     <Route path="/createpitch" component={CreatePitch} />
+    <Route path="/searchresult" component={CardList}/>
     <Route path="/" component={MainPage} />
   </Switch>
 );
