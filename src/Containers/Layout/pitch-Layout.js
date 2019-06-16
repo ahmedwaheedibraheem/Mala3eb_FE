@@ -7,7 +7,15 @@ import Navbar from '../../Containers/Navbar/navbar';
 import Radar from '../../Components/Radar-chart/radar-chart';
 import ProfileData from '../../Components/ProfileData/ProfileData';
 import ProfileImage from '../../Components/Profile-image/profileImage';
-import Map from '../Map/map';
+import * as classes from './layout.module.css';
+import SliderImages from '../../Components/Slider-Image/slider';
+import CommentList from '../Comment-List/comment-list';
+import Footer from '../../Components/Footer/footer';
+import PitchComments from '../Comments-Pitch/comments-pitch';
+
+
+
+
 
 class PitchLayout extends Component {
 
@@ -23,14 +31,15 @@ class PitchLayout extends Component {
             let priceWithLights = this.props.pitch.lights ? <li><span className="blockquote">سعر الساعه (ليل):{this.props.pitch.nightRate}</span></li> : null;
             return (
                 <>
-                    <div>
+                <div className={classes.bgimg}>
+                    <div className="container-fluied">
                         <div className="row no-gutters">
                             <div className="col-md-12">
                                 <Navbar />
                             </div>
                         </div>
                     </div>
-                    <div className="container">
+                    <div className="container" className={classes.layout}>
                         <div className="row">
                             <div className="col-lg-6">
                                 <ProfileImage
@@ -45,25 +54,54 @@ class PitchLayout extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-lg-12">
+                            <div style={{width:'100%'}}>
                                 <ProfileData>
-                                    <ul>
-                                        <li><span className="blockquote">رقم الموبايل: {this.props.pitch.mobileNo} </span></li>
-                                        <li><span className="blockquote">الاضاءة: {this.props.pitch.lights ? 'يوجد' : 'لا يوجد'} </span></li>
-                                        <li><span className="blockquote"> سعر الساعه (نهار):{this.props.pitch.rate}</span></li>
-                                        {priceWithLights}
-                                        <li><span className="blockquote">الطول: {this.props.pitch.pitchLength} </span></li>
-                                        <li><span className="blockquote">العرض: {this.props.pitch.pitchWidth} </span></li>
-                                        <li><span className="blockquote">غرف تغيير الملابس: {this.props.pitch.changeRoom ? 'يوجد' : 'لا يوجد'} </span></li>
-                                        <li><span className="blockquote">غرف الاستحمام: {this.props.pitch.showerRoom ? 'يوجد' : 'لا يوجد'} </span></li>
-                                    </ul>
+                                    <div className="row">
+                                        <div className="col-md-6">
+                                            <ul>
+                                                <label>رقم الموبايل :</label> <li><span className="blockquote">{this.props.pitch.mobileNo} </span></li>
+                                                <label>الاضاءة:</label><li><span className="blockquote">{this.props.pitch.lights ? 'يوجد' : 'لا يوجد'} </span></li>
+                                                <label>سعر الساعه (نهار):</label><li><span className="blockquote">{this.props.pitch.rate}</span></li>
+                                                {priceWithLights}
+                                            </ul>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <ul>
+                                                <label>الطول:</label> <li><span className="blockquote"> {this.props.pitch.pitchLength} </span></li>
+                                                <label>العرض:</label><li><span className="blockquote">{this.props.pitch.pitchWidth} </span></li>
+                                                <label>غرف تغيير الملابس:</label><li><span className="blockquote">{this.props.pitch.changeRoom ? 'يوجد' : 'لا يوجد'} </span></li>
+                                                <label>غرف الاستحمام:</label><li><span className="blockquote">{this.props.pitch.showerRoom ? 'يوجد' : 'لا يوجد'} </span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </ProfileData>
                             </div>
                         </div>
                         <div className="row">
-                            <Map />
+                            <div className="card border-success" style={{ marginTop: '1rem', width: '100%' }}>
+                                <div className="card-header" style={{
+                                    backgroundColor: '#18BC9C', color: 'white', fontWeight: 'bold',
+                                    fontSize: 20,direction:'rtl',textAlign:'right'
+                                }}>صور الملعب</div>
+                                <div className="card-body">
+                                    <SliderImages images={this.props.pitch.imgsURL}></SliderImages>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="card border-success" style={{ marginTop: '1rem', width: '100%' }}>
+                                <div className="card-header" style={{
+                                    backgroundColor: '#18BC9C', color: 'white', fontWeight: 'bold',
+                                    fontSize: 20,direction:'rtl',textAlign:'right'
+                                }}>التعليقات </div>
+                                <div className="card-body">
+                       <PitchComments pitchId={this.props.match.params.pitchId}></PitchComments>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                        <Footer></Footer>
+</div>
                 </>
             );
         }

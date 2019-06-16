@@ -21,7 +21,7 @@ class Navbar extends Component {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarColor02">
-                    <ul className="navbar-nav mr-auto">
+                    {/* <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
                             <a className="nav-link" href="#"><i className="fas fa-bell"></i> <span className="sr-only">(current)</span></a>
                         </li>
@@ -38,7 +38,7 @@ class Navbar extends Component {
                             <a className="nav-link" href="#"><i className="far fa-plus-square">
                             </i></a>
                         </li>
-                    </ul>
+                    </ul> */}
                     <form className="form-inline my-2 my-lg-0">
                         <input onChange={(event) => { this.setState({ searchKey: event.target.value }) }}
                             className="form-control mr-sm-2"

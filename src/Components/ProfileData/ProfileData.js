@@ -1,22 +1,22 @@
 import React from 'react';
-import cssClasses from './ProfileData.module.css';
+import * as classes from  './ProfileData.module.css';
 import '../../Theme/bootstrap.css';
+import image from '../../Assets/commentImg.png'
 
 const ProfileData = (props) => {
     return (
-        <section className="container text-right">
-            <div className="row">
-                <div className="col-md-12">
-                    <div className={cssClasses.Datacontainer}>
-                        <div className={cssClasses.Dataheader}>بيانات</div>
-                        {props.children}
-                        <div className={cssClasses.Databtn}>
-                            <button type="button" className=" btn btn-success" >تعديل</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <>
+       <div className="card border-success"  style={{marginTop:'1rem'}}>
+       <div className={classes.profileData}>
+      <div className="card-header" style={{backgroundColor:'#18BC9C',color:'white',fontWeight:'bold',
+      fontSize:20}}>البيانات</div>
+     <div className="card-body">
+    {props.children}
+  </div>
+  <button type="button" className="btn btn-success" style={{float:"left",margin:'1rem'}}>تعديل</button>
+  </div>
+</div>
+    </>
     )
 }
 export default (ProfileData);
