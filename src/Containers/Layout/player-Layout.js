@@ -9,6 +9,7 @@ import ProfileData from '../../Components/ProfileData/ProfileData';
 import ProfileImage from '../../Components/Profile-image/profileImage';
 import Trophies from '../../Components/Trophies/trophies';
 import CommentList from '../Comment-List/comment-list';
+import * as classes from './layout.module.css'
 
 class Playout extends Component {
 
@@ -20,19 +21,19 @@ class Playout extends Component {
     }
 
     render() {
-        let labels = ['التمرير', 'التسديد', 'المرواغه', 'اللياقة', 'السرعة'];
+        let labels = ['التمرير', 'التسديد', 'المراوغه', 'اللياقة', 'السرعة'];
         if (this.props.player) {
             return (
-                <>
-                    <div>
-                        <div className="row no-gutters">
-                            <div className="col-md-12">
-                                <Navbar />
-                            </div>
+                <div className={classes.bgimg}>
+
+                    <div className={`row no-gutters ${classes.nav}`}>
+                        <div className="col-md-12 ">
+                            <Navbar />
                         </div>
                     </div>
+
                     <div className="container">
-                        <div className="row">
+                        <div className={`row ` + classes.lightOpacity}>
                             <div className="col-lg-6">
                                 <ProfileImage image={this.props.player.imgURL} name={this.props.player.name} />
                             </div>
@@ -61,7 +62,7 @@ class Playout extends Component {
                         </div>
                     </div>
                     <CommentList playerId={this.props.match.params.playerId}></CommentList>
-                </>
+                </div>
             );
         } else
             return null;
