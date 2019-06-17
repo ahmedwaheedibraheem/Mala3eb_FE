@@ -17,6 +17,8 @@ import PitchComments from '../Comments-Pitch/comments-pitch';
 
 
 
+
+
 class PitchLayout extends Component {
 
     async componentDidMount() {
@@ -30,7 +32,7 @@ class PitchLayout extends Component {
         if (this.props.pitch) {
             let priceWithLights = this.props.pitch.lights ? <li><span className="blockquote">سعر الساعه (ليل):{this.props.pitch.nightRate}</span></li> : null;
             return (
-                <>
+
                 <div className={classes.bgimg}>
                     <div className="container-fluied">
                         <div className="row no-gutters">
@@ -54,7 +56,7 @@ class PitchLayout extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div style={{width:'100%'}}>
+                            <div style={{ width: '100%' }}>
                                 <ProfileData>
                                     <div className="row">
                                         <div className="col-md-6">
@@ -81,7 +83,7 @@ class PitchLayout extends Component {
                             <div className="card border-success" style={{ marginTop: '1rem', width: '100%' }}>
                                 <div className="card-header" style={{
                                     backgroundColor: '#18BC9C', color: 'white', fontWeight: 'bold',
-                                    fontSize: 20,direction:'rtl',textAlign:'right'
+                                    fontSize: 20, direction: 'rtl', textAlign: 'right'
                                 }}>صور الملعب</div>
                                 <div className="card-body">
                                     <SliderImages images={this.props.pitch.imgsURL}></SliderImages>
@@ -92,17 +94,17 @@ class PitchLayout extends Component {
                             <div className="card border-success" style={{ marginTop: '1rem', width: '100%' }}>
                                 <div className="card-header" style={{
                                     backgroundColor: '#18BC9C', color: 'white', fontWeight: 'bold',
-                                    fontSize: 20,direction:'rtl',textAlign:'right'
+                                    fontSize: 20, direction: 'rtl', textAlign: 'right'
                                 }}>التعليقات </div>
                                 <div className="card-body">
-                       <PitchComments pitchId={this.props.match.params.pitchId}></PitchComments>
+                                    <PitchComments pitchId={this.props.match.params.pitchId}></PitchComments>
                                 </div>
                             </div>
                         </div>
                     </div>
-                        <Footer></Footer>
-</div>
-                </>
+                    <Footer></Footer>
+                </div>
+
             );
         }
         else
