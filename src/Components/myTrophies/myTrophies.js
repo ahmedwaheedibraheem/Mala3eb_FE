@@ -67,11 +67,11 @@ class MyTrophies extends Component {
             />
         ));
         return (
-            <>
-                <table id={classes.table} className="table table-lg">
+            <div className={classes.backG}>
+                <div id={classes.table} className="container">
                     {MyTrophies}
-                </table>
-            </>
+                </div>
+            </div>
         )
     }
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as PlayerAPI from '../../API/player';
 import * as playerActions from '../../Store/Player/player-actions';
-
 import Navbar from '../../Containers/Navbar/navbar';
 import Radar from '../../Components/Radar-chart/radar-chart';
 import ProfileData from '../../Components/ProfileData/ProfileData';

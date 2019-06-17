@@ -1,29 +1,17 @@
 .separator {
-  margin: 20px 0px;
-  border: 1px solid lightgray;
-  box-shadow: 5px 5px 5px lightgray;
-  border-radius: 5px;
-  background: white;
-  display: block;
-  padding: 5px 10px;
+  margin: 40px 0px 0px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: rgb(44, 43, 43);
+  padding: 10px 10px;
+  opacity: 0.8;
 }
 .imageUrl {
-  border-radius: 5px;
-  width: 150px;
-  height: 200px;
-}
-.firstRow {
-  width: 35%;
-}
-
-.rowspan {
-  width: 30%;
-}
-
-.imageContainer {
-  border-radius: 5px;
-  padding: 10px 40px;
-  border: 0.5px solid lightgray;
+  border-radius: 3px;
+  width: 250px;
+  height: 350px;
+  padding: 10px;
+  border: 1px solid rgb(100, 100, 100);
 }
 
 .name,
@@ -41,5 +29,5 @@
 .name,
 .price,
 .description {
-  color: rgb(2, 143, 21);
+  color: rgb(209, 209, 209);
 }
