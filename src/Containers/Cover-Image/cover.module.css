@@ -28,4 +28,9 @@
 }
 .profileName{
     color: white;
+    float: right;
+    position: absolute;
+    left: 35rem;
+    top: 17rem;
+    font-weight: bold;
 }
