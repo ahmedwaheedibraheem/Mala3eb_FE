@@ -27,7 +27,7 @@ class Comment extends Component {
                             <p className="card-text">{this.props.commentBody}</p>
                         </div>
                         <div className="commentBtns">
-                            {(this.props.userId === this.props.userLogin) ? <button className="btn btn-danger" onClick={this.props.deleted}><i className="fa fa-trash-alt"></i></button> : null}
+                            {(this.props.userId === this.props.userLogin) ? <button className="btn btn-danger" onClick={this.props.deleted}><i className="fas fa-trash-alt"></i></button> : null}
                         </div>
                     </div>
                 </div>

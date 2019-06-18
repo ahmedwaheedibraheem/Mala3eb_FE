@@ -1,12 +1,12 @@
-.profileData{
-    direction:rtl;
-    text-align: right;
+.profileData {
+  direction: rtl;
+  text-align: right;
+  font-family: "Changa", sans-serif;
 }
-ul{
-    display: inline-block;
-    justify-content: flex-start;
+ul {
+  display: inline-block;
+  justify-content: flex-start;
 }
-ul li{
-    list-style: none;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ul li {
+  list-style: none;
 }

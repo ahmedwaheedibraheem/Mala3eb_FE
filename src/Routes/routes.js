@@ -24,9 +24,11 @@ const routes = (
     <Route path="/trophies/:id" component={Mytrophies} />
     <Route path="/createplayer" component={CreatePlayer} />
     <Route path="/createpitch" component={CreatePitch} />
-    <Route path="/searchresult" component={CardList}/>
     <Route path="/aboutus" component={Aboutus}/>
     <Route path="/contactus" component={Contactus}/>
+    <Route path="/searchresult" component={CardList} />
+    {/* <Route path="/collection" component={CollectionLayout} /> */}
+
     <Route path="/" component={MainPage} />
   </Switch>
 );

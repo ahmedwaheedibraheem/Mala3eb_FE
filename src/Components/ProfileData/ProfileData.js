@@ -6,14 +6,14 @@ import image from '../../Assets/commentImg.png'
 const ProfileData = (props) => {
     return (
         <>
-       <div className="card border-success"  style={{marginTop:'1rem'}}>
+       <div className="card border-black"  style={{marginTop:'2.3rem'}}>
        <div className={classes.profileData}>
-      <div className="card-header" style={{backgroundColor:'#18BC9C',color:'white',fontWeight:'bold',
+      <div className="card-header" style={{backgroundColor:'#000',color:'white',fontWeight:'bold',
       fontSize:20}}>البيانات</div>
      <div className="card-body">
     {props.children}
   </div>
-  <button type="button" className="btn btn-success" style={{float:"left",margin:'1rem'}}>تعديل</button>
+  <button type="button" className="btn btn-danger" style={{float:"left",margin:'1rem'}}>تعديل</button>
   </div>
 </div>
     </>

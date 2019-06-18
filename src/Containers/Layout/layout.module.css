@@ -2,13 +2,21 @@
     width: 60%;
     margin: 1rem auto;
 }
-.bgimg{
-  
-    background: url(../../Assets/back4.jpeg)  no-repeat center center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    position: relative;
+.bgimg {
+  background: url(../../Assets/bg-blurred.jpg) no-repeat center center fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: "Changa", sans-serif;
+}
 
+.lightOpacity {
+  opacity: 0.8;
+}
 
+.nav {
+  top: 0;
+  position: sticky;
+  z-index: 3;
 }
