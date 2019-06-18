@@ -10,6 +10,8 @@ import Register from '../Containers/Register/register';
 import CreatePlayer from '../Containers/Create-player/create-player';
 import CreatePitch from '../Containers/Create-Pitch/createPitch';
 import CardList from '../Containers/Card-Search-List/cardList';
+import Contactus from "../Containers/Conatctus/contactus";
+import Aboutus from "../Containers/Aboutus/aboutus";
 
 const routes = (
   <Switch>
@@ -23,6 +25,8 @@ const routes = (
     <Route path="/createplayer" component={CreatePlayer} />
     <Route path="/createpitch" component={CreatePitch} />
     <Route path="/searchresult" component={CardList}/>
+    <Route path="/aboutus" component={Aboutus}/>
+    <Route path="/contactus" component={Contactus}/>
     <Route path="/" component={MainPage} />
   </Switch>
 );
