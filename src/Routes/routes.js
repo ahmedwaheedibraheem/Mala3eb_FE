@@ -9,8 +9,9 @@ import MainPage from '../Containers/Mainpage/main-Page';
 import Register from '../Containers/Register/register';
 import CreatePlayer from '../Containers/Create-player/create-player';
 import CreatePitch from '../Containers/Create-Pitch/createPitch';
-import CardList from '../Containers/Card-Search-List/cardList';
+import CardList from '../Components/Card-Search-List/cardList';
 import CollectionLayout from "../Containers/Layout/collection_layout";
+
 
 const routes = (
   <Switch>

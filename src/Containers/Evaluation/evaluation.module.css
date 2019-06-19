@@ -1,0 +1,9 @@
+.opacityBack{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding:10rem;
+
+}
+ul li{
+    margin-bottom: 1.5rem;
+}

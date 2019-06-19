@@ -6,7 +6,7 @@ class RateView extends Component {
   state = {}
   render() {
     return (
-      <Rate disabled={true} value={4} />
+      <Rate value={4} />
     );
   }
 }

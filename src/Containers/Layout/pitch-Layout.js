@@ -13,6 +13,7 @@ import CommentList from '../Comment-List/comment-list';
 import Footer from '../../Components/Footer/footer';
 import PitchComments from '../Comments-Pitch/comments-pitch';
 import CoverImage from '../Cover-Image/cover-Image';
+import DemoApp from '../Calender/calender';
 
 
 
@@ -43,26 +44,13 @@ class PitchLayout extends Component {
                         </div>
                     </div>
                     <div className="container" className={classes.layout}>
-                        {/* <div className="row">
-                            <div className="col-lg-6">
-                                <ProfileImage
-                                    image={this.props.pitch.imgURL} name={this.props.pitch.name}
-                                />
-                            </div>
-                            <div className="col-lg-6">
-                                <Radar
-                                    labels={labels}
-                                    label='التقييم'
-                                    data={this.props.pitch.specs} />
-                            </div>
-                        </div> */}
-                       <div className="row">
-                           <CoverImage
-                           coverImage={this.props.pitch.coverImage}
-                           profileImage={this.props.pitch.imgURL}
-                           name={this.props.pitch.name}
-                           ></CoverImage>
-                       </div>
+                        <div className="row">
+                            <CoverImage
+                                coverImage={this.props.pitch.coverImage}
+                                profileImage={this.props.pitch.imgURL}
+                                name={this.props.pitch.name}
+                            ></CoverImage>
+                        </div>
                         <div className="row">
                             <div style={{ width: '100%' }}>
                                 <ProfileData>
@@ -86,6 +74,21 @@ class PitchLayout extends Component {
                                     </div>
                                 </ProfileData>
                             </div>
+                        </div>
+                        <div className="row">
+                            <div className="card border-black" style={{ marginTop: '2.3rem' }}>
+                                <div className={classes.profileData}>
+                                    <div className="card-header" style={{
+                                        backgroundColor: '#000', color: 'white', fontWeight: 'bold',
+                                        fontSize: 20,direction:'rtl',textAlign:'right'
+                                    }}>مواعيد الحجز</div>
+                                    <div className="card-body">
+                                        <DemoApp></DemoApp>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
                         </div>
                         <div className="row">
                             <div className="card border-dark" style={{ marginTop: '1rem', width: '100%' }}>

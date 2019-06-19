@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import * as classes from './cardRes.module.css';
-// import commentImg from '../../Assets/commentImg.png';
-import RateView from '../Rate/rate';
+import RateView from '../../Containers/Rate/rate';
 
 const CardItem = (props) => {
     return (
         <>
-            <div className="card" style={{ "textAlign": "right" }}>
+            <div className="card" style={{ "textAlign": "right" , marginBlockStart:'1rem' }}>
                 <div className="card-body row no-gutters">
                     <div className={classes.commentImg}>
                         <img src={props.image}></img>
@@ -24,7 +24,7 @@ const CardItem = (props) => {
                         </p>
                     </div>
                     <div className="commentBtns">
-                        <button type="button" className="btn btn-success">عرض</button>
+                        <button onClick={() => props.history.push(`/profile/${props.id}`)} type="button" className="btn btn-success">عرض</button>
                         <button type="button" className="btn btn-info">متابعه</button>
                     </div>
                 </div>
@@ -32,4 +32,4 @@ const CardItem = (props) => {
         </>
     );
 }
-export default CardItem;
+export default withRouter(CardItem);
