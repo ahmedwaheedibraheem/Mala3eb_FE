@@ -1,14 +1,16 @@
-.btndiv{
-    /* padding-left: 0rem; */
-    display: flex;
-    justify-content: space-around;
+.btndiv {
+  /* padding-left: 0rem; */
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
 }
 
-.csbtn{
-    padding: .5rem 2rem;
+.csbtn {
+  padding: 0.25rem 0.5rem;
+  font-size: 10px;
 }
 
-.title{
-    text-align: right;
-    color:rgba(179,181,198,1);
+.title {
+  text-align: right;
+  /* color: rgba(179, 181, 198, 1); */
 }

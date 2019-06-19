@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter } from "react-router-dom";
-// import PitchLayout from './Containers/Layout/pitch-Layout';
 import * as classes from './App.module.css';
 import Routes from '../src/Routes/routes';
 

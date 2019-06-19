@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Classes from './main-page.module.css';
 import '../../Theme/bootstrap.css';
+
 import {
     BrowserRouter as Router,
     Link,
     Route,
     Switch,
 } from 'react-router-dom';
+import Footer from '../../Components/Footer/footer';
 
 class Mainpage extends Component {
     state = {
@@ -30,12 +32,10 @@ class Mainpage extends Component {
                         <div className={Classes.bgimg}>
                             <div className={Classes.overlay}>
                                 <div className={Classes.pageHeader}>
-                                    <h3>{this.state.Pageaddress}</h3>
+                                    <Link to="/main"><h3>{this.state.Pageaddress}</h3></Link>
                                     <div>
-                                        <Router>
-                                            <Link to="" className={Classes.pagelink}> من نحن</Link>
-                                            <Link to="" className={Classes.pagelink}>تواصل معنا</Link>
-                                        </Router>
+                                        <Link to="/aboutus" className={Classes.pagelink}> من نحن</Link>
+                                        <Link to="/contactus" className={Classes.pagelink}>تواصل معنا</Link>
                                     </div>
                                 </div>
                                 <div className={Classes.pageBody}>
@@ -46,16 +46,16 @@ class Mainpage extends Component {
                                         <button onClick={() => { this.onRegisterHandler() }} type="button" className={`${Classes.newcont} btn btn-outline-secondary`}>حساب جديد</button>
                                     </div>
                                 </div>
+                                {/* <Footer></Footer> */}
                                 <div className={Classes.pageFooter}>
-                                    <i className="fab fa-facebook-square"></i>
-                                    <i className="fab fa-twitter"></i>
-                                    <i className="fab fa-instagram"></i>
+                                    <Link to=""><i className="fab fa-facebook-square"></i></Link>
+                                    <Link to=""><i className="fab fa-twitter"></i></Link>
+                                    <Link to=""><i className="fab fa-instagram"></i></Link>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         );
     }

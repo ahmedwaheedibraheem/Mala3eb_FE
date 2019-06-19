@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as PlayerAPI from '../../API/player';
 import * as playerActions from '../../Store/Player/player-actions';
-
 import Navbar from '../../Containers/Navbar/navbar';
 import Radar from '../../Components/Radar-chart/radar-chart';
 import ProfileData from '../../Components/ProfileData/ProfileData';
 import ProfileImage from '../../Components/Profile-image/profileImage';
 import Trophies from '../../Components/Trophies/trophies';
 import CommentList from '../Comment-List/comment-list';
-import * as classes from './layout.module.css'
+import CoverImage from '../Cover-Image/cover-Image';
+import * as classes from './layout.module.css';
+
 
 class Playout extends Component {
 
@@ -32,8 +33,8 @@ class Playout extends Component {
                         </div>
                     </div>
 
-                    <div className="container">
-                        <div className={`row ` + classes.lightOpacity}>
+                    <div className="container" className={classes.layout}>
+                        {/* <div className={`row ` + classes.lightOpacity}>
                             <div className="col-lg-6">
                                 <ProfileImage image={this.props.player.imgURL} name={this.props.player.name} />
                             </div>
@@ -44,25 +45,62 @@ class Playout extends Component {
                                     favPosition={this.props.player.favPosition}
                                     data={this.props.player.skills} />
                             </div>
-                        </div>
+                        </div> */}
                         <div className="row">
-                            <div className="col-lg-12">
+                            <CoverImage
+                                coverImage={this.props.player.coverImage}
+                                profileImage={this.props.player.imgURL}
+                                name={this.props.player.name}
+                            ></CoverImage>
+                        </div>
+
+
+                        <div className="row">
+                            <div className="col-lg-6">
                                 <ProfileData>
+
                                     <ul>
                                         <li><span className="blockquote">الاسم: {this.props.player.name} </span></li>
                                         <li><span className="blockquote">العمر: {this.props.player.age} </span></li>
                                         <li><span className="blockquote">رقم الموبايل: {this.props.player.mobileNo} </span></li>
                                         <li><span className="blockquote">العنوان: {this.props.player.address} </span></li>
                                     </ul>
+
+
                                 </ProfileData>
                             </div>
+
+
+
+                            <Radar
+                                labels={labels}
+                                label='المهارات'
+                                favPosition={this.props.player.favPosition}
+                                data={this.props.player.skills} />
+
+
+
+
+
                         </div>
-                        <div className="row">
+                        <div className="row" style={{ marginTop: '1.5rem' }}>
                             <Trophies />
                         </div>
+
+                        <div className="row">
+                            <div className="card border-dark" style={{ marginTop: '1rem', width: '100%' }}>
+                                <div className="card-header" style={{
+                                    backgroundColor: '#000', color: 'white', fontWeight: 'bold',
+                                    fontSize: 20, direction: 'rtl', textAlign: 'right'
+                                }}>التعليقات </div>
+                                <div className="card-body">
+                                    <CommentList playerId={this.props.match.params.playerId}></CommentList>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <CommentList playerId={this.props.match.params.playerId}></CommentList>
-                </div>
+                </div >
             );
         } else
             return null;
