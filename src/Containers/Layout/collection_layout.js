@@ -11,11 +11,11 @@ import * as classes from './layout.module.css'
 
 class CollectionLayout extends Component {
 
-    // async componentDidMount() {
-    //     let pitchId = this.props.match.params.pitchId;
-    //     let data = await PitchAPI.getData(pitchId);
-    //     this.props.setPitch(data);
-    // }
+    async componentDidMount() {
+        let pitchId = this.props.match.params.pitchId;
+        let data = await PitchAPI.getData(pitchId);
+        this.props.setPitch(data);
+    }
 
     render() {
 
