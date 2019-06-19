@@ -12,6 +12,7 @@ import SliderImages from '../../Components/Slider-Image/slider';
 import CommentList from '../Comment-List/comment-list';
 import Footer from '../../Components/Footer/footer';
 import PitchComments from '../Comments-Pitch/comments-pitch';
+import CoverImage from '../Cover-Image/cover-Image';
 
 
 
@@ -42,18 +43,13 @@ class PitchLayout extends Component {
                         </div>
                     </div>
                     <div className="container" className={classes.layout}>
+
                         <div className="row">
-                            <div className="col-lg-6">
-                                <ProfileImage
-                                    image={this.props.pitch.imgURL} name={this.props.pitch.name}
-                                />
-                            </div>
-                            <div className="col-lg-6">
-                                <Radar
-                                    labels={labels}
-                                    label='التقييم'
-                                    data={this.props.pitch.specs} />
-                            </div>
+                            <CoverImage
+                                coverImage={this.props.pitch.coverImage}
+                                profileImage={this.props.pitch.imgURL}
+                                name={this.props.pitch.name}
+                            ></CoverImage>
                         </div>
                         <div className="row">
                             <div style={{ width: '100%' }}>
@@ -80,9 +76,9 @@ class PitchLayout extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="card border-success" style={{ marginTop: '1rem', width: '100%' }}>
+                            <div className="card border-dark" style={{ marginTop: '1rem', width: '100%' }}>
                                 <div className="card-header" style={{
-                                    backgroundColor: '#18BC9C', color: 'white', fontWeight: 'bold',
+                                    backgroundColor: '#000', color: 'white', fontWeight: 'bold',
                                     fontSize: 20, direction: 'rtl', textAlign: 'right'
                                 }}>صور الملعب</div>
                                 <div className="card-body">
@@ -91,9 +87,9 @@ class PitchLayout extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="card border-success" style={{ marginTop: '1rem', width: '100%' }}>
+                            <div className="card border-dark" style={{ marginTop: '1rem', width: '100%' }}>
                                 <div className="card-header" style={{
-                                    backgroundColor: '#18BC9C', color: 'white', fontWeight: 'bold',
+                                    backgroundColor: '#000', color: 'white', fontWeight: 'bold',
                                     fontSize: 20, direction: 'rtl', textAlign: 'right'
                                 }}>التعليقات </div>
                                 <div className="card-body">

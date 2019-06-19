@@ -28,15 +28,15 @@ const Mytrophy = (props) => {
 
 
 
-      <div className="col-md-8">
+      <div className={classes.trophycontent + " col-md-8"} >
         <div>
           <div ><h4 className={classes.name + " row "} >{props.name}</h4> </div>
 
 
-          <div className={classes.price + " row"}>{props.rank}<span className={classes.rank}> Rank </span></div>
+          <div className={classes.price}><span className={classes.rank + " row"}>  التقييم </span>{props.rank}</div>
 
 
-          <div className={classes.description + " row"} style={{ width: '15rem' }}>{props.description}</div>
+          <div className={classes.description + " row"} align="right" >{props.description}</div>
 
         </div>
       </div>

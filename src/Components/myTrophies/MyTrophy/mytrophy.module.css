@@ -14,11 +14,16 @@
   border: 1px solid rgb(100, 100, 100);
 }
 
+.trophycontent {
+  text-align: center;
+}
+
 .name,
-.description {
-  text-transform: capitalize;
+.price {
+  display: inline-block;
 }
 .name {
+  text-transform: capitalize;
   font-weight: bold;
 }
 .rank {
@@ -30,4 +35,7 @@
 .price,
 .description {
   color: rgb(209, 209, 209);
+  direction: rtl;
+  padding: 10px;
+  /* border-bottom: 1px solid gainsboro; */
 }

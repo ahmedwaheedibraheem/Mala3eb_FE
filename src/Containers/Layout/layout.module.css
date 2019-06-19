@@ -2,7 +2,6 @@
   width: 60%;
   margin: 1rem auto;
 }
-
 .bgimg {
   background: url(../../Assets/bg-blurred.jpg) no-repeat center center fixed;
   background-size: cover;
@@ -10,6 +9,7 @@
   height: 100%;
   position: relative;
   font-family: "Changa", sans-serif;
+  padding-bottom: 2rem;
 }
 
 .lightOpacity {
@@ -20,4 +20,9 @@
   top: 0;
   position: sticky;
   z-index: 3;
+}
+
+.radar {
+  width: 100%;
+  background: #272727;
 }
