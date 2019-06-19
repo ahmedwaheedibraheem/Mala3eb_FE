@@ -7,9 +7,6 @@ import {
     Route,
     Switch,
 } from 'react-router-dom';
-// import commentImg from '../../assets/commentImg.png';
-// import RateView from '../Rate/rate';
-
 
 class Contactus extends Component {
 
@@ -42,22 +39,18 @@ class Contactus extends Component {
                                     <i className={`fa fa-phone ${classess.phone} text-white`}></i>
                                     <h6>Phone</h6>
                                     <p>Vestibulum rutrum quam vitae fringilla tincid.<br></br>Vestibulum rutrum quam vitae fringilla tincid.<br></br>Vestibulum rutrum quam vitae fringilla tincid.</p>
-                                    {/* <button type="button" className="btn btn-link">Learn More <i className="fa fa-angle-right fa-lg"></i></button> */}
-
                                 </div>
                                 <div className="col-sm">
 
                                     <i className={`fas fa-envelope ${classess.Email} text-white`}></i>
                                     <h6>Email</h6>
                                     <p>Cras quis commodo,aliquam lectus sed.<br></br>Cras quis commodo,aliquam lectus sed.<br></br>Cras quis commodo,aliquam lectus sed.</p>
-                                    {/* <button type="button" className="btn btn-link">Learn More <i className="fa fa-angle-right fa-lg"></i></button> */}
                                 </div>
                                 <div className="col-sm">
 
                                     <i className={`fas fa-map-marker-alt ${classess.Address} text-white`}></i>
                                     <h6>Address</h6>
                                     <p>Fusce vehicula dolor arcu,sit amet blandit dolor.<br></br>Fusce vehicula dolor arcu,sit amet blandit dolor<br></br>Fusce vehicula dolor arcu,sit amet blandit dolor</p>
-                                    {/* <button type="button" className="btn btn-link">Learn More <i className="fa fa-angle-right fa-lg"></i></button> */}
                                 </div>
                                 {/*social media  */}
                             </div>

@@ -32,14 +32,10 @@ class Mainpage extends Component {
                         <div className={Classes.bgimg}>
                             <div className={Classes.overlay}>
                                 <div className={Classes.pageHeader}>
-                                   
-                                      <Link to="/main"><h3>{this.state.Pageaddress}</h3></Link>
-                                
+                                    <Link to="/main"><h3>{this.state.Pageaddress}</h3></Link>
                                     <div>
-                                     
-                                            <Link to="/aboutus" className={Classes.pagelink}> من نحن</Link>
-                                            <Link to="/contactus" className={Classes.pagelink}>تواصل معنا</Link>
-                                
+                                        <Link to="/aboutus" className={Classes.pagelink}> من نحن</Link>
+                                        <Link to="/contactus" className={Classes.pagelink}>تواصل معنا</Link>
                                     </div>
                                 </div>
                                 <div className={Classes.pageBody}>
@@ -50,21 +46,16 @@ class Mainpage extends Component {
                                         <button onClick={() => { this.onRegisterHandler() }} type="button" className={`${Classes.newcont} btn btn-outline-secondary`}>حساب جديد</button>
                                     </div>
                                 </div>
-                                    {/* <Footer></Footer> */}
+                                {/* <Footer></Footer> */}
                                 <div className={Classes.pageFooter}>
-                                  
                                     <Link to=""><i className="fab fa-facebook-square"></i></Link>
-                                    <Link><i className="fab fa-twitter"></i></Link>
-                                    <Link><i className="fab fa-instagram"></i></Link>
-                                  
-                                   
+                                    <Link to=""><i className="fab fa-twitter"></i></Link>
+                                    <Link to=""><i className="fab fa-instagram"></i></Link>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         );
     }

@@ -19,7 +19,6 @@ const routes = (
     <Route path="/login" component={Login} />
     <Route path="/pitch/:pitchId" component={PitchProfile} />
     <Route path="/register" component={Register} />
-    {/* <Route path="/profile" component={Profile} /> */}
     <Route path="/profile/:playerId" component={Profile} />
     <Route path="/trophies/:id" component={Mytrophies} />
     <Route path="/createplayer" component={CreatePlayer} />
