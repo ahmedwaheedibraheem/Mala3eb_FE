@@ -8,3 +8,12 @@
 th {
   vertical-align: middle;
 }
+
+.backG {
+  background: url(../../Assets/bg-blurred.jpg) no-repeat center center fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 2rem;
+}

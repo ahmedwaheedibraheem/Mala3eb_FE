@@ -4,30 +4,45 @@ import * as classes from './mytrophy.module.css';
 const Mytrophy = (props) => {
 
   let highlight = {
-    boxShadow: "rgb(43, 187, 43) 0px 0px 20px 0px"
+    boxShadow: "rgb(41, 217, 255) 0px 0px 40px 10px",
+    opacity: " 0.8",
+    background: "rgb(44, 43, 43)",
+
   }
 
   return (
-    <tbody
+    <div
       style={localStorage.getItem('id') === props.id ? highlight : null}
-      align='middle'
+      // align='middle'
       id={props.id}
-      className={classes.separator}>
-      <tr className={classes.firstRow}>
-        <td className='rowspan' rowSpan="4" style={{ borderTop: 'none' }}>
-          <div className={classes.imageContainer} >
-            <img className={classes.imageUrl} src={props.imageUrl} alt="" />
-          </div>
-        </td>
-        <td style={{ borderTop: 'none' }}><h4 className={classes.name} >{props.name}</h4> </td>
-      </tr>
-      <tr>
-        <td className={classes.price}>{props.rank}<span className={classes.rank}> Rank </span></td>
-      </tr>
-      <tr>
-        <td className={classes.description}>{props.description}</td>
-      </tr>
-    </tbody>
+      className={classes.separator + ' row'}>
+
+
+      <div className="col-md-4">
+        <div>
+
+          <img className={classes.imageUrl} src={props.imageUrl} alt="" />
+        </div>
+
+      </div>
+
+
+
+      <div className={classes.trophycontent + " col-md-8"} >
+        <div>
+          <div ><h4 className={classes.name + " row "} >{props.name}</h4> </div>
+
+
+          <div className={classes.price}><span className={classes.rank + " row"}>  التقييم </span>{props.rank}</div>
+
+
+          <div className={classes.description + " row"} align="right" >{props.description}</div>
+
+        </div>
+      </div>
+
+
+    </div>
   )
 }
 

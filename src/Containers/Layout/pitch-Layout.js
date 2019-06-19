@@ -43,26 +43,14 @@ class PitchLayout extends Component {
                         </div>
                     </div>
                     <div className="container" className={classes.layout}>
-                        {/* <div className="row">
-                            <div className="col-lg-6">
-                                <ProfileImage
-                                    image={this.props.pitch.imgURL} name={this.props.pitch.name}
-                                />
-                            </div>
-                            <div className="col-lg-6">
-                                <Radar
-                                    labels={labels}
-                                    label='التقييم'
-                                    data={this.props.pitch.specs} />
-                            </div>
-                        </div> */}
-                       <div className="row">
-                           <CoverImage
-                           coverImage={this.props.pitch.coverImage}
-                           profileImage={this.props.pitch.imgURL}
-                           name={this.props.pitch.name}
-                           ></CoverImage>
-                       </div>
+
+                        <div className="row">
+                            <CoverImage
+                                coverImage={this.props.pitch.coverImage}
+                                profileImage={this.props.pitch.imgURL}
+                                name={this.props.pitch.name}
+                            ></CoverImage>
+                        </div>
                         <div className="row">
                             <div style={{ width: '100%' }}>
                                 <ProfileData>
