@@ -27,12 +27,11 @@ class TabsEntity extends Component {
             className="btn btn-secondary my-2 my-sm-0"
             type="submit">بحث</button>
         </form>
-        <Tabs type="border-card" activeName="1">
-          <Tabs.Pane label="تجمعات" name="2">تجمعات</Tabs.Pane>
-          <Tabs.Pane label="لاعبين" name="3">
-            {}
-          </Tabs.Pane>
-          <Tabs.Pane label="ملاعب" name="4"></Tabs.Pane>
+        <Tabs type="card" value="1">
+          <Tabs.Pane label="User" name="1">User</Tabs.Pane>
+          <Tabs.Pane label="Config" name="2">Config</Tabs.Pane>
+          <Tabs.Pane label="Role" name="3">Role</Tabs.Pane>
+          <Tabs.Pane label="Task" name="4">Task</Tabs.Pane>
         </Tabs>
       </>
     )

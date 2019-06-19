@@ -8,9 +8,9 @@ class CoverImage extends Component{
             <>
             <div className={classes.coverImage}>
             <img src={this.props.coverImage}/>
-            {/* <div className={classes.profileName}>
+            <div className={classes.profileName}>
             <h4>{this.props.name}</h4>
-            </div> */}
+            </div>
 
             <div className={classes.circleImage}>
             <img src={this.props.profileImage}/>

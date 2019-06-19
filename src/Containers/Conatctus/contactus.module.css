@@ -1,10 +1,10 @@
-.containerfluidEdit {
-    padding-right: 0px;
-    padding-left: 0px;
+.customersupport{
+    /* padding-top: 80px;
+    padding-bottom: 80px; */
+    color:#fff;
 }
 
 .bgimg{
-    /* margin-top:100px; */
     background: url(../../Assets/mainpagebg.jpg)  no-repeat center center;
     background-size: cover;
     width: 100%;
@@ -48,32 +48,47 @@
 }
 .pageBody{
     text-align: center;
-    margin-top:12%;
-    margin-bottom: 10%;
+    margin-top:10%;
+    margin-bottom: 3%;
     color:#fff;
+    font-size: 1.6rem
 }
-.parag{
-    padding-top:1%;
-    font-size: 1.3rem;
+
+
+h4{
+    margin-bottom: 50px;
 }
-.pageBtn{
-    margin-top: 3%;
+h4 span{
+    font-weight: bold;
+    }
+
+.phone,.Email,.Address{
+    font-size: 40px;
+    line-height: 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }
-.regist{
-    margin-left: 20px;
-    padding:10px 25px;
-    
+.phone{
+    background: #128f76;
 }
-.newcont{
-    padding:10px 25px;
-    color:#fff;
-    border-color: #fff;   
+.Email{
+    background: #d39717;
 }
+.Address{
+    background: #0a95e6;
+}
+h6{
+    margin-top: 20px;
+    font-size: 1.3rem
+}
+
 .pageFooter{
-text-align: center;
-}
-.pageFooter i{
-    color:#fff;
-    margin: 0px 10px;
-    font-size: 1.3rem;
-}
+    text-align: center;
+    margin-top: 50px;
+    }
+    .pageFooter i{
+        color:#fff;
+        margin: 0px 10px;
+        font-size: 1.3rem;
+    }
