@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import userReducer from './User/user-reducer';
 import playerReducer from './Player/player-reducer';
 import pitchReducer from './Pitch/pitch-reducer';
+import collectionReducer from './Collection/collection-reducer';
 
 import commentReducer from './Comment/comment-reducer';
 
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     playerReducer: playerReducer,
     pitchReducer:pitchReducer,
     commentReducer:commentReducer,
+    collectionReducer:collectionReducer
 });
 
 // React-redux devTools set-up

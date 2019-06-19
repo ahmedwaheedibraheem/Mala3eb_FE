@@ -6,7 +6,7 @@
   background: url(../../Assets/bg-blurred.jpg) no-repeat center center fixed;
   background-size: cover;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: relative;
   font-family: "Changa", sans-serif;
   padding-bottom: 2rem;
@@ -21,8 +21,50 @@
   position: sticky;
   z-index: 3;
 }
-
-.radar {
-  width: 100%;
-  background: #272727;
+.collectionheader{
+  display: flex;
+  margin-top: 60px;
+  justify-content:space-between;
+}
+.collectionname{
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #FFF;
+  padding: 20px 40px;
+  border-radius: 5px;
+  font-size: 1.6rem
+}
+.btngroup{
+  margin: 10px;
+}
+.btngroup button{
+  padding: 10px 60px;
+  font-size: 1.2rem;
+}
+.number{
+  background-color:#000;
+  color: #fff;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2;
+  border:1px solid #fff;
+}
+.commentImg img
+{
+    height: 70px;
+    border-radius: 50%;
+}
+.commentImg
+{
+    margin-left: 4rem;
+}
+.commentText{
+    width: 45rem;
+    height: 5rem;
+}
+.btncardjoin{
+  padding: 10px 15px;
+  margin-left: 10px;
 }
