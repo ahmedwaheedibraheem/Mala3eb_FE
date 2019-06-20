@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import * as PitchAPI from "../../API/pitch";
 import * as pitchActions from '../../Store/Pitch/pitch-actions';
 import Navbar from '../../Containers/Navbar/navbar';
-import Radar from '../../Components/Radar-chart/radar-chart';
 import ProfileData from '../../Components/ProfileData/ProfileData';
-import ProfileImage from '../../Components/Profile-image/profileImage';
 import * as classes from './layout.module.css';
 import SliderImages from '../../Components/Slider-Image/slider';
-import CommentList from '../Comment-List/comment-list';
-import Footer from '../../Components/Footer/footer';
 import PitchComments from '../Comments-Pitch/comments-pitch';
 import CoverImage from '../Cover-Image/cover-Image';
 import DemoApp from '../Calender/calender';

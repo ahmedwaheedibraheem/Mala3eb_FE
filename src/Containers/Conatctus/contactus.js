@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
 import * as classess from './contactus.module.css'
 import '../../Theme/bootstrap.css';
-import {
-    BrowserRouter as Router,
-    Link,
-    Route,
-    Switch,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Contactus extends Component {
 
-    constructor(props) {
-        super(props);
-    }
     state = {
         Pageaddress: "ملاعب",
     }
@@ -52,7 +44,6 @@ class Contactus extends Component {
                                     <h6>Address</h6>
                                     <p>Fusce vehicula dolor arcu,sit amet blandit dolor.<br></br>Fusce vehicula dolor arcu,sit amet blandit dolor<br></br>Fusce vehicula dolor arcu,sit amet blandit dolor</p>
                                 </div>
-                                {/*social media  */}
                             </div>
                             <div className="row no-gutters">
                                 <div className="col-sm-12">

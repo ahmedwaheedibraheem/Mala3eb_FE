@@ -1,21 +1,10 @@
 import React, { Component } from 'react';
 import * as classess from './aboutus.module.css'
 import '../../Theme/bootstrap.css';
-import {
-    BrowserRouter as Router,
-    Link,
-    Route,
-    Switch,
-} from 'react-router-dom';
-// import commentImg from '../../assets/commentImg.png';
-// import RateView from '../Rate/rate';
-
+import { Link } from 'react-router-dom';
 
 class Aboutus extends Component {
 
-    constructor(props) {
-        super(props);
-    }
     state = {
         Pageaddress: "ملاعب",
         pagedescription: "قم بتسجيل الدخول أو انشاء حساب جديد للغوص فى عالم كرة القدم الافتراضى الذى يقدمه ملاعب"
@@ -27,7 +16,6 @@ class Aboutus extends Component {
                     <div className="row no-gutters">
                         <div className={classess.bgimg}>
                             <div className={classess.overlay}>
-                                {/* header */}
                                 <div className="col-lg-12">
                                     <div className={classess.pageHeader}>
                                         <Link to="/main"><h3>{this.state.Pageaddress}</h3></Link>
@@ -37,24 +25,6 @@ class Aboutus extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                {/* body */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <div className="container">
                                     <div className={classess.backcolor}>
 
@@ -75,9 +45,6 @@ class Aboutus extends Component {
                                         </div>
                                     </div>
                                 </div>
-
-                                {/*social media  */}
-
                                 <div className="col-sm-12">
                                     <div className={classess.pageFooter}>
 
@@ -94,6 +61,5 @@ class Aboutus extends Component {
         );
     }
 }
-
 
 export default Aboutus;

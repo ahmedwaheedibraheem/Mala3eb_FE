@@ -1,6 +1,7 @@
 import React from 'react';
 import { Radar } from 'react-chartjs-2';
 import * as classes from './radar-chart.module.css';
+import { withRouter } from 'react-router-dom';
 
 const RadarComponent = (props) => {
     var values = Object.values(props.data);
@@ -42,9 +43,12 @@ const RadarComponent = (props) => {
                 <Radar data={data} />
                 <div className={classes.btndiv}>
                     <button disabled type="button" className={`${classes.csbtn} btn btn-warning `}>{props.favPosition}</button>
+                    <button
+                        onClick={() => { props.history.push(`/evaluation/${props.id}`) }}
+                        type="button" className="btn btn-danger">تقييم</button>
                 </div>
             </div>
         </div>
     );
 }
-export default RadarComponent;
+export default withRouter(RadarComponent);

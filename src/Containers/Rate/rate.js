@@ -6,7 +6,8 @@ class RateView extends Component {
   state = {}
   render() {
     return (
-      <Rate value={4} />
+      <Rate onChange={(value) => { this.setState({ value: value }) }}
+         />
     );
   }
 }
