@@ -47,5 +47,13 @@ export const deleteCollection = async (collectionId) => {
 
 
 
+// join collection
 
-
+export const joinCollection = async (collectionId, playerId) => {
+    let res = await axios.post(`/collection/players/${collectionId}/${playerId}`, {
+        headers: {
+            Authorization: localStorage.getItem('token')
+        }
+    })
+    return res.data;
+};

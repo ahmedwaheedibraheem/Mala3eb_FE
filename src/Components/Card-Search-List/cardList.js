@@ -7,6 +7,7 @@ import Navbar from '../../Containers/Navbar/navbar';
 const CardList = (props) => {
 
     if ((props.location.state.pitchesMatched).length > 0 || (props.location.state.playersMatched).length > 0) {
+        console.log(props)
         return (
 
             <>
@@ -66,7 +67,7 @@ const CardList = (props) => {
                     <Tabs type="card" value="1" className={classes.tabs}>
 
                         <Tabs.Pane label="لاعبين" name="1">
-                            <div className="card border-danger mb-3" style={{maxWidth:'30rem',margin:'1rem auto',padding:'2rem'}} >
+                            <div className="card border-danger mb-3" style={{ maxWidth: '30rem', margin: '1rem auto', padding: '2rem' }} >
                                 <div className="card-header"></div>
                                 <div className="card-body">
                                     <h4 className="card-title">نتائج البحث</h4>
@@ -75,7 +76,7 @@ const CardList = (props) => {
                             </div>
                         </Tabs.Pane>
                         <Tabs.Pane label="ملاعب" name="2">
-                            <div className="card border-danger mb-3" style={{maxWidth:'30rem',margin:'1rem auto',padding:'2rem'}}>
+                            <div className="card border-danger mb-3" style={{ maxWidth: '30rem', margin: '1rem auto', padding: '2rem' }}>
                                 <div className="card-header"></div>
                                 <div className="card-body">
                                     <h4 className="card-title">نتائج البحث</h4>
