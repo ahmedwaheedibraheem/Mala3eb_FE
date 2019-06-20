@@ -17,7 +17,6 @@
     border-radius: 50%;
     position: absolute;
     top: 10rem;
-    left: 46.5rem;
     background-size: cover;
     box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.5);
     border: 3px solid white;
@@ -30,7 +29,7 @@
     color: white;
     float: right;
     position: absolute;
-    left: 35rem;
+    left: 30rem;
     top: 17rem;
     font-weight: bold;
 }

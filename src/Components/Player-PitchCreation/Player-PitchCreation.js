@@ -1,60 +1,49 @@
 import React from 'react';
 import classes from './Player-PitchCreation.module.css';
 import Navbar from '../../Containers/Navbar/navbar';
+import { Layout, Card } from 'element-react';
+import { withRouter} from 'react-router-dom';
 
 const PlayerPitchCreation = props => {
-
-
-
-    return (
-        <>
-            <Navbar className="row" />
-            <div className={classes.parent} >
-                <div className=" row " >
-
-
-
-                    <div className="col-6" style={{ paddingRight: "10rem" }}>
-
-
-                        <div
-                            onClick={() => props.history.push("/createplayer")}
-                            className={classes.imageContainer}
-                            style={{ margin: "0 auto" }}>
-                            <div className={classes.creation}>
-                                <div className={classes.hovered}>
-                                    <h2>become a Player</h2>
-                                    <img
-                                        className={classes.image}
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDpGgEXHmE7098bv8XVjUgVGf8LmVBVMuredQCaLc6fT6YeQu6Mw"
-                                        alt="" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-                    <div
-                        onClick={() => props.history.push("/createpitch")}
-                        className="col-6"
-                        style={{ paddingLeft: "10rem" }}>
-                        <div className={classes.imageContainer} style={{ margin: "0 auto" }}>
-                            <img
-                                className={classes.image}
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDpGgEXHmE7098bv8XVjUgVGf8LmVBVMuredQCaLc6fT6YeQu6Mw" alt="" />
-                        </div>
-                    </div>
+  return (
+    <>
+      <Navbar className="row" />
+      <div className={classes.bgimg} >
+        <div className="container" className={classes.cards}>
+          <Layout.Row>
+            <Layout.Col span={9} offset={3}>
+              <Card bodyStyle={{ padding: 0 }} className={classes.card}>
+              <div style={{overflow:'hidden'}}>
+                <img src="data:image/jpeg;base64,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" className="image" />
+              </div>
+                <div style={{ padding: 14 }}>
+                  <a onClick={()=>{props.history.push(`/createpitch`)}} className={classes.title}>أضف ملعبك ! </a>
+                  <div className="bottom clearfix">
+                  </div>
                 </div>
-            </div>
-        </>
-    )
+              </Card>
+            </Layout.Col>
+            <Layout.Col span={9} offset={2}>
+              <Card bodyStyle={{ padding: 0 }} className={classes.card}>
+               <div style={{overflow:'hidden'}}>
+                <img src="https://cdn.soccerladuma.co.za/cms2/image_manager/uploads/News/288122/7/1518074651_bd988.jpg" className="image" />
+               </div>
+                <div style={{ padding: 14 }}>
+                  <a onClick={()=>{props.history.push(`/createplayer`)}} className={classes.title}>كن لاعب ! </a>
+                  <div className="bottom clearfix">
+                  </div>
+                </div>
+              </Card>
+            </Layout.Col>
+          </Layout.Row>
+        </div>
+      </div>
+    </>
+  )
 
 
 
 
 }
 
-export default PlayerPitchCreation;
+export default withRouter(PlayerPitchCreation);

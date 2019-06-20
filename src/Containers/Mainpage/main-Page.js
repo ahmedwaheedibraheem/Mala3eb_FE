@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
 import Classes from './main-page.module.css';
+import { Link } from 'react-router-dom';
 import '../../Theme/bootstrap.css';
 
-import {
-    BrowserRouter as Router,
-    Link,
-    Route,
-    Switch,
-} from 'react-router-dom';
-import Footer from '../../Components/Footer/footer';
 
 class Mainpage extends Component {
     state = {
