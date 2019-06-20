@@ -14,6 +14,7 @@ import CardList from '../Components/Card-Search-List/cardList';
 import PlayerPitchCreation from "../Components/Player-PitchCreation/Player-PitchCreation"
 import Contactus from "../Containers/Conatctus/contactus";
 import Aboutus from "../Containers/Aboutus/aboutus";
+import CollectionLayout from '../Containers/Layout/collection_layout';
 
 
 const routes = (
@@ -29,8 +30,7 @@ const routes = (
     <Route path="/aboutus" component={Aboutus} />
     <Route path="/contactus" component={Contactus} />
     <Route path="/searchresult" component={CardList} />
-    {/* <Route path="/collection" component={CollectionLayout} /> */}
-    <Route path="/creation" component={PlayerPitchCreation} />
+    <Route path="/collection" component={CollectionLayout} />
 
     <Route path="/" component={MainPage} />
   </Switch>
