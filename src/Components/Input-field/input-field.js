@@ -56,6 +56,13 @@ const inputField = (props) => {
         case 'pitchWidth':
             label = 'عرض الملعب (متر)';
             break;
+        case 'desc':
+            label = 'الوصف';
+            break;
+        case 'date':
+            label = 'التاريخ';
+            type = 'date';
+            break;
     };
 
     return (
@@ -63,7 +70,7 @@ const inputField = (props) => {
             className={!props.isTouched || props.isValid ? 'form-group' : 'form-group has-danger'}
             style={{ maxWidth: '550px' }}>
             <label>{label}</label>
-            {props.id === 'address' ?
+            {props.id === 'address' || props.id === 'desc' ?
                 <textarea
                     className={!props.isTouched || props.isValid ? 'form-control' : 'form-control is-invalid'}
                     id={props.id}

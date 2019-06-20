@@ -15,6 +15,7 @@ import PlayerPitchCreation from "../Components/Player-PitchCreation/Player-Pitch
 import Contactus from "../Containers/Conatctus/contactus";
 import Aboutus from "../Containers/Aboutus/aboutus";
 import Evaluation from "../Containers/Evaluation/evaluation";
+import CreateCollection from "../Containers/Create-collection/create-collection";
 
 
 const routes = (
@@ -27,12 +28,13 @@ const routes = (
     <Route path="/trophies/:id" component={Mytrophies} />
     <Route path="/createplayer" component={CreatePlayer} />
     <Route path="/createpitch" component={CreatePitch} />
+    <Route path="/createcollection" component={CreateCollection} />
     <Route path="/aboutus" component={Aboutus} />
     <Route path="/contactus" component={Contactus} />
     <Route path="/searchresult" component={CardList} />
-    <Route path="/collection" component={CollectionLayout} /> 
+    <Route path="/collection" component={CollectionLayout} />
     <Route path="/creation" component={PlayerPitchCreation} />
-    <Route path="/evaluation/:playerId" component={Evaluation}/>
+    <Route path="/evaluation/:playerId" component={Evaluation} />
 
     <Route path="/" component={MainPage} />
   </Switch>

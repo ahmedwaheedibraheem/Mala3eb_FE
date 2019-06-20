@@ -9,7 +9,8 @@ const validate = (id, value) => {
         case 'name':
             return (!validator.isEmpty(value) && value.length <= 10);
         case 'address':
-            return (!validator.isEmpty(value) && value.length <= 300);
+        case 'desc':
+            return (!validator.isEmpty(value) && value.length <= 250);
         case 'password':
             return (!validator.isEmpty(value) && value.length <= 20);
         case 'email':
@@ -27,6 +28,8 @@ const validate = (id, value) => {
             return (!isNaN(value) && value >= 0);
         case 'mobileNo':
             return (validator.isMobilePhone(value));
+        case 'date':
+            return (!validator.isEmpty(value) && new Date(value) > new Date());
         default:
             return true;
     };
