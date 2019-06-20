@@ -7,7 +7,7 @@ class CoverImage extends Component {
         return (
             <>
                 <div className={classes.coverImage}>
-                    <img alt="cover" src={this.props.coverImage} />
+                    <img alt="cover" src={this.props.coverImage} style={{ height: "100%" }} />
                     <div className={classes.profileName}>
                         <h4>{this.props.name}</h4>
                     </div>
