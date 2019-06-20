@@ -11,7 +11,6 @@ import CommentList from '../Comment-List/comment-list';
 import CoverImage from '../Cover-Image/cover-Image';
 import * as classes from './layout.module.css';
 
-
 class Playout extends Component {
 
     async componentDidMount() {
@@ -26,26 +25,12 @@ class Playout extends Component {
         if (this.props.player) {
             return (
                 <div className={classes.bgimg}>
-
                     <div className={`row no-gutters ${classes.nav}`}>
                         <div className="col-md-12 ">
                             <Navbar />
                         </div>
                     </div>
-
                     <div className="container" className={classes.layout}>
-                        {/* <div className={`row ` + classes.lightOpacity}>
-                            <div className="col-lg-6">
-                                <ProfileImage image={this.props.player.imgURL} name={this.props.player.name} />
-                            </div>
-                            <div className="col-lg-6">
-                                <Radar
-                                    labels={labels}
-                                    label='المهارات'
-                                    favPosition={this.props.player.favPosition}
-                                    data={this.props.player.skills} />
-                            </div>
-                        </div> */}
                         <div className="row">
                             <CoverImage
                                 coverImage={this.props.player.coverImage}
@@ -53,40 +38,27 @@ class Playout extends Component {
                                 name={this.props.player.name}
                             ></CoverImage>
                         </div>
-
-
                         <div className="row">
                             <div className="col-lg-6">
                                 <ProfileData>
-
                                     <ul>
                                         <li><span className="blockquote">الاسم: {this.props.player.name} </span></li>
                                         <li><span className="blockquote">العمر: {this.props.player.age} </span></li>
                                         <li><span className="blockquote">رقم الموبايل: {this.props.player.mobileNo} </span></li>
                                         <li><span className="blockquote">العنوان: {this.props.player.address} </span></li>
                                     </ul>
-
-
                                 </ProfileData>
                             </div>
-
-
-
                             <Radar
                                 labels={labels}
                                 label='المهارات'
                                 favPosition={this.props.player.favPosition}
-                                data={this.props.player.skills} />
-
-
-
-
-
+                                data={this.props.player.skills}
+                                id={this.props.player._id} />
                         </div>
                         <div className="row" style={{ marginTop: '1.5rem' }}>
                             <Trophies />
                         </div>
-
                         <div className="row">
                             <div className="card border-dark" style={{ marginTop: '1rem', width: '100%' }}>
                                 <div className="card-header" style={{
@@ -95,12 +67,11 @@ class Playout extends Component {
                                 }}>التعليقات </div>
                                 <div className="card-body">
                                     <CommentList playerId={this.props.match.params.playerId}></CommentList>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div >
+                </div>
             );
         } else
             return null;

@@ -14,7 +14,11 @@ import CardList from '../Components/Card-Search-List/cardList';
 import PlayerPitchCreation from "../Components/Player-PitchCreation/Player-PitchCreation"
 import Contactus from "../Containers/Conatctus/contactus";
 import Aboutus from "../Containers/Aboutus/aboutus";
+<<<<<<< Updated upstream
 import CollectionLayout from '../Containers/Layout/collection_layout';
+=======
+import Evaluation from "../Containers/Evaluation/evaluation";
+>>>>>>> Stashed changes
 
 
 const routes = (
@@ -30,7 +34,13 @@ const routes = (
     <Route path="/aboutus" component={Aboutus} />
     <Route path="/contactus" component={Contactus} />
     <Route path="/searchresult" component={CardList} />
+<<<<<<< Updated upstream
     <Route path="/collection" component={CollectionLayout} />
+=======
+    {/* <Route path="/collection" component={CollectionLayout} /> */}
+    <Route path="/creation" component={PlayerPitchCreation} />
+    <Route path="/evaluation/:playerId" component={Evaluation}/>
+>>>>>>> Stashed changes
 
     <Route path="/" component={MainPage} />
   </Switch>
