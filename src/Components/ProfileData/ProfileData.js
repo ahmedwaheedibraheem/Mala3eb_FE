@@ -1,7 +1,6 @@
 import React from 'react';
 import * as classes from './ProfileData.module.css';
 import '../../Theme/bootstrap.css';
-import image from '../../Assets/commentImg.png';
 
 const ProfileData = (props) => {
   return (

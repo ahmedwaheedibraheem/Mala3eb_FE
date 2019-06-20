@@ -5,7 +5,6 @@ import * as playerActions from '../../Store/Player/player-actions';
 import Navbar from '../../Containers/Navbar/navbar';
 import Radar from '../../Components/Radar-chart/radar-chart';
 import ProfileData from '../../Components/ProfileData/ProfileData';
-import ProfileImage from '../../Components/Profile-image/profileImage';
 import Trophies from '../../Components/Trophies/trophies';
 import CommentList from '../Comment-List/comment-list';
 import CoverImage from '../Cover-Image/cover-Image';
