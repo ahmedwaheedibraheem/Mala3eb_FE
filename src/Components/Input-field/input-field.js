@@ -56,7 +56,6 @@ const inputField = (props) => {
         case 'pitchWidth':
             label = 'عرض الملعب (متر)';
             break;
-
     };
 
     return (

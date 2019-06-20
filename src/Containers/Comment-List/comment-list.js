@@ -36,14 +36,12 @@ class CommentList extends Component {
     }
 
     render() {
-
         return (
             <>
                 {this.props.comments.map((comment) => {
                     return (
-                        <>
+                        <React.Fragment key={comment._id}>
                             <Comment
-                                key={comment._id}
                                 id={comment._id}
                                 commentBody={comment.commentBody}
                                 commentDate={comment.commentDate}
@@ -52,11 +50,9 @@ class CommentList extends Component {
                                 fname={comment.userFname}
                                 lname={comment.userLname}
                                 deleted={() => this.props.onDelete(comment._id, this.props.playerId)}
-
                             ></Comment>
-                        </>
+                        </React.Fragment>
                     )
-
                 })}
                 <div className="card" style={{ "textAlign": "right" }}>
                     <div className="card-body row no-gutters">
@@ -73,7 +69,6 @@ class CommentList extends Component {
             </>
         );
     }
-
 }
 const mapStateToProps = (state) => {
     return {
