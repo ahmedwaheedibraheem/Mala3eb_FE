@@ -1,36 +1,38 @@
-.parent {
+.bgimg {
   background: url(../../Assets/bg-blurred.jpg) no-repeat center center fixed;
   background-size: cover;
-  height: 100%;
   width: 100%;
+  height: 100vh;
   position: relative;
-  padding: 6rem 1rem 6.4rem;
+  font-family: "Changa", sans-serif;
+  padding-bottom: 2rem;
+}
+.cards
+{
+  padding-top: 2rem ;
+  width: 60rem;
   text-align: center;
+  margin: auto;
+  margin-left: 10rem;
 }
-
-.imageContainer {
-  width: 27rem;
-  height: 27rem;
-  padding: 3px;
-  background: white;
-  border-radius: 3px;
+.cards h5{
+  font-weight:bold;
   text-align: center;
+  font: bolder;
 }
-.image {
-  width: 100%;
-  height: 100%;
-}
-/* .creation {
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  opacity: 1;
-  color: white;
-  
-} */
+.title{
+  font-weight: bolder;
+  font-size: 18px;
 
-.hovered {
-  width: 100%;
-  height: 100%;
+}
+.title:hover{
+  cursor: pointer;
+  color: #DA2A2A;
+  transform: scale(1.5);
+  transition-duration: 2s;
+
+}
+.card img:hover{
+  transform: scale(1.5);
+  transition-duration: 2s;
 }

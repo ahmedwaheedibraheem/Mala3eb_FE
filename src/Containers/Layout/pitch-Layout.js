@@ -113,9 +113,7 @@ class PitchLayout extends Component {
                             </div>
                         </div>
                     </div>
-                    <Footer></Footer>
                 </div>
-
             );
         }
         else

@@ -16,7 +16,7 @@ class Evaluation extends Component {
                         <h4 class="card-title">قم بتقييم اللاعب :-</h4>
                         <div className="row">
                             <div className="col-md-6">
-                            <p class="card-text">
+                            <p class="card-text" className={classes.list}>
                         <ul>
                             <li>التمرير</li>
                             <li>التسديد</li>
@@ -27,7 +27,7 @@ class Evaluation extends Component {
                         </ul>
                         </p>
                             </div>
-                            <div className="col-md-6">
+                            <div className="col-md-6" className={classes.list}>
                             <p class="card-text">
                         <ul>
                             <li><RateView></RateView></li>
