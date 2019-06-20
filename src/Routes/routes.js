@@ -10,7 +10,7 @@ import Register from '../Containers/Register/register';
 import CreatePlayer from '../Containers/Create-player/create-player';
 import CreatePitch from '../Containers/Create-Pitch/createPitch';
 import CardList from '../Components/Card-Search-List/cardList';
-// import CollectionLayout from "../Containers/Layout/collection_layout";
+import CollectionLayout from "../Containers/Layout/collection_layout";
 import PlayerPitchCreation from "../Components/Player-PitchCreation/Player-PitchCreation"
 import Contactus from "../Containers/Conatctus/contactus";
 import Aboutus from "../Containers/Aboutus/aboutus";
@@ -30,7 +30,7 @@ const routes = (
     <Route path="/aboutus" component={Aboutus} />
     <Route path="/contactus" component={Contactus} />
     <Route path="/searchresult" component={CardList} />
-    {/* <Route path="/collection" component={CollectionLayout} /> */}
+    <Route path="/collection" component={CollectionLayout} /> 
     <Route path="/creation" component={PlayerPitchCreation} />
     <Route path="/evaluation/:playerId" component={Evaluation}/>
 
