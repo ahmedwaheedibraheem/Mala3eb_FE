@@ -16,6 +16,7 @@ import Contactus from "../Containers/Conatctus/contactus";
 import Aboutus from "../Containers/Aboutus/aboutus";
 import Evaluation from "../Containers/Evaluation/evaluation";
 import CreateCollection from "../Containers/Create-collection/create-collection";
+import EntitiesPage from '../Containers/Entities-page/entities-page';
 
 
 const routes = (
@@ -35,6 +36,7 @@ const routes = (
     <Route path="/collection" component={CollectionLayout} />
     <Route path="/creation" component={PlayerPitchCreation} />
     <Route path="/evaluation/:playerId" component={Evaluation} />
+    <Route path="/entitiespage" component={EntitiesPage} />
 
     <Route path="/" component={MainPage} />
   </Switch>
