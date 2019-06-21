@@ -59,6 +59,7 @@ class Login extends Component {
             const response = await UserAPI.login(credentials)
             // Setting the token in the local storage
             localStorage.setItem('token', response.token);
+            localStorage.setItem('playerId', response.user.playerId);
             // Setting user app
             this.props.setAppUser(response.user);
 
