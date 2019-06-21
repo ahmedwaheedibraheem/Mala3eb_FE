@@ -178,7 +178,6 @@ class CreatePitch extends Component {
             });
             // Sending request
             const response = await pitchAPI.addPitch(pitchObj);
-            console.log(response);
             // Updating app user
             this.props.setAppUser(response.user);
             // ROUTING EXPECTED HERE!!!!!

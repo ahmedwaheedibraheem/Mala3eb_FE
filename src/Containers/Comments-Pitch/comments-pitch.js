@@ -15,7 +15,6 @@ class PitchComments extends Component {
 
     onAddHandler = (e) => {
         e.preventDefault();
-        console.log(this.props);
         const { commentBody: { value: commentBody } } = e.target.elements;
         let comment = {
             userId: this.props.user._id,
@@ -49,11 +48,9 @@ class PitchComments extends Component {
                                 fname={comment.userFname}
                                 lname={comment.userLname}
                                 deleted={() => this.props.onDelete(comment._id, this.props.pitchId)}
-
                             ></Comment>
                         </>
                     )
-
                 })}
                 <div className="card" style={{ "textAlign": "right" }}>
                     <div className="card-body row no-gutters">

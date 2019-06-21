@@ -25,7 +25,7 @@ export default class DemoApp extends React.Component {
   render() {
     return (
       <div className="demo-app">
-        
+
         <div className="demo-app-calendar">
           <FullCalendar
             defaultView="dayGridMonth"
@@ -71,6 +71,5 @@ export default class DemoApp extends React.Component {
         })
       });
     }
-    console.log(arg)
   };
 }

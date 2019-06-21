@@ -29,7 +29,6 @@ export const getOneCollection = async (id) => {
             Authorization: localStorage.getItem('token')
         }
     })
-    console.log(res);
     return res.data;
 };
 

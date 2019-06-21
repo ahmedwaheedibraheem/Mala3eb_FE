@@ -33,7 +33,6 @@ class createCollection extends Component {
     // onChangeHandler
     onChangeHandler = (id, value) => {
         // Copying the state
-        console.log(value);
         const obj = {};
         for (let key in this.state) {
             obj[key] = { ...this.state[key] }
@@ -72,7 +71,6 @@ class createCollection extends Component {
             this.props.setAppUser(response.user);
             // this.props.history.push(`/creation`);
         } catch (error) {
-            console.log(error)
             // there shall be real error handling here later ...
         }
     };
