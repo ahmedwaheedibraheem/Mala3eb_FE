@@ -18,6 +18,7 @@ import Evaluation from "../Containers/Evaluation/evaluation";
 import CreateCollection from "../Containers/Create-collection/create-collection";
 import EntitiesPage from '../Containers/Entities-page/entities-page';
 import NotFound from '../Components/Not-Found/notFound';
+import PitchList from '../Containers/Pitches-Listing/pitchlist';
 
 
 const routes = (
@@ -38,9 +39,8 @@ const routes = (
     <Route path="/creation" component={PlayerPitchCreation} />
     <Route path="/evaluation/:playerId" component={Evaluation} />
     <Route path="/entitiespage" component={EntitiesPage} />
+    <Route path="/pitchlist" component={PitchList} />
     <Route path="/notfound" component={NotFound} />
-
-
     <Route path="/" component={MainPage} />
   </Switch>
 );

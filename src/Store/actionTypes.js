@@ -1,6 +1,14 @@
+// user actions
 export const SET_USER = 'SET_USER';
+
+//player actions
 export const SET_PLAYER = 'SET_PLAYER';
+
+//pitch actions
 export const SET_PITCH = 'SET_PITCH';
+export const SET_PITCHES = 'SET_PITCHES';
+
+//collection actions
 export const SET_COLLECTION = 'SET_COLLECTION';
 
 // comment actions

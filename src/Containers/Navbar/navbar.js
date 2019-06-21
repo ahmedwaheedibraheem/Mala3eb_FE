@@ -47,7 +47,10 @@ class Navbar extends Component {
                         <NavLink exact className="nav-link" to="/entitiespage">الكيانات</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink exact className="nav-link" to="/creation">جديد</NavLink>
+                        <NavLink exact className="nav-link" to="/createpitch">ملعب جديد</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink exact style={{color:"red"}} className="nav-link" to="/pitchlist">احجز ملعبك</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink exact className="nav-link" to="/aboutus">تعرف علينا</NavLink>
