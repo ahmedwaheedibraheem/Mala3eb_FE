@@ -62,11 +62,32 @@ class Login extends Component {
             localStorage.setItem('playerId', response.user.playerId);
             // Setting user app
             this.props.setAppUser(response.user);
+
+            if (response.user.playerId && response.user.pitchId.length === 0) {
+                this.props.history.push(`/profile/${response.user.playerId}`);
+            }
+            else if (response.user.pitchId.length > 0) {
+                this.props.history.push(`/entitiespage`);
+                /// route to the entites page
+            }
+            else {
+                this.props.history.push(`/creation`);
+            }
             // There shall be redirect here later ...
-            this.props.history.push(`/profile/${response.user.playerId}`);
         } catch (error) {
-            console.log(error)
             // there shall be real error handling here later ...
+            this.setState({
+                email: {
+                    value: '',
+                    isValid: false,
+                    isTouched: true
+                },
+                password: {
+                    value: '',
+                    isValid: false,
+                    isTouched: true
+                }
+            })
         }
     };
 

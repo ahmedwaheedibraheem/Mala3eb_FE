@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { withRouter} from 'react-router';
-// import Dropdown from '../../Components/Drop-down/dropdown';
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import * as userActions from '../../Store/User/user-actions';
 import * as SearchAPI from '../../API/search';
 
 class Navbar extends Component {
@@ -13,7 +15,50 @@ class Navbar extends Component {
         this.props.history.push(`/searchresult`, result);
     }
 
+    logoutHandler = () => {
+        localStorage.removeItem('token');
+        this.props.setAppUser(null);
+        this.props.history.push('/');
+    }
+
     render() {
+        // no user
+        let links = <div className="collapse navbar-collapse" id="navbarColor02">
+            <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                    <NavLink exact className="nav-link" to="/aboutus">تعرف علينا</NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink exact className="nav-link" to="/contactus">تواصل معنا</NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink exact className="nav-link" to="/login">تسجيل الدخول</NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink exact className="nav-link" to="/register">إنشاء حساب جديد</NavLink>
+                </li>
+            </ul>
+        </div>
+        // user logged in
+        if (this.props.user) {
+            links = <div className="collapse navbar-collapse" id="navbarColor02">
+                <ul className="navbar-nav mr-auto">
+                    <li className="nav-item">
+                        <NavLink exact className="nav-link" to="/entitiespage">الكيانات</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink exact className="nav-link" to="/creation">جديد</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink exact className="nav-link" to="/aboutus">تعرف علينا</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink exact className="nav-link" to="/contactus">تواصل معنا</NavLink>
+                    </li>
+                </ul>
+                <button type="button" className="btn btn-link" onClick={this.logoutHandler}>تسجيل الخروج</button>
+            </div>
+        }
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a className="navbar-brand" href="#">ملاعب</a>
@@ -21,24 +66,6 @@ class Navbar extends Component {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarColor02">
-                    {/* <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
-                            <a className="nav-link" href="#"><i className="fas fa-bell"></i> <span className="sr-only">(current)</span></a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#"><i className="far fa-comment"></i></a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#"><i className="fas fa-user-alt"></i></a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#"><i className="far fa-heart"></i></a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#"><i className="far fa-plus-square">
-                            </i></a>
-                        </li>
-                    </ul> */}
                     <form className="form-inline my-2 my-lg-0">
                         <input onChange={(event) => { this.setState({ searchKey: event.target.value }) }}
                             className="form-control mr-sm-2"
@@ -50,9 +77,24 @@ class Navbar extends Component {
                             type="submit">بحث</button>
                     </form>
                 </div>
+                {links}
             </nav>
         );
     }
 }
 
-export default withRouter(Navbar);
+// Map state to props
+const mapStateToProps = state => {
+    return {
+        user: state.userReducer.user
+    }
+};
+
+// mapActionsToProps
+const mapActionsToProps = (dispatch) => {
+    return {
+        setAppUser: (user) => dispatch(userActions.setAppUser(user))
+    };
+};
+
+export default connect(mapStateToProps, mapActionsToProps)(withRouter(Navbar));

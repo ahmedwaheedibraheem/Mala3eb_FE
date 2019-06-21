@@ -10,12 +10,6 @@ import PitchComments from '../Comments-Pitch/comments-pitch';
 import CoverImage from '../Cover-Image/cover-Image';
 import DemoApp from '../Calender/calender';
 
-
-
-
-
-
-
 class PitchLayout extends Component {
 
     async componentDidMount() {

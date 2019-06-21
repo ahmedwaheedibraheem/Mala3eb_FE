@@ -176,12 +176,12 @@ class CreatePitch extends Component {
             Object.keys(this.state.pitchSpecifications).forEach(key => {
                 pitchObj[key] = this.state.pitchSpecifications[key];
             });
-            console.log(pitchObj);
             // Sending request
             const response = await pitchAPI.addPitch(pitchObj);
             // Updating app user
             this.props.setAppUser(response.user);
             // ROUTING EXPECTED HERE!!!!!
+            this.props.history.push(`/pitch/${response.addedPitch._id}`);
         } catch (error) {
             console.log(error);
         }

@@ -10,12 +10,14 @@ import Register from '../Containers/Register/register';
 import CreatePlayer from '../Containers/Create-player/create-player';
 import CreatePitch from '../Containers/Create-Pitch/createPitch';
 import CardList from '../Components/Card-Search-List/cardList';
-// import CollectionLayout from "../Containers/Layout/collection_layout";
 import PlayerPitchCreation from "../Components/Player-PitchCreation/Player-PitchCreation"
 import Contactus from "../Containers/Conatctus/contactus";
 import Aboutus from "../Containers/Aboutus/aboutus";
 import Evaluation from "../Containers/Evaluation/evaluation";
 import CollectionLayout from "../Containers/Layout/collection_layout"
+import CreateCollection from "../Containers/Create-collection/create-collection";
+import EntitiesPage from '../Containers/Entities-page/entities-page';
+import NotFound from '../Components/Not-Found/notFound';
 
 
 const routes = (
@@ -28,12 +30,16 @@ const routes = (
     <Route path="/trophies/:id" component={Mytrophies} />
     <Route path="/createplayer" component={CreatePlayer} />
     <Route path="/createpitch" component={CreatePitch} />
+    <Route path="/createcollection" component={CreateCollection} />
     <Route path="/aboutus" component={Aboutus} />
     <Route path="/contactus" component={Contactus} />
     <Route path="/searchresult" component={CardList} />
     <Route path="/collection" component={CollectionLayout} />
     <Route path="/creation" component={PlayerPitchCreation} />
     <Route path="/evaluation/:playerId" component={Evaluation} />
+    <Route path="/entitiespage" component={EntitiesPage} />
+    <Route path="/notfound" component={NotFound} />
+
 
     <Route path="/" component={MainPage} />
   </Switch>

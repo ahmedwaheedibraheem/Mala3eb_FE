@@ -10,10 +10,8 @@
 .cards
 {
   padding-top: 2rem ;
-  width: 60rem;
   text-align: center;
   margin: auto;
-  margin-left: 10rem;
 }
 .cards h5{
   font-weight:bold;
@@ -35,4 +33,7 @@
 .card img:hover{
   transform: scale(1.5);
   transition-duration: 2s;
+}
+.card img{
+  height: 25rem;
 }

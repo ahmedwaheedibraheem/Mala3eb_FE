@@ -158,7 +158,8 @@ class CreatePlayer extends Component {
             // Sending request
             const response = await playerAPI.createPlayer(playerObj);
             // Updating app user
-            this.props.setAppUser(response.user)
+            this.props.setAppUser(response.user);
+            //routed to the recently created pitch
             this.props.history.push(`/profile/${response.user.playerId}`);
         } catch (error) {
             console.log(error);

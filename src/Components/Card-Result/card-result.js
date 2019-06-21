@@ -9,7 +9,7 @@ const CardItem = (props) => {
             <div className="card" style={{ "textAlign": "right" , marginBlockStart:'1rem' }}>
                 <div className="card-body row no-gutters">
                     <div className={classes.commentImg}>
-                        <img src={props.image}></img>
+                        <img alt="img" src={props.image}></img>
                     </div>
                     <div className="col md-9">
                         <h5 className="card-title">{props.name}</h5>

@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
+import * as collectionAPI from '../../API/collection';
 import InputField from '../../Components/Input-field/input-field';
 import validate from '../../Utilities/validation'
-import * as userAPI from '../../API/user';
 import * as userActions from '../../Store/User/user-actions';
 import { connect } from 'react-redux';
-import '../../Theme/bootstrap.css'
+import '../../Theme/bootstrap.css';
 
-class Register extends Component {
+class createCollection extends Component {
     state = {
-        firstname: {
+        name: {
             value: '',
             isValid: false,
             isTouched: false
         },
-        lastname: {
+        desc: {
             value: '',
             isValid: false,
             isTouched: false
         },
-        password: {
+        date: {
             value: '',
             isValid: false,
             isTouched: false
         },
-        email: {
+        address: {
             value: '',
             isValid: false,
             isTouched: false
@@ -61,41 +61,17 @@ class Register extends Component {
     onSubmitHandler = async () => {
         try {
             // Getting user object
-            let user = {};
+            let collection = {};
             for (let key in this.state) {
-                user[key] = this.state[key].value;
+                collection[key] = this.state[key].value;
             };
             // Registering
-            const response = await userAPI.register(user);
-            // Setting the token in the local storage
-            localStorage.setItem('token', response.token);
+            const response = await collectionAPI.createCollection(collection);
             // Setting user app
             this.props.setAppUser(response.user);
-            this.props.history.push(`/creation`);
+            // this.props.history.push(`/creation`);
         } catch (error) {
             // there shall be real error handling here later ...
-            this.setState({
-                firstname: {
-                    value: '',
-                    isValid: false,
-                    isTouched: true
-                },
-                lastname: {
-                    value: '',
-                    isValid: false,
-                    isTouched: true
-                },
-                password: {
-                    value: '',
-                    isValid: false,
-                    isTouched: true
-                },
-                email: {
-                    value: '',
-                    isValid: false,
-                    isTouched: true
-                }
-            })
         }
     };
 
@@ -117,7 +93,7 @@ class Register extends Component {
                 paddingTop: '1.5rem'
             }}>
                 <fieldset>
-                    <legend>مستخدم جديد</legend>
+                    <legend>تجمع جديد</legend>
                     <hr className='my-4' />
                     {
                         stateKeys.map(key => <InputField
@@ -151,4 +127,4 @@ const mapActionsToProps = (dispatch) => {
     };
 };
 
-export default connect(null, mapActionsToProps)(Register);
+export default connect(null, mapActionsToProps)(createCollection);
