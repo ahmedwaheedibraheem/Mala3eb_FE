@@ -10,7 +10,7 @@ const mapping = (props) => {
             <>
                 <Link
                     to={`/${component}/${entity._id}`}>
-                    {entity.name || (entity.firstname + ' ' + entity.lastname)}
+                    {entity.name}
                 </Link>
                 <br />
             </>)
