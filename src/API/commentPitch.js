@@ -13,43 +13,40 @@ export const getComments = async (id) => {
 
 //DELETE COMMENT
 
-export const deleteComment =  (commentId,id)=>{
-    return dispatch=>{
-         axios.delete(`/comments/pitch/${commentId}/${id}`,{
-            headers:{
-                Authorization:localStorage.getItem('token')
+export const deleteComment = (commentId, id) => {
+    return dispatch => {
+        axios.delete(`/comments/pitch/${commentId}/${id}`, {
+            headers: {
+                Authorization: localStorage.getItem('token')
             }
-        }).then(res=>{
-            dispatch(actionCreators.deleteComment(commentId,id))
+        }).then(res => {
+            dispatch(actionCreators.deleteComment(commentId, id))
         })
-    
     }
-  
 };
 
 //ADD COMMENT
 
-export const addComment = (id,comment)=>{
-    return dispatch=>{
-        axios.post(`/comments/pitch/${id}`,comment,{
-        headers:{
-            Authorization:localStorage.getItem('token')
-        }
-    }).then(res=>{
-        dispatch(actionCreators.addComment(id,res.data.commentAdded))
-    })
-    }
-}
-
-export const editComment = (id,comment)=>{
-    return dispatch=>{
-        axios.patch(`/comments/${id}`,comment,{
-            headers:{
-                Authorization:localStorage.getItem('token')
+export const addComment = (id, comment) => {
+    return dispatch => {
+        axios.post(`/comments/pitch/${id}`, comment, {
+            headers: {
+                Authorization: localStorage.getItem('token')
             }
-        }).then(res=>{
-          dispatch(actionCreators.editComment(id,res.data))
+        }).then(res => {
+            dispatch(actionCreators.addComment(id, res.data.commentAdded))
         })
     }
 }
 
+export const editComment = (id, comment) => {
+    return dispatch => {
+        axios.patch(`/comments/${id}`, comment, {
+            headers: {
+                Authorization: localStorage.getItem('token')
+            }
+        }).then(res => {
+            dispatch(actionCreators.editComment(id, res.data))
+        })
+    }
+}

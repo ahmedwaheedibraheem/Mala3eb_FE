@@ -8,15 +8,12 @@ const CardList = (props) => {
 
     if ((props.location.state.pitchesMatched).length > 0 || (props.location.state.playersMatched).length > 0) {
         return (
-
             <>
                 <Navbar></Navbar>
                 <div className={classes.bgimg}>
                     <div className="container" style={{ width: '50rem' }}>
                         <Tabs type="card" value="1" className={classes.tabs}>
-
                             <Tabs.Pane label="لاعبين" name="1">
-
                                 {props.location.state.playersMatched.map((player) => {
                                     return (
                                         <React.Fragment key={player._id}>
@@ -64,7 +61,6 @@ const CardList = (props) => {
             <div className={classes.bgimg}>
                 <div className="container" style={{ width: '50rem' }}>
                     <Tabs type="card" value="1" className={classes.tabs}>
-
                         <Tabs.Pane label="لاعبين" name="1">
                             <div className="card border-danger mb-3" style={{maxWidth:'30rem',margin:'1rem auto',padding:'2rem'}} >
                                 <div className="card-header"></div>
@@ -88,6 +84,5 @@ const CardList = (props) => {
             </div>
         </>
     )
-
 }
 export default CardList;

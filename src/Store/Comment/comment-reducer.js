@@ -41,7 +41,6 @@ const commentReducer = (state = intialState, action) => {
 
         case actionTypes.ADD_COMMENT:
             let commentsArrAfterAdded = [...state.comments];
-            console.log(action.comment)
             commentsArrAfterAdded.push(action.comment);
             return{
                 ...state,
