@@ -6,3 +6,4 @@ export const setPlayer = (player) => {
         payload: player
     }
 }
+

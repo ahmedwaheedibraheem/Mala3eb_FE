@@ -14,6 +14,10 @@ class CoverImage extends Component {
                     <div className={classes.circleImage}>
                         <img src={this.props.profileImage} />
                     </div>
+                    <div style={{ marginTop: '-3rem', marginLeft: '2rem' }}>
+                        <button type="button" class="btn btn-info" style={{ marginLeft: '1rem' }} onClick={this.props.follow}> متابعه</button>
+                    </div>
+
                 </div>
             </>
         )

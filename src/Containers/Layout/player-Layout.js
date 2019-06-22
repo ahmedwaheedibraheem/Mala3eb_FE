@@ -9,6 +9,8 @@ import Trophies from '../../Components/Trophies/trophies';
 import CommentList from '../Comment-List/comment-list';
 import CoverImage from '../Cover-Image/cover-Image';
 import * as classes from './layout.module.css';
+import CardItem from '../../Components/Card-Result/card-result';
+import CardNoRes from '../../Components/Card-NoResult/cardNoRes';
 
 class Playout extends Component {
 
@@ -17,6 +19,19 @@ class Playout extends Component {
         let playerId = this.props.match.params.playerId;
         data = await PlayerAPI.getPlayerData(playerId);
         this.props.setPlayer(data);
+    }
+
+    async componentDidUpdate(prevProps) {
+        if (this.props.match.params.playerId !== prevProps.match.params.playerId) {
+            let data;
+            let playerId = this.props.match.params.playerId;
+            data = await PlayerAPI.getPlayerData(playerId);
+            this.props.setPlayer(data);
+        }
+    }
+
+    async showProfile(id) {
+        this.props.history.push(`/profile/${id}`);
     }
 
     render() {
@@ -35,6 +50,7 @@ class Playout extends Component {
                                 coverImage={this.props.player.coverImage}
                                 profileImage={this.props.player.imgURL}
                                 name={this.props.player.name}
+                                follow={() => { PlayerAPI.followPlayer(this.props.player._id) }}
                             ></CoverImage>
                         </div>
                         <div className="row">
@@ -59,6 +75,68 @@ class Playout extends Component {
                             <Trophies />
                         </div>
                         <div className="row">
+                            <div className="col-md-6">
+                                <div className="card border-dark" style={{ marginTop: '1rem', width: '100%' }}>
+                                    <div className="card-header" style={{
+                                        backgroundColor: '#000', color: 'white', fontWeight: 'bold',
+                                        fontSize: 20, direction: 'rtl', textAlign: 'right'
+                                    }}>المتابعون </div>
+                                    {this.props.player.followers.length > 0 ?
+                                        <div className="card-body">
+                                            {this.props.player.followers.map((pl) => {
+                                                return (
+                                                    <React.Fragment key={pl._id}>
+                                                        <CardItem
+                                                            id={pl._id}
+                                                            name={pl.name}
+                                                            address={pl.address}
+                                                            mobileNo={pl.mobileNo}
+                                                            age={pl.age}
+                                                            image={pl.imgURL}
+                                                            show={() => { this.showProfile(pl._id) }}
+                                                        ></CardItem>
+                                                    </React.Fragment>
+                                                )
+                                            })}
+                                        </div> :
+                                        <div className="card-body" style={{ textAlign: "center" }}>
+                                            <CardNoRes text="لا يوجد متابعون"></CardNoRes>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div className="col-md-6">
+                                <div className="card border-dark" style={{ marginTop: '1rem', width: '100%' }}>
+                                    <div className="card-header" style={{
+                                        backgroundColor: '#000', color: 'white', fontWeight: 'bold',
+                                        fontSize: 20, direction: 'rtl', textAlign: 'right'
+                                    }}>المتابعون </div>
+                                    {this.props.player.following.length > 0 ?
+                                        <div className="card-body">
+                                            {this.props.player.following.map((pl) => {
+                                                return (
+                                                    <React.Fragment key={pl._id}>
+                                                        <CardItem
+                                                            id={pl._id}
+                                                            name={pl.name}
+                                                            address={pl.address}
+                                                            mobileNo={pl.mobileNo}
+                                                            age={pl.age}
+                                                            image={pl.imgURL}
+                                                            show={() => { this.showProfile(pl._id) }}
+                                                        ></CardItem>
+                                                    </React.Fragment>
+                                                )
+                                            })}
+                                        </div> :
+                                        <div className="card-body" style={{ textAlign: "center" }}>
+                                            <CardNoRes text="لا يوجد متابعون"></CardNoRes>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
                             <div className="card border-dark" style={{ marginTop: '1rem', width: '100%' }}>
                                 <div className="card-header" style={{
                                     backgroundColor: '#000', color: 'white', fontWeight: 'bold',
@@ -71,6 +149,7 @@ class Playout extends Component {
                         </div>
                     </div>
                 </div>
+
             );
         } else
             return null;

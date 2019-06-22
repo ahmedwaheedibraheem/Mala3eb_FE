@@ -7,6 +7,8 @@ import Mapping from '../../Components/Mapping/mapping';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../../Theme/bootstrap.css';
+import * as classes from './entities.module.css';
+import Navbar from '../Navbar/navbar';
 
 class EntitiesPage extends Component {
     state = {
@@ -66,14 +68,21 @@ class EntitiesPage extends Component {
                     data={this.state.collectionArr} />
             </div>
         }
-        return (<div className='container' style={{
+        return (
+            <>
+            <Navbar></Navbar>
+        <div className={classes.bgimg}>
+        <div className='container' style={{
             textAlign: 'right',
-            paddingTop: '1.5rem'
+            paddingTop: '1.5rem',
+            color:'white'
         }}>
             <legend>الكيانات</legend>
-            <hr className='my-4' />
+            <hr className='my-4' style={{backgroundColor:'white'}} />
             {entitiesPage}
-        </div>);
+        </div>
+        </div>
+        </>);
     };
 };
 

@@ -29,3 +29,13 @@ export const createPlayer = async (playerObj) => {
     });
     return (response.data);
 };
+
+// follow Player
+export const followPlayer = async (playerId , playerObj)=>{
+    let response = await axios.patch(`/player/follow/${playerId}` ,playerObj, {
+        headers: {
+            Authorization: localStorage.getItem('token')
+        }
+    });
+    return (response.data);
+}
