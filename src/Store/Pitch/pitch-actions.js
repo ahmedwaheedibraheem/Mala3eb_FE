@@ -6,3 +6,10 @@ export const setPitch = (pitch) => {
         payload: pitch
     }
 }
+
+export const setPitches = (pitches)=>{
+    return{
+        type:actionTypes.SET_PITCHES,
+        payload:pitches
+    }
+}

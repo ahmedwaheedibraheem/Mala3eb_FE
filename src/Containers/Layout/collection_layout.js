@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../../Containers/Navbar/navbar';
 import ProfileData from '../../Components/ProfileData/ProfileData';
-// import ProfileImage from '../../Components/Profile-image/profileImage';
-// import Map from '../Map/map';
 import RateView from '../../Containers/Rate/rate'
 import * as classes from './layout.module.css'
 import Player from "./collectionPlayers/collectionPlayers"
@@ -176,19 +174,7 @@ class CollectionLayout extends Component {
                                         <div style={{ fontSize: '9px' }}>متبقى</div>
                                     </div>
                                 </div>
-                            </div>
 
-                        </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <ProfileData>
-                                    <ul>
-                                        <li><span className="blockquote">الاسم: {this.props.collection.name} </span></li>
-                                        <li><span className="blockquote">الوصف: {this.props.collection.desc} </span></li>
-                                        <li><span className="blockquote">التاريخ: {this.props.collection.date} </span></li>
-                                        <li><span className="blockquote">العنوان: {this.props.collection.address} </span></li>
-                                    </ul>
-                                </ProfileData>
                             </div>
                         </div>
                         {/* joiner card */}
