@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { withRouter} from 'react-router';
-// import Dropdown from '../../Components/Drop-down/dropdown';
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import * as userActions from '../../Store/User/user-actions';
 import * as SearchAPI from '../../API/search';
 
 class Navbar extends Component {
@@ -13,7 +15,53 @@ class Navbar extends Component {
         this.props.history.push(`/searchresult`, result);
     }
 
+    logoutHandler = () => {
+        localStorage.removeItem('token');
+        this.props.setAppUser(null);
+        this.props.history.push('/');
+    }
+
     render() {
+        // no user
+        let links = <div className="collapse navbar-collapse" id="navbarColor02">
+            <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                    <NavLink exact className="nav-link" to="/aboutus">تعرف علينا</NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink exact className="nav-link" to="/contactus">تواصل معنا</NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink exact className="nav-link" to="/login">تسجيل الدخول</NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink exact className="nav-link" to="/register">إنشاء حساب جديد</NavLink>
+                </li>
+            </ul>
+        </div>
+        // user logged in
+        if (this.props.user) {
+            links = <div className="collapse navbar-collapse" id="navbarColor02">
+                <ul className="navbar-nav mr-auto">
+                    <li className="nav-item">
+                        <NavLink exact className="nav-link" to="/entitiespage">الكيانات</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink exact className="nav-link" to="/createpitch">ملعب جديد</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink exact style={{color:"red"}} className="nav-link" to="/pitchlist">احجز ملعبك</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink exact className="nav-link" to="/aboutus">تعرف علينا</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink exact className="nav-link" to="/contactus">تواصل معنا</NavLink>
+                    </li>
+                </ul>
+                <button type="button" className="btn btn-link" onClick={this.logoutHandler}>تسجيل الخروج</button>
+            </div>
+        }
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a className="navbar-brand" href="#">ملاعب</a>
@@ -32,9 +80,24 @@ class Navbar extends Component {
                             type="submit">بحث</button>
                     </form>
                 </div>
+                {links}
             </nav>
         );
     }
 }
 
-export default withRouter(Navbar);
+// Map state to props
+const mapStateToProps = state => {
+    return {
+        user: state.userReducer.user
+    }
+};
+
+// mapActionsToProps
+const mapActionsToProps = (dispatch) => {
+    return {
+        setAppUser: (user) => dispatch(userActions.setAppUser(user))
+    };
+};
+
+export default connect(mapStateToProps, mapActionsToProps)(withRouter(Navbar));

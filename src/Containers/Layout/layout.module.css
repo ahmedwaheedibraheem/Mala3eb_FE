@@ -21,50 +21,48 @@
   position: sticky;
   z-index: 3;
 }
-.collectionheader{
+.collectionheader {
   display: flex;
   margin-top: 60px;
-  justify-content:space-between;
+  justify-content: space-between;
 }
-.collectionname{
+.collectionname {
   background-color: #000;
   color: #fff;
-  border: 1px solid #FFF;
+  border: 1px solid #fff;
   padding: 20px 40px;
   border-radius: 5px;
-  font-size: 1.6rem
+  font-size: 1.6rem;
 }
-.btngroup{
+.btngroup {
   margin: 10px;
 }
-.btngroup button{
+.btngroup button {
   padding: 10px 60px;
   font-size: 1.2rem;
 }
-.number{
-  background-color:#000;
+.number {
+  background-color: #000;
   color: #fff;
   width: 80px;
   height: 80px;
   border-radius: 50%;
   text-align: center;
   line-height: 2;
-  border:1px solid #fff;
+  border: 1px solid #fff;
 }
-.commentImg img
-{
-    height: 70px;
-    border-radius: 50%;
+.commentImg img {
+  height: 70px;
+  border-radius: 50%;
 }
-.commentImg
-{
-    margin-left: 4rem;
+.commentImg {
+  margin-left: 4rem;
 }
-.commentText{
-    width: 45rem;
-    height: 5rem;
+.commentText {
+  width: 45rem;
+  height: 5rem;
 }
-.btncardjoin{
+.btncardjoin {
   padding: 10px 15px;
   margin-left: 10px;
 }

@@ -59,9 +59,12 @@ class Login extends Component {
             const response = await UserAPI.login(credentials)
             // Setting the token in the local storage
             localStorage.setItem('token', response.token);
+            localStorage.setItem('playerId', response.user.playerId);
+            localStorage.setItem('collectionIds', response.user.collectionId);
+
+
             // Setting user app
             this.props.setAppUser(response.user);
-           
 
             if (response.user.playerId && response.user.pitchId.length === 0) {
                 this.props.history.push(`/profile/${response.user.playerId}`);
@@ -75,8 +78,19 @@ class Login extends Component {
             }
             // There shall be redirect here later ...
         } catch (error) {
-            console.log(error)
             // there shall be real error handling here later ...
+            this.setState({
+                email: {
+                    value: '',
+                    isValid: false,
+                    isTouched: true
+                },
+                password: {
+                    value: '',
+                    isValid: false,
+                    isTouched: true
+                }
+            })
         }
     };
 

@@ -1,7 +1,8 @@
 import * as actionTypes from "../actionTypes";
 
 const initialState = {
-    pitch: null
+    pitch: null,
+    pitches: null
 }
 
 const pitchReducer = (state = initialState, action) => {
@@ -12,6 +13,14 @@ const pitchReducer = (state = initialState, action) => {
             };
             newState.pitch = action.payload;
             return newState;
+
+        case actionTypes.SET_PITCHES:
+            const NewState = {
+                pitches: { ...state.pitches }
+            };
+            // console.log(action.payload);
+            NewState.pitches = action.payload;
+            return NewState;
     }
     return state;
 }

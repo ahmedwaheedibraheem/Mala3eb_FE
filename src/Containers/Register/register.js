@@ -73,8 +73,29 @@ class Register extends Component {
             this.props.setAppUser(response.user);
             this.props.history.push(`/creation`);
         } catch (error) {
-            console.log(error)
             // there shall be real error handling here later ...
+            this.setState({
+                firstname: {
+                    value: '',
+                    isValid: false,
+                    isTouched: true
+                },
+                lastname: {
+                    value: '',
+                    isValid: false,
+                    isTouched: true
+                },
+                password: {
+                    value: '',
+                    isValid: false,
+                    isTouched: true
+                },
+                email: {
+                    value: '',
+                    isValid: false,
+                    isTouched: true
+                }
+            })
         }
     };
 

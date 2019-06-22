@@ -7,7 +7,7 @@ class CoverImage extends Component {
         return (
             <>
                 <div className={classes.coverImage}>
-                    <img alt="cover" src="https://www.ingenia.org.uk/getattachment/Ingenia/Issue-77/The-football-pitch-in-three-pieces/T1.jpg?lang=en-GB&width=890&height=592" style={{ height: "100%" }} />
+                    <img alt="cover" src={this.props.coverImage || "https://www.ingenia.org.uk/getattachment/Ingenia/Issue-77/The-football-pitch-in-three-pieces/T1.jpg?lang=en-GB&width=890&height=592"} style={{ height: "100%" }} />
                     <div className={classes.profileName}>
                         <h4>{this.props.name}</h4>
                     </div>
