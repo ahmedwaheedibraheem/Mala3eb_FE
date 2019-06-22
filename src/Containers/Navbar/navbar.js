@@ -47,10 +47,10 @@ class Navbar extends Component {
                         <NavLink exact className="nav-link" to="/entitiespage">الكيانات</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink exact className="nav-link" to="/createpitch">ملعب جديد</NavLink>
+                        <NavLink exact className="nav-link" to="/creation"> جديد</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink exact style={{color:"red"}} className="nav-link" to="/pitchlist">احجز ملعبك</NavLink>
+                        <NavLink exact  className="nav-link" to="/pitchlist"> احجز ملعبك</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink exact className="nav-link" to="/aboutus">تعرف علينا</NavLink>
@@ -59,7 +59,7 @@ class Navbar extends Component {
                         <NavLink exact className="nav-link" to="/contactus">تواصل معنا</NavLink>
                     </li>
                 </ul>
-                <button type="button" className="btn btn-link" onClick={this.logoutHandler}>تسجيل الخروج</button>
+                <button type="button" style={{color:"red"}} className="btn btn-link" onClick={this.logoutHandler}>تسجيل الخروج</button>
             </div>
         }
         return (
