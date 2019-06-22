@@ -32,6 +32,10 @@ const inputField = (props) => {
             label = 'الرقم المفضل';
             type = 'number';
             break;
+        case 'numberOfPlayers':
+            label = 'عدد اللاعبين';
+            type = 'number';
+            break;
         case 'favPosition':
             label = 'المركز المفضل';
             type = 'text';

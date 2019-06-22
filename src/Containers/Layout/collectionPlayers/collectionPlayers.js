@@ -10,14 +10,22 @@ const Player = (props) => {
 
                 <img className={classes.image} src={props.image} alt="Card  cap" />
             </div>
-            <div className={classes.nameContainer + " col-8"}>
+            <div className={classes.nameContainer + " col-7"}>
 
                 <span className={classes.name}>{props.name}</span>
             </div>
-            <div className='col-2' style={{ lineHeight: "80px" }}>
+            <div className='col-3' style={{ lineHeight: "80px" }}>
+                {console.log('thisis', props)}
+                <button className=" btn btn-success" style={{ padding: "5px 20px", marginLeft: '20px' }}
+                    onClick={props.show}>عرض</button>
 
-                <button className=" btn btn-success" style={{ padding: "5px 20px" }}
-                    onClick={props.clicked}>عرض</button>
+                {/* authorization for delete */}
+                {
+                    props.collectionIds.includes(props.collectionId)
+                        ? <button className=" btn btn-danger" style={{ padding: "5px 20px" }}
+                            onClick={props.delete}>حذف</button>
+                        : null
+                }
             </div>
         </div>
 

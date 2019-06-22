@@ -20,6 +20,8 @@ const validate = (id, value) => {
         case 'favNum':
         case 'age':
             return (!isNaN(value) && value >= 1 && value <= 99);
+        case 'numberOfPlayers':
+            return (!isNaN(value) && value > 0 && value << 100);
         case 'pitchLength':
             return (!isNaN(value) && value >= 100.5 && value <= 118.8);
         case 'pitchWidth':

@@ -96,3 +96,16 @@ export const showProfile = async (id) => {
     console.log(res);
     return res.data;
 };
+
+
+
+// delete a player from a collection
+
+export const deletePlayerFromCollection = async (collectionId, playerId) => {
+    let res = await axios.delete(`/collection/players/${collectionId}/${playerId}`, {
+        headers: {
+            authorization: localStorage.getItem('token')
+        }
+    })
+    return res.data;
+};
