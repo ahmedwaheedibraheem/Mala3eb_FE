@@ -1,25 +1,25 @@
 import * as collection from "../../API/collection";
+import * as user from "../../API/user"
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../../Containers/Navbar/navbar';
 import * as classes from './layout.module.css'
 import Player from "./collectionPlayers/collectionPlayers"
-
 import * as collectionActions from '../../Store/Collection/collection-actions';
-
 
 class CollectionLayout extends Component {
 
     state = {
-        players: []
+        players: [],
+        collectionIds: []
     }
 
     async componentDidMount() {
-        let collectionId = this.props.match.params.collectionId;
-        let data = await collection.getOneCollection("5d0794bc9ec57f2f143bded9");
+        let partsOfUrl = window.location.pathname.split("/")
+        let data = await collection.getOneCollection(partsOfUrl[2]);
         this.props.setCollection(data);
-
-        const x = await collection.getAllPlayersInCollection("5d0794bc9ec57f2f143bded9")
+        let collectionIds = await user.getCollectionIds()
+        const x = await collection.getAllPlayersInCollection(partsOfUrl[2])
         const arr = [];
         for (const key in x) {
             arr.push({
@@ -28,13 +28,21 @@ class CollectionLayout extends Component {
                 image: x[key].imgURL,
             })
         }
-        this.setState({ players: arr })
+        this.setState({
+            players: arr,
+            collectionIds: collectionIds
+        })
     }
 
     deleteCollectionHandler = async (colId) => {
         await collection.deleteCollection(colId)
         let _id = localStorage.getItem('playerId')
         this.props.history.push(`/profile/${_id}`)
+    }
+
+    deletePlayerHandler = async (colId, playerId) => {
+        await collection.deletePlayerFromCollection(colId, playerId)
+        window.location.reload()
     }
 
     getPlayersInCollectionHandler = async (colId) => {
@@ -57,17 +65,19 @@ class CollectionLayout extends Component {
     }
 
     render() {
-        let items = this.state.players.map(player => (
-            <React.Fragment key={player.id}>
-                <Player
-                    image={player.image}
-                    name={player.name}
-                    clicked={() => this.showProfileHandler(player.id)}
-                />
-            </React.Fragment>
-        ));
-
         if (this.props.collection) {
+            let items = this.state.players.map(player => (
+                <React.Fragment key={player.id}>
+                    <Player
+                        image={player.image}
+                        name={player.name}
+                        collectionIds={this.state.collectionIds}
+                        collectionId={this.props.collection._id}
+                        show={() => this.showProfileHandler(player.id)}
+                        delete={() => this.deletePlayerHandler(this.props.collection._id, player.id)}
+                    />
+                </React.Fragment>
+            ));
             return (
                 <div className={classes.bgimg}>
                     <div>
@@ -83,28 +93,38 @@ class CollectionLayout extends Component {
                                 <div className={classes.collectionheader}>
                                     <button className={classes.collectionname} >تجمع الكبار</button>
                                     <div className={classes.btngroup}>
-                                        <button
-                                            className="btn btn-success"
-                                            onClick={() => this.deleteCollectionHandler("5d0c1e5350fdf23ce43fc334")}
-                                        >حذف</button>
+                                        {
+                                            this.state.collectionIds.includes(this.props.collection._id)
+                                                ?
+                                                <div style={{ display: "inline-block" }}>
+                                                    <button
+                                                        className="btn btn-success"
+                                                        onClick={() => this.deleteCollectionHandler(this.props.collection._id)}
+                                                    >حذف</button>
+                                                    <button
+                                                        className="btn btn-success"
+                                                        onClick={() => this.inviteHandler()}
+                                                    >أضف لاعبين</button>
+                                                </div>
+                                                :
+                                                null
+                                        }
                                         {this.props.collection.players.includes(localStorage.getItem('playerId'))
                                             ?
                                             <button
                                                 className="btn btn-danger"
-                                                onClick={() => this.cancelJoinHandler("5d0cec76f8edae32640aa446")}
+                                                onClick={() => this.cancelJoinHandler(this.props.collection._id)}
                                             >الغاء الاشتراك</button>
                                             :
                                             <button
                                                 className="btn btn-success"
-                                                onClick={() => this.joinHandler("5d0cec76f8edae32640aa446")}
+                                                onClick={() => this.joinHandler(this.props.collection._id)}
                                             >انضم</button>}
-                                        <button
-                                            className="btn btn-success"
-                                            onClick={() => this.inviteHandler()}
-                                        >دعوة</button>
                                     </div>
                                     <div className={classes.number}>
-                                        <div style={{ color: 'red', fontSize: '26px', fontWeight: 'bold' }}>4</div>
+                                        <div style={{ color: 'red', fontSize: '26px', fontWeight: 'bold' }}>
+                                            {this.props.collection.numberOfPlayers - this.props.collection.players.length}
+                                        </div>
                                         <div style={{ fontSize: '9px' }}>متبقى</div>
                                     </div>
                                 </div>
@@ -117,7 +137,7 @@ class CollectionLayout extends Component {
                                         backgroundColor: '#000', color: 'white', fontWeight: 'bold', "textAlign": "right",
                                         fontSize: 20
                                     }}
-                                        onClick={() => this.getPlayersInCollectionHandler("5d0c1e5350fdf23ce43fc334")}
+                                        onClick={() => this.getPlayersInCollectionHandler(this.props.collection._id)}
                                     >المنضمون</div>
                                 </div>
                                 <div className="card" style={{ "textAlign": "right" }}>
@@ -125,9 +145,11 @@ class CollectionLayout extends Component {
                                         <div className={classes.commentImg}>
                                         </div>
                                         <div className="col md-9">
-                                            <h5 className="card-title"></h5>
                                             <h6 className="card-subtitle mb-2 text-muted">
-                                                {items}
+                                                {
+                                                    this.props.collection.players.length > 0
+                                                        ? items
+                                                        : <div style={{ textAlign: 'center', color: 'black', fontSize: '15px' }}> لا يوجد لاعبين بعد</div>}
                                             </h6>
                                             <span>{this.props.commentDate}</span>
                                             <p className="card-text"></p>
@@ -147,7 +169,8 @@ class CollectionLayout extends Component {
 //mapStateToProps
 const mapStateToProps = (state) => {
     return {
-        collection: state.collectionReducer.collection
+        collection: state.collectionReducer.collection,
+        // user: state.userReducer.user
     }
 }
 

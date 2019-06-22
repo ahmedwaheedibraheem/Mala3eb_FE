@@ -60,6 +60,9 @@ class Login extends Component {
             // Setting the token in the local storage
             localStorage.setItem('token', response.token);
             localStorage.setItem('playerId', response.user.playerId);
+            localStorage.setItem('collectionIds', response.user.collectionId);
+
+
             // Setting user app
             this.props.setAppUser(response.user);
 

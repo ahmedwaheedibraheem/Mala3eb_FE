@@ -27,6 +27,11 @@ class createCollection extends Component {
             value: '',
             isValid: false,
             isTouched: false
+        },
+        numberOfPlayers: {
+            value: '',
+            isValid: false,
+            isTouched: false
         }
     };
 
@@ -67,8 +72,12 @@ class createCollection extends Component {
             };
             // Registering
             const response = await collectionAPI.createCollection(collection);
+
             // Setting user app
             this.props.setAppUser(response.user);
+
+            // redirect to the collection just created
+            this.props.history.push(`collection/${response.addedCollection._id}`)
             // this.props.history.push(`/creation`);
         } catch (error) {
             // there shall be real error handling here later ...
