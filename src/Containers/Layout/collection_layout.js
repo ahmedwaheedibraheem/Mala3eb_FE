@@ -6,12 +6,16 @@ import Navbar from '../../Containers/Navbar/navbar';
 import * as classes from './layout.module.css'
 import Player from "./collectionPlayers/collectionPlayers"
 import * as collectionActions from '../../Store/Collection/collection-actions';
+// import * as userActions from '../../Store/User/user-actions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 class CollectionLayout extends Component {
 
     state = {
         players: [],
-        collectionIds: []
+        collectionIds: [],
+        // shownUser: {}
     }
 
     async componentDidMount() {
@@ -19,6 +23,10 @@ class CollectionLayout extends Component {
         let data = await collection.getOneCollection(partsOfUrl[2]);
         this.props.setCollection(data);
         let collectionIds = await user.getCollectionIds()
+
+        // let userData = await user.getUserBytoken()
+        // this.props.setUser(userData)
+
         const x = await collection.getAllPlayersInCollection(partsOfUrl[2])
         const arr = [];
         for (const key in x) {
@@ -43,25 +51,33 @@ class CollectionLayout extends Component {
     deletePlayerHandler = async (colId, playerId) => {
         await collection.deletePlayerFromCollection(colId, playerId)
         window.location.reload()
+
     }
 
     getPlayersInCollectionHandler = async (colId) => {
+        console.log("jiiiiiiiiiiiiiiiiiii");
+
         let playersInCollection = await collection.getAllPlayersInCollection(colId)
         console.log(playersInCollection);
+
     }
 
     joinHandler = async (collectionId) => {
         await collection.joinCollection(collectionId)
-        window.location.reload()
+        window.location.reload();
+
     }
 
     cancelJoinHandler = async (collectionId) => {
         await collection.cancelJoin(collectionId)
-        window.location.reload()
+        window.location.reload();
+
     }
 
     showProfileHandler = async (id) => {
-        window.location.replace(`http://localhost:3000/profile/${id}`)
+        window.location.assign(`http://localhost:3000/profile/${id}`)
+        // await user.getUserById(id)
+
     }
 
     render() {
@@ -162,7 +178,13 @@ class CollectionLayout extends Component {
                 </div>
             );
         }
-        else return <h1>page not found</h1>;
+        else return (<div style={{ paddingTop: "20rem", textAlign: "center" }}>
+            <FontAwesomeIcon style={{ fontSize: "4rem", color: "ECF0F1" }}
+                className="fa-pulse"
+                icon={faSpinner} />
+        </div>)
+
+
     }
 }
 
@@ -177,7 +199,8 @@ const mapStateToProps = (state) => {
 //mapActionsToProps
 const mapActionsToProps = (dispatch) => {
     return {
-        setCollection: (collection) => dispatch(collectionActions.setCollection(collection))
+        setCollection: (collection) => dispatch(collectionActions.setCollection(collection)),
+        // setUser: (user) => dispatch(userActions.setAppUser(user))
     }
 }
 
