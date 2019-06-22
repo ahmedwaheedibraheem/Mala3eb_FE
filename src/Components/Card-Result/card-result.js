@@ -24,8 +24,7 @@ const CardItem = (props) => {
                         </p>
                     </div>
                     <div className="commentBtns">
-                        <button onClick={() => props.history.push(`/profile/${props.id}`)} type="button" className="btn btn-success">عرض</button>
-                        <button type="button" className="btn btn-info">متابعه</button>
+                        <button onClick={props.show} type="button" className="btn btn-success">عرض</button>
                     </div>
                 </div>
             </div>

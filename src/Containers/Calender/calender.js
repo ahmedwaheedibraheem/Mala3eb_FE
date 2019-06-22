@@ -58,9 +58,9 @@ export default class DemoApp extends React.Component {
   };
 
   handleDateClick = arg => {
-    let x = window.prompt("Would you like to add an event to " + arg.dateStr + " ?");
+    let x = window.prompt("ادخل معاد حجزك واسمك؟ " + arg.dateStr + " ?");
     arg.title = x;
-    if (window.prompt("Would you like to add an event to " + arg.dateStr + " ?")) {
+    if (window.prompt("ادخل ميعاد حجزك واسمك ؟ " + arg.dateStr + " ?")) {
       this.setState({
         // add new event data
         calendarEvents: this.state.calendarEvents.concat({
