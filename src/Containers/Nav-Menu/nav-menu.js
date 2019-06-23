@@ -4,18 +4,11 @@ import { Layout } from 'element-react';
 
 class NavMeun extends Component {
 
-    onOpen() {
-
-    }
-    
-    onClose() {
-    
-    }
     render() {
         return (
             <>
-                <Layout.Col span={8} style={{direction:'rtl',textAlign:'right'}}>
-                
+                <Layout.Col span={8} style={{ direction: 'rtl', textAlign: 'right' }}>
+
                     <Menu defaultActive="2" className="el-menu-vertical-demo" onOpen={this.onOpen.bind(this)} onClose={this.onClose.bind(this)}>
                         <Menu.SubMenu index="1" title={<span>المفضله</span>}>
                             <Menu.ItemGroup title="Group One">
@@ -33,6 +26,5 @@ class NavMeun extends Component {
             </>
         )
     }
-
 }
 export default NavMeun;

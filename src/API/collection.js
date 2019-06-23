@@ -67,7 +67,6 @@ export const getAllPlayersInCollection = async (collectionId) => {
             Authorization: localStorage.getItem('token')
         }
     });
-    console.log(response)
     return response.data;
 }
 

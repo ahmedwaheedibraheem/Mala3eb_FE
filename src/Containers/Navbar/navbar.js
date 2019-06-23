@@ -12,7 +12,6 @@ class Navbar extends Component {
 
     async searchHandler(searchKey) {
         let result = await SearchAPI.search(searchKey);
-        console.log(result);
         this.props.history.push(`/searchresult`, result);
     }
 

@@ -61,7 +61,6 @@ class PitchLayout extends Component {
                             </div>
                         </div>
                         <div className="row">
-
                             <div className="card border-black" style={{ marginTop: '2.3rem' }}>
                                 <div className={classes.profileData}>
                                     <div className="card-header" style={{
@@ -69,9 +68,6 @@ class PitchLayout extends Component {
                                         fontSize: 20,direction:'rtl',textAlign:'right'
                                     }}>مواعيد الحجز</div>
                                     <div className="card-body">
-                                    
-                                    
-                                    
                                     </div>
                                 </div>
                             </div>

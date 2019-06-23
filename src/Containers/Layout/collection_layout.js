@@ -48,14 +48,12 @@ class CollectionLayout extends Component {
     async componentDidMount() {
         // get collection  and send it to store
         let partsOfUrl = window.location.pathname.split("/")
-        console.log(partsOfUrl)
         let data = await collection.getOneCollection(partsOfUrl[2]);
         let playerId = localStorage.getItem('playerId');
         if (data.players.includes(playerId)) {
             this.setState({ btnFlag: true })
         }
         this.props.setCollection(data);
-
         // get all players in the collection
         let x = await collection.getAllPlayersInCollection(partsOfUrl[2])
         const arr = [];
@@ -69,7 +67,6 @@ class CollectionLayout extends Component {
 
         // get collection ids in the player 
         let playerCollectionIds = await user.getCollectionIds()
-
         this.setState({
             collectionIds: playerCollectionIds,
             playersInCollection: arr
@@ -106,7 +103,6 @@ class CollectionLayout extends Component {
     }
 
     render() {
-
         let button = this.state.btnFlag === true ?
             <button
                 className="btn btn-danger"
