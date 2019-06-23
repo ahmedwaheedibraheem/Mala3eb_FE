@@ -1,14 +1,16 @@
 import * as actionTypes from '../actionTypes';
 
 const initialState = {
-    collection: null
+    collection: null,
+    btnFlag: true
 }
 
 const collectionReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SET_COLLECTION:
             const newState = {
-                collection: { ...state.collection }
+                collection: { ...state.collection },
+                btnFlag: false
             };
             newState.collection = action.payload;
             return newState;

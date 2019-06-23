@@ -16,7 +16,7 @@ export const login = async (loginCredentials) => {
 // get collection IDs by token
 
 export const getCollectionIds = async () => {
-    let res = await axios.get(`/user/collectionIds`, {
+    let res = await axios.get(`/user/collection/hamada`, {
         headers: {
             Authorization: localStorage.getItem('token')
         }

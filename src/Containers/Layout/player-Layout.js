@@ -77,6 +77,7 @@ class Playout extends Component {
                         <div className="row">
                             <div className="col-md-6">
                                 <div className="card border-dark" style={{ marginTop: '1rem', width: '100%' }}>
+
                                     <div className="card-header" style={{
                                         backgroundColor: '#000', color: 'white', fontWeight: 'bold',
                                         fontSize: 20, direction: 'rtl', textAlign: 'right'
