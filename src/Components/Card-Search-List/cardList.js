@@ -6,7 +6,7 @@ import Navbar from '../../Containers/Navbar/navbar';
 
 const CardList = (props) => {
 
-    if ((props.location.state.pitchesMatched).length > 0 || (props.location.state.playersMatched).length > 0) {
+    if ((props.location.state.pitchesMatched).length > 0 || (props.location.state.playersMatched).length > 0 || (props.location.state.collectionsMatched.length > 0)) {
         console.log(props)
         return (
             <>
@@ -42,6 +42,25 @@ const CardList = (props) => {
                                                 mobileNo={pitch.mobileNo}
                                                 rate={pitch.rate}
                                                 image={pitch.imgURL}>
+                                                <br />
+                                                <span style={{ fontWeight: 600, fontSize: '18px', marginLeft: '1rem', color: '#415260' }}>التقييم  :</span>{props.rate}
+                                            </CardItem>
+                                        </React.Fragment>
+                                    )
+                                })}
+                            </Tabs.Pane>
+                            <Tabs.Pane label="تجمعات" name="3">
+                                {props.location.state.collectionsMatched.map((collection) => {
+                                    return (
+                                        <React.Fragment key={collection._id}>
+                                            <CardItem
+                                                id={collection._id}
+                                                name={collection.name}
+                                                address={collection.address}
+                                                mobileNo={collection.mobileNo}
+                                                rate={collection.rate}
+                                                image={collection.imgURL}
+                                                show={() => { props.history.push(`/collection/${collection._id}`) }}>
                                                 <br />
                                                 <span style={{ fontWeight: 600, fontSize: '18px', marginLeft: '1rem', color: '#415260' }}>التقييم  :</span>{props.rate}
                                             </CardItem>
