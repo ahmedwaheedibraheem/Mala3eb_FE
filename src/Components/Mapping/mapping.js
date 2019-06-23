@@ -19,10 +19,9 @@ const mapping = (props) => {
                                 {entity.name}
                             </Link>
                         </div>
-                            {entity.name}<br />
-                            
-                        </div>
+                        {entity.name}<br />
                     </div>
+                </div>
                 <br />
             </>)
     };

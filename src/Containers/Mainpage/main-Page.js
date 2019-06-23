@@ -40,7 +40,6 @@ class Mainpage extends Component {
                                         <button onClick={() => { this.onRegisterHandler() }} type="button" className={`${Classes.newcont} btn btn-outline-secondary`}>حساب جديد</button>
                                     </div>
                                 </div>
-                                {/* <Footer></Footer> */}
                                 <div className={Classes.pageFooter}>
                                     <Link to=""><i className="fab fa-facebook-square"></i></Link>
                                     <Link to=""><i className="fab fa-twitter"></i></Link>

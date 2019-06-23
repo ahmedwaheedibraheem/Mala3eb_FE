@@ -53,8 +53,8 @@ class CreatePitch extends Component {
         },
         pitchSpecifications: {
             lights: false,
-            changeRoom: false,
-            showerRoom: false
+            ground: false,
+            fixtures: false
         }
     };
 
@@ -136,7 +136,7 @@ class CreatePitch extends Component {
             if (this.state.image.imgURL)
                 await storage.ref('images').child(this.state.image.imgFile.name).delete();
         } catch (error) {
-            return (console.log(error))
+            return (error)
         };
         // Ressetting the state
         const imgObj = {
@@ -183,7 +183,7 @@ class CreatePitch extends Component {
             // ROUTING EXPECTED HERE!!!!!
             this.props.history.push(`/pitch/${response.addedPitch._id}`);
         } catch (error) {
-            console.log(error);
+            return (error);
         }
     };
 
@@ -241,8 +241,7 @@ class CreatePitch extends Component {
                                     />)
                                 }
                             </fieldset>
-                            <button className='btn btn-success'
-                                style={{ marginLeft: '0.25rem' }}
+                            <button className='btn btn-success' style={{ marginLeft: '0.25rem' }}
                                 onClick={() => this.onSubmitHandler()}
                                 disabled={isFormValid ? false : true}
                             >إتمام التسجيل</button>
@@ -250,7 +249,6 @@ class CreatePitch extends Component {
                                 style={{ marginLeft: '0.25rem' }}
                                 onClick={this.onClearHandler}
                             >مسح البيانات</button>
-
                         </div>
                     </div>
                 </fieldset>

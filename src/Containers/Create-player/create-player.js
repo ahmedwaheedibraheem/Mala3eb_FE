@@ -7,6 +7,7 @@ import * as playerAPI from '../../API/player';
 import validate from '../../Utilities/validation';
 import storage from '../../Configurations/Firebase/firebase-config';
 import '../../Theme/bootstrap.css';
+import PlayerAPI from "../../API/player";
 
 class CreatePlayer extends Component {
     state = {
@@ -52,6 +53,54 @@ class CreatePlayer extends Component {
         }
     };
 
+    componentDidMount() {
+        if (this.props.player != null) {
+            this.setState({
+                image: {
+                    imgFile: null,
+                    uploading: false,
+                    error: false,
+                    imgURL: this.props.player.imgURL,
+                    isValid: false,
+                    isTouched: false
+                },
+
+                formData: {
+                    name: {
+                        value: this.props.player.name,
+                        isValid: true,
+                        isTouched: true
+                    },
+                    favNum: {
+                        value: this.props.player.favNum,
+                        isValid: true,
+                        isTouched: true
+                    },
+                    favPosition: {
+                        value: this.props.player.favPosition,
+                        isValid: true,
+                        isTouched: true
+                    },
+                    age: {
+                        value: this.props.player.age,
+                        isValid: true,
+                        isTouched: true
+                    },
+                    mobileNo: {
+                        value: this.props.player.mobileNo,
+                        isValid: true,
+                        isTouched: true
+                    },
+                    address: {
+                        value: this.props.player.address,
+                        isValid: true,
+                        isTouched: true
+                    }
+                }
+            })
+        }
+    }
+
     // onChangeHandler
     onChangeHandler = (id, value) => {
         // In case of an image
@@ -83,6 +132,7 @@ class CreatePlayer extends Component {
         // The button is initially disabled if no image is selected or if the selected file is invalid
         // So, no need to check therefor
         // Uploading the image
+
         storage.ref(`images/${this.state.image.imgFile.name}`)
             .put(this.state.image.imgFile)
             .on('state_changed',
@@ -123,7 +173,7 @@ class CreatePlayer extends Component {
             if (this.state.image.imgURL)
                 await storage.ref('images').child(this.state.image.imgFile.name).delete();
         } catch (error) {
-            return (console.log(error))
+            return (error)
         };
         // Ressetting the state
         const imgObj = {
@@ -162,7 +212,26 @@ class CreatePlayer extends Component {
             //routed to the recently created pitch
             this.props.history.push(`/profile/${response.user.playerId}`);
         } catch (error) {
-            console.log(error);
+            return(error);
+        }
+    };
+    // onSubmitHandler
+    onEditHandler = async () => {
+        try {
+            // The button is initially disabled if the form is invalid
+            // Extracting player data
+            const playerObj = { imgURL: this.state.image.imgURL };
+            Object.keys(this.state.formData).forEach(key => {
+                playerObj[key] = this.state.formData[key].value;
+            });
+            // Sending request
+            const response = await playerAPI.editPlayer(playerObj);
+            // Updating app user
+            //routed to the recently created pitch
+            let x = localStorage.getItem('playerId')
+            this.props.history.push(`/profile/${x}`);
+        } catch (error) {
+            return (error);
         }
     };
 
@@ -210,16 +279,24 @@ class CreatePlayer extends Component {
                                     onChangeHandler={this.onChangeHandler}
                                 />)
                             }
-                            <button className='btn btn-success'
-                                style={{ marginLeft: '0.25rem' }}
-                                onClick={() => this.onSubmitHandler()}
-                                disabled={isFormValid ? false : true}
-                            >إتمام التسجيل</button>
+                            {this.props.player
+                                ?
+                                <button className='btn btn-success'
+                                    style={{ marginLeft: '0.25rem' }}
+                                    onClick={() => this.onEditHandler()}
+                                    disabled={isFormValid ? false : true}
+                                >تحديث البيانات</button>
+                                :
+                                <button className='btn btn-success'
+                                    style={{ marginLeft: '0.25rem' }}
+                                    onClick={() => this.onSubmitHandler()}
+                                    disabled={isFormValid ? false : true}
+                                >إتمام التسجيل</button>
+                            }
                             <button className='btn btn-secondary'
                                 style={{ marginLeft: '0.25rem' }}
                                 onClick={this.onClearHandler}
                             >مسح البيانات</button>
-
                         </div>
                     </div>
                 </fieldset>
@@ -228,6 +305,11 @@ class CreatePlayer extends Component {
     }
 };
 
+const mapStateToProps = (state) => {
+    return {
+        player: state.playerReducer.player
+    }
+}
 // mapActionsToProps
 const mapActionsToProps = (dispatch) => {
     return {
@@ -235,4 +317,4 @@ const mapActionsToProps = (dispatch) => {
     };
 };
 
-export default connect(null, mapActionsToProps)(CreatePlayer);
+export default connect(mapStateToProps, mapActionsToProps)(CreatePlayer);

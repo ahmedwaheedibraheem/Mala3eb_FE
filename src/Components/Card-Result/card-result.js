@@ -6,7 +6,7 @@ import RateView from '../../Containers/Rate/rate';
 const CardItem = (props) => {
     return (
         <>
-            <div className="card" style={{ "textAlign": "right" , marginBlockStart:'1rem' }}>
+            <div className="card" style={{ "textAlign": "right", marginBlockStart: '1rem' }}>
                 <div className="card-body row no-gutters">
                     <div className={classes.commentImg}>
                         <img alt="img" src={props.image}></img>

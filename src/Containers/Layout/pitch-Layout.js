@@ -8,7 +8,6 @@ import * as classes from './layout.module.css';
 import SliderImages from '../../Components/Slider-Image/slider';
 import PitchComments from '../Comments-Pitch/comments-pitch';
 import CoverImage from '../Cover-Image/cover-Image';
-import DemoApp from '../Calender/calender';
 import PitchBooking from '../Pitch-Booking/pitchBooking';
 import BookingList from '../Bookings-List/bookingsList';
 
@@ -19,13 +18,10 @@ class PitchLayout extends Component {
         let data = await PitchAPI.getData(pitchId);
         this.props.setPitch(data);
     }
-
     render() {
-        let labels = ['الاضاءة', 'الأرضية', 'البطولات'];
         if (this.props.pitch) {
             let priceWithLights = this.props.pitch.lights ? <li><span className="blockquote">سعر الساعه (ليل):{this.props.pitch.nightRate}</span></li> : null;
             return (
-
                 <div className={classes.bgimg}>
                     <div className="container-fluied">
                         <div className="row no-gutters">
@@ -96,7 +92,6 @@ class PitchLayout extends Component {
                                      pitch={this.props.pitch}
                                      ></BookingList>
                                     </div>
-                                   
                                 </div>
                             </div>
 

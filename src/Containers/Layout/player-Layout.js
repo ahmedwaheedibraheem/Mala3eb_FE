@@ -12,6 +12,7 @@ import * as classes from './layout.module.css';
 import CardItem from '../../Components/Card-Result/card-result';
 import CardNoRes from '../../Components/Card-NoResult/cardNoRes';
 
+
 class Playout extends Component {
 
     async componentDidMount() {
@@ -28,6 +29,11 @@ class Playout extends Component {
             data = await PlayerAPI.getPlayerData(playerId);
             this.props.setPlayer(data);
         }
+        
+        }
+        
+        editPlayer(){
+         this.props.history.push('/createplayer');
     }
 
     async showProfile(id) {
@@ -35,6 +41,7 @@ class Playout extends Component {
     }
 
     render() {
+        console.log('render',this.props)
         let labels = ['التمرير', 'التسديد', 'المراوغه', 'اللياقة', 'السرعة'];
         if (this.props.player) {
             return (
@@ -55,7 +62,7 @@ class Playout extends Component {
                         </div>
                         <div className="row">
                             <div className="col-lg-6">
-                                <ProfileData>
+                                <ProfileData edit={()=>this.editPlayer()}>
                                     <ul>
                                         <li><span className="blockquote">الاسم: {this.props.player.name} </span></li>
                                         <li><span className="blockquote">العمر: {this.props.player.age} </span></li>
@@ -77,6 +84,7 @@ class Playout extends Component {
                         <div className="row">
                             <div className="col-md-6">
                                 <div className="card border-dark" style={{ marginTop: '1rem', width: '100%' }}>
+
                                     <div className="card-header" style={{
                                         backgroundColor: '#000', color: 'white', fontWeight: 'bold',
                                         fontSize: 20, direction: 'rtl', textAlign: 'right'
@@ -123,7 +131,7 @@ class Playout extends Component {
                                                             mobileNo={pl.mobileNo}
                                                             age={pl.age}
                                                             image={pl.imgURL}
-                                                            show={() => { this.showProfile(pl._id) }}
+                                                            showProfile={() => { this.showProfile(pl._id) }}
                                                         ></CardItem>
                                                     </React.Fragment>
                                                 )

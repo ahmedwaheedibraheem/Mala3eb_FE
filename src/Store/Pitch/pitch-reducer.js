@@ -18,7 +18,6 @@ const pitchReducer = (state = initialState, action) => {
             const NewState = {
                 pitches: { ...state.pitches }
             };
-            // console.log(action.payload);
             NewState.pitches = action.payload;
             return NewState;
     }

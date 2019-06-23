@@ -31,9 +31,7 @@ const RadarComponent = (props) => {
                 background: 'white',
                 paddingTop: '.5rem',
                 border: '1px solid white'
-
             }}>
-
             <div
                 style={{
                     background: "white",
