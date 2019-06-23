@@ -1,0 +1,11 @@
+.title{
+    margin-left: 1rem;
+}
+.card{
+    text-align: right;
+    border-radius: 5px;
+    border: 1.5px solid #d2cece;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+}

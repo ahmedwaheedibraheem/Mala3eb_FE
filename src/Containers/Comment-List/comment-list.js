@@ -60,7 +60,8 @@ class CommentList extends Component {
                             <img src={commentImg}></img>
                         </div>
                         <form onSubmit={this.onAddHandler}>
-                            <textarea name="commentBody" className={classes.commentText} id="text"></textarea>
+
+                        <div style={{width:'40rem'}}> <textarea name="commentBody" className={classes.commentText} id="text" style={{width:'100%'}}></textarea></div>
                             <br />
                             <button type="submit" className="btn btn-success">أضف التعليق</button>
                         </form>

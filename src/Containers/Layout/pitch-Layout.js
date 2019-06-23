@@ -9,6 +9,8 @@ import SliderImages from '../../Components/Slider-Image/slider';
 import PitchComments from '../Comments-Pitch/comments-pitch';
 import CoverImage from '../Cover-Image/cover-Image';
 import DemoApp from '../Calender/calender';
+import PitchBooking from '../Pitch-Booking/pitchBooking';
+import BookingList from '../Bookings-List/bookingsList';
 
 class PitchLayout extends Component {
 
@@ -65,14 +67,34 @@ class PitchLayout extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="card border-black" style={{ marginTop: '2.3rem' }}>
+                            <div className="card border-black" style={{ marginTop: '2.3rem',width:'100%' }}>
                                 <div className={classes.profileData}>
                                     <div className="card-header" style={{
                                         backgroundColor: '#000', color: 'white', fontWeight: 'bold',
                                         fontSize: 20,direction:'rtl',textAlign:'right'
                                     }}>مواعيد الحجز</div>
                                     <div className="card-body">
-                                        <DemoApp></DemoApp>
+                                      <PitchBooking
+                                      id ={this.props.pitch._id}
+                                      bookings={this.props.pitch.bookings}
+                                      ></PitchBooking>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="row">
+                            <div className="card border-black" style={{ marginTop: '2.3rem',width:'100%' }}>
+                                <div className={classes.profileData}>
+                                    <div className="card-header" style={{
+                                        backgroundColor: '#000', color: 'white', fontWeight: 'bold',
+                                        fontSize: 20,direction:'rtl',textAlign:'right'
+                                    }}>الحجوزات</div>
+                                    <div className="card-body" style={{ height:'20rem',overflow:'scroll'}}>
+                                     <BookingList
+                                     id={this.props.pitch._id}
+                                     pitch={this.props.pitch}
+                                     ></BookingList>
                                     </div>
                                    
                                 </div>

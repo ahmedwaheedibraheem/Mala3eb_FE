@@ -1,0 +1,11 @@
+.pitchForm{
+    text-align: right;
+}
+input{
+    width: 100%;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-radius: 5px;
+    border: 1px solid #d2cece;
+   
+}

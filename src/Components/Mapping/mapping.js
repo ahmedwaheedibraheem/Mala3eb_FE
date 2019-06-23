@@ -20,13 +20,7 @@ const mapping = (props) => {
                             </Link>
                         </div>
                             {entity.name}<br />
-                            {entity.age}<br />
-                            {entity.imgURL}<br />
-                            {entity.address}<br />
-                            {entity.favNum}<br />
-                            {entity.mobileNo}<br />
-                            {entity.desc}<br />
-                            {entity.favPosition}<br />
+                            
                         </div>
                     </div>
                 <br />

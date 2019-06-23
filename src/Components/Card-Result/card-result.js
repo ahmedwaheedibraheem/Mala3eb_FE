@@ -14,7 +14,6 @@ const CardItem = (props) => {
                     <div className="col md-9">
                         <h5 className="card-title">{props.name}</h5>
                         <h6 className="card-subtitle mb-2 text-muted">
-                            <RateView></RateView>
                         </h6>
                         <p className="card-text">
                             <span style={{ fontWeight: 600, fontSize: '18px', marginLeft: '1rem', color: '#415260' }}> العنوان  :</span>{props.address}

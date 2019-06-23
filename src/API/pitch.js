@@ -26,3 +26,24 @@ export const addPitch = async (pitchObj) => {
     });
     return response.data;
 };
+
+export const bookingPitch = async (pitchId , pitchObj)=>{
+    let response = await axios.patch(`/pitch/bookings/${pitchId}`, pitchObj , {
+        headers:{
+            Authorization:localStorage.getItem('token')
+        }
+    });
+
+    return response.data;
+}
+
+export const getBookings = async (pitchId , dateInput)=>{
+
+    let response = await axios.get(`/pitch/bookings/${pitchId}/${dateInput}`, {
+        headers:{
+            Authorization:localStorage.getItem('token')
+        }
+    });
+
+    return response.data;
+}

@@ -30,19 +30,19 @@ class Contactus extends Component {
                                 <div className="col-sm">
                                     <i className={`fa fa-phone ${classess.phone} text-white`}></i>
                                     <h6>Phone</h6>
-                                    <p>Vestibulum rutrum quam vitae fringilla tincid.<br></br>Vestibulum rutrum quam vitae fringilla tincid.<br></br>Vestibulum rutrum quam vitae fringilla tincid.</p>
+                                    <p> 01014114494 <br/></p>
                                 </div>
                                 <div className="col-sm">
 
                                     <i className={`fas fa-envelope ${classess.Email} text-white`}></i>
                                     <h6>Email</h6>
-                                    <p>Cras quis commodo,aliquam lectus sed.<br></br>Cras quis commodo,aliquam lectus sed.<br></br>Cras quis commodo,aliquam lectus sed.</p>
+                                    <p> hebahamed300@gmail.com<br/></p>
                                 </div>
                                 <div className="col-sm">
 
                                     <i className={`fas fa-map-marker-alt ${classess.Address} text-white`}></i>
                                     <h6>Address</h6>
-                                    <p>Fusce vehicula dolor arcu,sit amet blandit dolor.<br></br>Fusce vehicula dolor arcu,sit amet blandit dolor<br></br>Fusce vehicula dolor arcu,sit amet blandit dolor</p>
+                                    <p>ITI ismailia <br></br><br></br></p>
                                 </div>
                             </div>
                             <div className="row no-gutters">

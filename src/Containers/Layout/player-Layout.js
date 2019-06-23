@@ -110,7 +110,7 @@ class Playout extends Component {
                                     <div className="card-header" style={{
                                         backgroundColor: '#000', color: 'white', fontWeight: 'bold',
                                         fontSize: 20, direction: 'rtl', textAlign: 'right'
-                                    }}>المتابعون </div>
+                                    }}>المتابعين </div>
                                     {this.props.player.following.length > 0 ?
                                         <div className="card-body">
                                             {this.props.player.following.map((pl) => {

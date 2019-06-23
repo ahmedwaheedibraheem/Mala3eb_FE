@@ -31,7 +31,7 @@ class Aboutus extends Component {
                                         <div className="row no-gutters">
                                             <div className="col-sm">
                                                 <h3>Our Promise</h3>
-                                                <p>Cras quis commodo,aliquam lectus sed.<br></br>Cras quis commodo,aliquam lectus sed.</p>
+                                                <p>هذا الموقع هدفه أن يمنح للمستخدم تجربه <br></br></p>
                                             </div>
                                             <div className="col-sm">
                                                 <h3>Our Promise</h3>
