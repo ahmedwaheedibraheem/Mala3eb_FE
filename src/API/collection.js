@@ -67,6 +67,7 @@ export const getAllPlayersInCollection = async (collectionId) => {
             Authorization: localStorage.getItem('token')
         }
     });
+    console.log(response)
     return response.data;
 }
 
@@ -89,3 +90,4 @@ export const deletePlayerFromCollection = async (collectionId, playerId) => {
     })
     return res.data;
 };
+

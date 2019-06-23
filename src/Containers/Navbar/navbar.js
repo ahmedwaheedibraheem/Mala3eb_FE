@@ -12,6 +12,7 @@ class Navbar extends Component {
 
     async searchHandler(searchKey) {
         let result = await SearchAPI.search(searchKey);
+        console.log(result);
         this.props.history.push(`/searchresult`, result);
     }
 
@@ -50,7 +51,7 @@ class Navbar extends Component {
                         <NavLink exact className="nav-link" to="/creation"> جديد</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink exact  className="nav-link" to="/pitchlist"> احجز ملعبك</NavLink>
+                        <NavLink exact className="nav-link" to="/pitchlist"> احجز ملعبك</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink exact className="nav-link" to="/aboutus">تعرف علينا</NavLink>
@@ -59,7 +60,7 @@ class Navbar extends Component {
                         <NavLink exact className="nav-link" to="/contactus">تواصل معنا</NavLink>
                     </li>
                 </ul>
-                <button type="button" style={{color:"red"}} className="btn btn-link" onClick={this.logoutHandler}>تسجيل الخروج</button>
+                <button type="button" style={{ color: "red" }} className="btn btn-link" onClick={this.logoutHandler}>تسجيل الخروج</button>
             </div>
         }
         return (

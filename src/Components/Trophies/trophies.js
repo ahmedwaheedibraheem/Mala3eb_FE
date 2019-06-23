@@ -10,7 +10,7 @@ class Trophies extends Component {
             {
                 id: "0",
                 imageUrl: "https://firebasestorage.googleapis.com/v0/b/iti-task-8ceb2.appspot.com/o/column.png?alt=media&token=b58d3c76-0397-4311-bb07-b7c60842d243",
-                name: "a",
+                name: "كأس ",
                 rank: "5",
             },
             {

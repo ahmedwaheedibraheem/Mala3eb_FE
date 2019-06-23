@@ -6,20 +6,58 @@ import Navbar from '../../Containers/Navbar/navbar';
 import * as classes from './layout.module.css'
 import Player from "./collectionPlayers/collectionPlayers"
 import * as collectionActions from '../../Store/Collection/collection-actions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 class CollectionLayout extends Component {
 
     state = {
-        players: [],
-        collectionIds: []
+        playersInCollection: [],
+        collectionIds: [],
+        btnFlag: false
+    }
+
+    async componentDidUpdate(prevProps, prevState) {
+        if (prevState.btnFlag !== this.state.btnFlag) {
+            // get collection  and send it to store
+            let partsOfUrl = window.location.pathname.split("/")
+            let data = await collection.getOneCollection(partsOfUrl[2]);
+            this.props.setCollection(data);
+
+            // get all players in the collection
+            let x = await collection.getAllPlayersInCollection(partsOfUrl[2])
+            const arr = [];
+            for (const key in x) {
+                arr.push({
+                    name: x[key].name,
+                    id: x[key]._id,
+                    image: x[key].imgURL,
+                })
+            }
+
+            // get collection ids in the player 
+            let playerCollectionIds = await user.getCollectionIds()
+
+            this.setState({
+                collectionIds: playerCollectionIds,
+                playersInCollection: arr
+            })
+        }
     }
 
     async componentDidMount() {
+        // get collection  and send it to store
         let partsOfUrl = window.location.pathname.split("/")
+        console.log(partsOfUrl)
         let data = await collection.getOneCollection(partsOfUrl[2]);
+        let playerId = localStorage.getItem('playerId');
+        if (data.players.includes(playerId)) {
+            this.setState({ btnFlag: true })
+        }
         this.props.setCollection(data);
-        let collectionIds = await user.getCollectionIds()
-        const x = await collection.getAllPlayersInCollection(partsOfUrl[2])
+
+        // get all players in the collection
+        let x = await collection.getAllPlayersInCollection(partsOfUrl[2])
         const arr = [];
         for (const key in x) {
             arr.push({
@@ -28,9 +66,13 @@ class CollectionLayout extends Component {
                 image: x[key].imgURL,
             })
         }
+
+        // get collection ids in the player 
+        let playerCollectionIds = await user.getCollectionIds()
+
         this.setState({
-            players: arr,
-            collectionIds: collectionIds
+            collectionIds: playerCollectionIds,
+            playersInCollection: arr
         })
     }
 
@@ -42,30 +84,41 @@ class CollectionLayout extends Component {
 
     deletePlayerHandler = async (colId, playerId) => {
         await collection.deletePlayerFromCollection(colId, playerId)
-        window.location.reload()
-    }
-
-    getPlayersInCollectionHandler = async (colId) => {
-        let playersInCollection = await collection.getAllPlayersInCollection(colId)
     }
 
     joinHandler = async (collectionId) => {
-        await collection.joinCollection(collectionId)
-        window.location.reload()
+        await collection.joinCollection(collectionId);
+        this.props.history.push(`/collection/${collectionId}`);
+        this.setState({ btnFlag: true })
     }
 
     cancelJoinHandler = async (collectionId) => {
-        await collection.cancelJoin(collectionId)
-        window.location.reload()
+        await collection.cancelJoin(collectionId);
+        this.setState({ btnFlag: false })
+    }
+
+    inviteHandler() {
+        ///get the followers and the following listed
     }
 
     showProfileHandler = async (id) => {
-        window.location.replace(`http://localhost:3000/profile/${id}`)
+        this.props.history.push(`/profile/${id}`);
     }
 
     render() {
+
+        let button = this.state.btnFlag === true ?
+            <button
+                className="btn btn-danger"
+                onClick={() => { this.cancelJoinHandler(this.props.collection._id) }}
+            >الغاء الاشتراك</button>
+            :
+            <button
+                className="btn btn-success"
+                onClick={() => { this.joinHandler(this.props.collection._id) }}
+            >انضم</button>
         if (this.props.collection) {
-            let items = this.state.players.map(player => (
+            let items = this.state.playersInCollection.map(player => (
                 <React.Fragment key={player.id}>
                     <Player
                         image={player.image}
@@ -92,33 +145,20 @@ class CollectionLayout extends Component {
                                 <div className={classes.collectionheader}>
                                     <button className={classes.collectionname} >تجمع الكبار</button>
                                     <div className={classes.btngroup}>
-                                        {
-                                            this.state.collectionIds.includes(this.props.collection._id)
-                                                ?
-                                                <div style={{ display: "inline-block" }}>
-                                                    <button
-                                                        className="btn btn-success"
-                                                        onClick={() => this.deleteCollectionHandler(this.props.collection._id)}
-                                                    >حذف</button>
-                                                    <button
-                                                        className="btn btn-success"
-                                                        onClick={() => this.inviteHandler()}
-                                                    >أضف لاعبين</button>
-                                                </div>
-                                                :
-                                                null
+                                        {this.state.collectionIds.includes(this.props.collection._id) ?
+                                            <div style={{ display: "inline-block" }}>
+                                                <button
+                                                    className="btn btn-success"
+                                                    onClick={() => this.deleteCollectionHandler(this.props.collection._id)}
+                                                >حذف</button>
+                                                <button
+                                                    className="btn btn-success"
+                                                    onClick={() => this.inviteHandler()}
+                                                >أضف لاعبين</button>
+                                            </div>
+                                            : null
                                         }
-                                        {this.props.collection.players.includes(localStorage.getItem('playerId'))
-                                            ?
-                                            <button
-                                                className="btn btn-danger"
-                                                onClick={() => this.cancelJoinHandler(this.props.collection._id)}
-                                            >الغاء الاشتراك</button>
-                                            :
-                                            <button
-                                                className="btn btn-success"
-                                                onClick={() => this.joinHandler(this.props.collection._id)}
-                                            >انضم</button>}
+                                        {button}
                                     </div>
                                     <div className={classes.number}>
                                         <div style={{ color: 'red', fontSize: '26px', fontWeight: 'bold' }}>
@@ -136,7 +176,6 @@ class CollectionLayout extends Component {
                                         backgroundColor: '#000', color: 'white', fontWeight: 'bold', "textAlign": "right",
                                         fontSize: 20
                                     }}
-                                        onClick={() => this.getPlayersInCollectionHandler(this.props.collection._id)}
                                     >المنضمون</div>
                                 </div>
                                 <div className="card" style={{ "textAlign": "right" }}>
@@ -148,7 +187,8 @@ class CollectionLayout extends Component {
                                                 {
                                                     this.props.collection.players.length > 0
                                                         ? items
-                                                        : <div style={{ textAlign: 'center', color: 'black', fontSize: '15px' }}> لا يوجد لاعبين بعد</div>}
+                                                        : <div style={{ textAlign: 'center', color: 'black', fontSize: '15px' }}> لا يوجد لاعبين بعد</div>
+                                                }
                                             </h6>
                                             <span>{this.props.commentDate}</span>
                                             <p className="card-text"></p>
@@ -160,24 +200,30 @@ class CollectionLayout extends Component {
                     </div>
                 </div>
             );
+        } else {
+            return (
+                <div style={{ paddingTop: "20rem", textAlign: "center" }}>
+                    <FontAwesomeIcon style={{ fontSize: "4rem", color: "ECF0F1" }}
+                        className="fa-pulse"
+                        icon={faSpinner} />
+                </div>
+            )
         }
-        else return <h1>page not found</h1>;
     }
 }
+
 
 //mapStateToProps
 const mapStateToProps = (state) => {
     return {
         collection: state.collectionReducer.collection,
-        // user: state.userReducer.user
     }
 }
 
 //mapActionsToProps
 const mapActionsToProps = (dispatch) => {
     return {
-        setCollection: (collection) => dispatch(collectionActions.setCollection(collection))
+        setCollection: (collection) => dispatch(collectionActions.setCollection(collection)),
     }
 }
-
 export default connect(mapStateToProps, mapActionsToProps)(CollectionLayout);

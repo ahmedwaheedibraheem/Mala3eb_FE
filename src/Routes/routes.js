@@ -34,7 +34,7 @@ const routes = (
     <Route path="/aboutus" component={Aboutus} />
     <Route path="/contactus" component={Contactus} />
     <Route path="/searchresult" component={CardList} />
-    <Route path="/collection" component={CollectionLayout} />
+    <Route path="/collection/:collectionId" component={CollectionLayout} />
     <Route path="/creation" component={PlayerPitchCreation} />
     <Route path="/evaluation/:playerId" component={Evaluation} />
     <Route path="/entitiespage" component={EntitiesPage} />
