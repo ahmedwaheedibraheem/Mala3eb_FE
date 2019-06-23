@@ -14,7 +14,7 @@ const ProfileData = (props) => {
           <div className="card-body" style={{ paddingTop: '2rem' }}>
             {props.children}
           </div>
-          <button type="button" className="btn btn-danger" style={{ float: "left", margin: '1rem' }}>تعديل</button>
+          <button onClick={props.edit} type="button" className="btn btn-danger" style={{ float: "left", margin: '1rem' }}>تعديل</button>
         </div>
       </div>
     </>

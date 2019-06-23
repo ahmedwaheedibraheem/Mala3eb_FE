@@ -27,7 +27,6 @@ class Aboutus extends Component {
                                 </div>
                                 <div className="container">
                                     <div className={classess.backcolor}>
-
                                         <div className="row no-gutters">
                                             <div className="col-sm">
                                                 <h3>Our Promise</h3>
@@ -47,7 +46,6 @@ class Aboutus extends Component {
                                 </div>
                                 <div className="col-sm-12">
                                     <div className={classess.pageFooter}>
-
                                         <Link to=""><i className="fab fa-facebook-square"></i></Link>
                                         <Link><i className="fab fa-twitter"></i></Link>
                                         <Link><i className="fab fa-instagram"></i></Link>

@@ -70,19 +70,19 @@ class EntitiesPage extends Component {
         }
         return (
             <>
-            <Navbar></Navbar>
-        <div className={classes.bgimg}>
-        <div className='container' style={{
-            textAlign: 'right',
-            paddingTop: '1.5rem',
-            color:'white'
-        }}>
-            <legend>الكيانات</legend>
-            <hr className='my-4' style={{backgroundColor:'white'}} />
-            {entitiesPage}
-        </div>
-        </div>
-        </>);
+                <Navbar></Navbar>
+                <div className={classes.bgimg}>
+                    <div className='container' style={{
+                        textAlign: 'right',
+                        paddingTop: '1.5rem',
+                        color: 'white'
+                    }}>
+                        <legend>الكيانات</legend>
+                        <hr className='my-4' style={{ backgroundColor: 'white' }} />
+                        {entitiesPage}
+                    </div>
+                </div>
+            </>);
     };
 };
 

@@ -7,7 +7,6 @@ import Navbar from '../../Containers/Navbar/navbar';
 const CardList = (props) => {
 
     if ((props.location.state.pitchesMatched).length > 0 || (props.location.state.playersMatched).length > 0) {
-        console.log(props)
         return (
             <>
                 <Navbar></Navbar>
@@ -26,6 +25,7 @@ const CardList = (props) => {
                                                 age={player.age}
                                                 image={player.imgURL}
                                                 address={player.address}
+                                                show={() => { props.history.push(`/profile/${player._id}`) }}
                                             ></CardItem>
                                         </React.Fragment>
                                     )
@@ -41,7 +41,8 @@ const CardList = (props) => {
                                                 address={pitch.address}
                                                 mobileNo={pitch.mobileNo}
                                                 rate={pitch.rate}
-                                                image={pitch.imgURL}>
+                                                image={pitch.imgURL}
+                                                show={() => { props.history.push(`/pitch/${pitch._id}`) }}>
                                                 <br />
                                                 <span style={{ fontWeight: 600, fontSize: '18px', marginLeft: '1rem', color: '#415260' }}>التقييم  :</span>{props.rate}
                                             </CardItem>

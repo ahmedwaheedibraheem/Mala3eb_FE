@@ -78,7 +78,6 @@ class createCollection extends Component {
 
             // redirect to the collection just created
             this.props.history.push(`collection/${response.addedCollection._id}`)
-            // this.props.history.push(`/creation`);
         } catch (error) {
             // there shall be real error handling here later ...
         }

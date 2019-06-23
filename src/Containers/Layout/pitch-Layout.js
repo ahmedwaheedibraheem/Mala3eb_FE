@@ -8,7 +8,6 @@ import * as classes from './layout.module.css';
 import SliderImages from '../../Components/Slider-Image/slider';
 import PitchComments from '../Comments-Pitch/comments-pitch';
 import CoverImage from '../Cover-Image/cover-Image';
-import DemoApp from '../Calender/calender';
 
 class PitchLayout extends Component {
 
@@ -17,13 +16,10 @@ class PitchLayout extends Component {
         let data = await PitchAPI.getData(pitchId);
         this.props.setPitch(data);
     }
-
     render() {
-        let labels = ['الاضاءة', 'الأرضية', 'البطولات'];
         if (this.props.pitch) {
             let priceWithLights = this.props.pitch.lights ? <li><span className="blockquote">سعر الساعه (ليل):{this.props.pitch.nightRate}</span></li> : null;
             return (
-
                 <div className={classes.bgimg}>
                     <div className="container-fluied">
                         <div className="row no-gutters">
@@ -65,6 +61,7 @@ class PitchLayout extends Component {
                             </div>
                         </div>
                         <div className="row">
+
                             <div className="card border-black" style={{ marginTop: '2.3rem' }}>
                                 <div className={classes.profileData}>
                                     <div className="card-header" style={{
@@ -72,9 +69,10 @@ class PitchLayout extends Component {
                                         fontSize: 20,direction:'rtl',textAlign:'right'
                                     }}>مواعيد الحجز</div>
                                     <div className="card-body">
-                                        <DemoApp></DemoApp>
+                                    
+                                    
+                                    
                                     </div>
-                                   
                                 </div>
                             </div>
 

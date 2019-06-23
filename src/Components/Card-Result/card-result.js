@@ -4,10 +4,9 @@ import * as classes from './cardRes.module.css';
 import RateView from '../../Containers/Rate/rate';
 
 const CardItem = (props) => {
-    console.log(props);
     return (
         <>
-            <div className="card" style={{ "textAlign": "right" , marginBlockStart:'1rem' }}>
+            <div className="card" style={{ "textAlign": "right", marginBlockStart: '1rem' }}>
                 <div className="card-body row no-gutters">
                     <div className={classes.commentImg}>
                         <img alt="img" src={props.image}></img>

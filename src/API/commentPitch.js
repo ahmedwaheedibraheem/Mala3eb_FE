@@ -12,7 +12,6 @@ export const getComments = async (id) => {
 };
 
 //DELETE COMMENT
-
 export const deleteComment = (commentId, id) => {
     return dispatch => {
         axios.delete(`/comments/pitch/${commentId}/${id}`, {
@@ -26,7 +25,6 @@ export const deleteComment = (commentId, id) => {
 };
 
 //ADD COMMENT
-
 export const addComment = (id, comment) => {
     return dispatch => {
         axios.post(`/comments/pitch/${id}`, comment, {
@@ -39,6 +37,7 @@ export const addComment = (id, comment) => {
     }
 }
 
+//edit comment
 export const editComment = (id, comment) => {
     return dispatch => {
         axios.patch(`/comments/${id}`, comment, {

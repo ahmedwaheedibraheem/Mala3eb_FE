@@ -1,15 +1,5 @@
 import axios from '../Configurations/Axios/axios-config';
 
-// //getplayerdata (my profile)
-// export const getData = async () => {
-//     let response = await axios.get('/player/getdata', {
-//         headers: {
-//             Authorization: localStorage.getItem('token')
-//         }
-//     })
-//     return response.data;
-// }
-
 //getplayer (another profile)
 export const getPlayerData = async (id) => {
     let response = await axios.get(`/player/${id}`, {
@@ -33,6 +23,16 @@ export const createPlayer = async (playerObj) => {
 // follow Player
 export const followPlayer = async (playerId , playerObj)=>{
     let response = await axios.patch(`/player/follow/${playerId}` ,playerObj, {
+        headers: {
+            Authorization: localStorage.getItem('token')
+        }
+    });
+    return (response.data);
+}
+
+// edit Player
+export const editPlayer = async ( playerObj)=>{
+    let response = await axios.patch(`/player/data` , playerObj, {
         headers: {
             Authorization: localStorage.getItem('token')
         }

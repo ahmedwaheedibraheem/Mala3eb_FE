@@ -20,7 +20,6 @@ import EntitiesPage from '../Containers/Entities-page/entities-page';
 import NotFound from '../Components/Not-Found/notFound';
 import PitchList from '../Containers/Pitches-Listing/pitchlist';
 
-
 const routes = (
   <Switch>
     <Route path="/main" component={MainPage} />

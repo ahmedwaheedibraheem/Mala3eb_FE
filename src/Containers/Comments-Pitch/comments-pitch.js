@@ -32,7 +32,6 @@ class PitchComments extends Component {
     }
 
     render() {
-
         return (
             <>
                 {this.props.comments.map((comment) => {

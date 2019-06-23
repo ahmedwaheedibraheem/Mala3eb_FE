@@ -59,9 +59,7 @@ class Trophies extends Component {
                 clicked={() => this.detailsHandler(trophy.id)}
             />
         ));
-
         return (
-
             <div className="container">
                 <div className="row">
                     {trophies}

@@ -47,7 +47,6 @@ class CollectionLayout extends Component {
 
     getPlayersInCollectionHandler = async (colId) => {
         let playersInCollection = await collection.getAllPlayersInCollection(colId)
-        console.log(playersInCollection);
     }
 
     joinHandler = async (collectionId) => {
