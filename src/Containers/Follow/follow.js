@@ -106,6 +106,8 @@ class Follow extends Component {
                 </div>
 
             )
+        } else {
+            return null
         }
     }
 }

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import * as classes from './cover.module.css';
+import { withRouter } from 'react-router-dom';
 
 class CoverImage extends Component {
 
     render() {
+        console.log(this.props)
         return (
             <>
                 <div className={classes.coverImage}>
@@ -14,13 +16,15 @@ class CoverImage extends Component {
                     <div className={classes.circleImage}>
                         <img src={this.props.profileImage} />
                     </div>
-                    <div style={{ marginTop: '-3rem', marginLeft: '2rem' }}>
-                        <button type="button" className="btn btn-info" style={{ marginLeft: '1rem' }} onClick={this.props.follow}> متابعه</button>
-                    </div>
+                    {this.props.match.params.playerId == localStorage.getItem("playerId")
+                        ? null
+                        : <div style={{ marginTop: '-3rem', marginLeft: '2rem' }}>
+                            <button type="button" className="btn btn-info" style={{ marginLeft: '1rem' }} onClick={this.props.follow}> متابعه</button>
+                        </div>}
 
                 </div>
             </>
         )
     }
 }
-export default CoverImage;
+export default withRouter(CoverImage);
