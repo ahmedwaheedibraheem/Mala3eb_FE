@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as userActions from '../../Store/User/user-actions';
 import * as SearchAPI from '../../API/search';
+import * as playerActions from '../../Store/Player/player-actions';
+
 
 class Navbar extends Component {
     state = {
@@ -17,8 +19,17 @@ class Navbar extends Component {
 
     logoutHandler = () => {
         localStorage.removeItem('token');
-        this.props.setAppUser(null);
+        localStorage.removeItem('playerId');
         this.props.history.push('/');
+        window.location.replace('http://localhost:3000/')
+    }
+    async showProfile() {
+        let id = localStorage.getItem('playerId')
+        this.props.history.push(`/profile/${id}`);
+    }
+    async follow() {
+        // let id = localStorage.getItem('playerId')
+        this.props.history.push(`/follow`);
     }
 
     render() {
@@ -44,6 +55,12 @@ class Navbar extends Component {
             links = <div className="collapse navbar-collapse" id="navbarColor02">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
+                        <NavLink className="nav-link" onClick={() => this.showProfile()}>الصفحة الشخصية</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink exact className="nav-link" onClick={() => this.follow()}>المتابعة</NavLink>
+                    </li>
+                    <li className="nav-item">
                         <NavLink exact className="nav-link" to="/entitiespage">الكيانات</NavLink>
                     </li>
                     <li className="nav-item">
@@ -60,7 +77,7 @@ class Navbar extends Component {
                     </li>
                 </ul>
                 <button type="button" style={{ color: "red" }} className="btn btn-link" onClick={this.logoutHandler}>تسجيل الخروج</button>
-            </div>
+            </div >
         }
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -96,7 +113,9 @@ const mapStateToProps = state => {
 // mapActionsToProps
 const mapActionsToProps = (dispatch) => {
     return {
-        setAppUser: (user) => dispatch(userActions.setAppUser(user))
+        setAppUser: (user) => dispatch(userActions.setAppUser(user)),
+        setPlayer: (player) => dispatch(playerActions.setPlayer(player))
+
     };
 };
 

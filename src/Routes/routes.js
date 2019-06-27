@@ -19,6 +19,7 @@ import CreateCollection from "../Containers/Create-collection/create-collection"
 import EntitiesPage from '../Containers/Entities-page/entities-page';
 import NotFound from '../Components/Not-Found/notFound';
 import PitchList from '../Containers/Pitches-Listing/pitchlist';
+import Follow from '../Containers/Follow/follow';
 
 const routes = (
   <Switch>
@@ -40,6 +41,7 @@ const routes = (
     <Route path="/entitiespage" component={EntitiesPage} />
     <Route path="/pitchlist" component={PitchList} />
     <Route path="/notfound" component={NotFound} />
+    <Route path="/follow" component={Follow} />
     <Route path="/" component={MainPage} />
   </Switch>
 );

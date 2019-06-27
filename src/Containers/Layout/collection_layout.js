@@ -14,7 +14,7 @@ class CollectionLayout extends Component {
     state = {
         playersInCollection: [],
         collectionIds: [],
-        btnFlag: false
+        btnFlag: false,
     }
 
     async componentDidUpdate(prevProps, prevState) {
@@ -77,10 +77,15 @@ class CollectionLayout extends Component {
         await collection.deleteCollection(colId)
         let _id = localStorage.getItem('playerId')
         this.props.history.push(`/profile/${_id}`)
+        this.props.setCollection(null);
+        // this.setState({ deleted: true })
+
     }
 
     deletePlayerHandler = async (colId, playerId) => {
-        await collection.deletePlayerFromCollection(colId, playerId)
+        await collection.deletePlayerFromCollection(colId, playerId);
+        this.setState({ btnFlag: false })
+
     }
 
     joinHandler = async (collectionId) => {
@@ -103,6 +108,8 @@ class CollectionLayout extends Component {
     }
 
     render() {
+        console.log(this.props)
+
         let button = this.state.btnFlag === true ?
             <button
                 className="btn btn-danger"
@@ -113,6 +120,8 @@ class CollectionLayout extends Component {
                 className="btn btn-success"
                 onClick={() => { this.joinHandler(this.props.collection._id) }}
             >انضم</button>
+
+
         if (this.props.collection) {
             let items = this.state.playersInCollection.map(player => (
                 <React.Fragment key={player.id}>
@@ -145,7 +154,9 @@ class CollectionLayout extends Component {
                                             <div style={{ display: "inline-block" }}>
                                                 <button
                                                     className="btn btn-success"
-                                                    onClick={() => this.deleteCollectionHandler(this.props.collection._id)}
+                                                    onClick={() => {
+                                                        this.deleteCollectionHandler(this.props.collection._id)
+                                                    }}
                                                 >حذف</button>
                                                 <button
                                                     className="btn btn-success"

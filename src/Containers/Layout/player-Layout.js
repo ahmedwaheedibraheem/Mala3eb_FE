@@ -29,11 +29,11 @@ class Playout extends Component {
             data = await PlayerAPI.getPlayerData(playerId);
             this.props.setPlayer(data);
         }
-        
-        }
-        
-        editPlayer(){
-         this.props.history.push('/createplayer');
+
+    }
+
+    editPlayer() {
+        this.props.history.push('/createplayer');
     }
 
     async showProfile(id) {
@@ -41,7 +41,7 @@ class Playout extends Component {
     }
 
     render() {
-        console.log('render',this.props)
+        console.log('render', this.props)
         let labels = ['التمرير', 'التسديد', 'المراوغه', 'اللياقة', 'السرعة'];
         if (this.props.player) {
             return (
@@ -62,7 +62,7 @@ class Playout extends Component {
                         </div>
                         <div className="row">
                             <div className="col-lg-6">
-                                <ProfileData edit={()=>this.editPlayer()}>
+                                <ProfileData edit={() => this.editPlayer()}>
                                     <ul>
                                         <li><span className="blockquote">الاسم: {this.props.player.name} </span></li>
                                         <li><span className="blockquote">العمر: {this.props.player.age} </span></li>
@@ -131,7 +131,7 @@ class Playout extends Component {
                                                             mobileNo={pl.mobileNo}
                                                             age={pl.age}
                                                             image={pl.imgURL}
-                                                            showProfile={() => { this.showProfile(pl._id) }}
+                                                            show={() => { this.showProfile(pl._id) }}
                                                         ></CardItem>
                                                     </React.Fragment>
                                                 )

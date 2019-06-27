@@ -23,13 +23,16 @@ const PlayerPitchCreation = props => {
                 </div>
               </Card>
             </Layout.Col>
+
             <Layout.Col span={6} offset={1}>
               <Card bodyStyle={{ padding: 0 }} className={classes.card}>
                 <div style={{ overflow: 'hidden' }}>
                   <img src="https://cdn.soccerladuma.co.za/cms2/image_manager/uploads/News/288122/7/1518074651_bd988.jpg" className="image" />
                 </div>
                 <div style={{ padding: 14 }}>
-                  <a onClick={() => { props.history.push(`/createplayer`) }} className={classes.title}>كن لاعب </a>
+                  <a onClick={() => { props.history.push(`/createplayer`) }} className={classes.title}>{
+                    localStorage.getItem('playerId') ? 'تحديث البيانات' : 'كن لاعب'
+                  } </a>
                   <div className="bottom clearfix">
                   </div>
                 </div>

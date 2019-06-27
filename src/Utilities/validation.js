@@ -18,14 +18,15 @@ const validate = (id, value) => {
         case 'img':
             return (value.startsWith('image'));
         case 'favNum':
+            return (!isNaN(value) && value > 0 && value <= 99);
         case 'age':
-            return (!isNaN(value) && value >= 1 && value <= 99);
+            return (!isNaN(value) && value > 6 && value <= 99);
         case 'numberOfPlayers':
-            return (!isNaN(value) && value > 0 && value << 100);
+            return (!isNaN(value) && value > 5 && value < 60);
         case 'pitchLength':
-            return (!isNaN(value) && value >= 100.5 && value <= 118.8);
+            return (!isNaN(value) && value >= 35 && value <= 120);
         case 'pitchWidth':
-            return (!isNaN(value) && value >= 45.7 && value <= 91.4);
+            return (!isNaN(value) && value >= 25 && value <= 70);
         case 'rate':
             return (!isNaN(value) && value >= 0);
         case 'mobileNo':
