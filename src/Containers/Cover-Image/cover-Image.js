@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import * as classes from './cover.module.css';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+
 
 class CoverImage extends Component {
 
@@ -16,15 +19,27 @@ class CoverImage extends Component {
                     <div className={classes.circleImage}>
                         <img src={this.props.profileImage} />
                     </div>
-                    {this.props.match.params.playerId == localStorage.getItem("playerId")
-                        ? null
-                        : <div style={{ marginTop: '-3rem', marginLeft: '2rem' }}>
-                            <button type="button" className="btn btn-info" style={{ marginLeft: '1rem' }} onClick={this.props.follow}> متابعه</button>
-                        </div>}
+                    {
+                        (this.props.match.params.playerId == localStorage.getItem("playerId"))
+                            || (this.props.user.pitchId.includes(this.props.match.params.pitchId))
+                            ? null
+                            : <div style={{ marginTop: '-3rem', marginLeft: '2rem' }}>
+                                <button type="button" className="btn btn-info" style={{ marginLeft: '1rem' }} onClick={this.props.follow}> متابعه</button>
+                            </div>}
 
                 </div>
             </>
         )
     }
 }
-export default withRouter(CoverImage);
+
+
+
+//mapStateToProps
+const mapStateToProps = (state) => {
+    return {
+        user: state.userReducer.user
+    }
+}
+// export default withRouter(CoverImage);
+export default connect(mapStateToProps, null)(withRouter(CoverImage));

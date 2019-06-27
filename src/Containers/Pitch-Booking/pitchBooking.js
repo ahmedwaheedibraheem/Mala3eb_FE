@@ -17,7 +17,7 @@ class PitchBooking extends Component {
         state[name] = value;
         this.setState({ state });
     }
-  
+
 
     addBooking = async (pitchId, bookingObj) => {
         try {
@@ -33,7 +33,7 @@ class PitchBooking extends Component {
         return (
             <React.Fragment>
                 <div className={classes.pitchForm}>
-                    <form onSubmit={(e) => { this.addBooking(this.props.id, this.state); e.preventDefault()}}>
+                    <form onSubmit={(e) => { this.addBooking(this.props.id, this.state); e.preventDefault() }}>
                         <label>ادخل اسمك:</label>
                         <Input placeholder="" name="userName"
                             onChange={this.handleChange.bind(this, 'name')}
@@ -58,7 +58,7 @@ class PitchBooking extends Component {
                         <input placeholder="" type="number" name="to"
                             onChange={(event) => { this.setState({ to: event.target.value }) }}
                         />
-                        <button type="submit" class="btn btn-success">حجز</button>
+                        <button type="submit" className="btn btn-success">حجز</button>
                     </form>
                 </div>
             </React.Fragment>
